@@ -1,0 +1,69 @@
+name: Render videos
+
+on:
+  push:
+    branches: [main]
+    paths: ["episodes/**"]
+  workflow_dispatch:
+    inputs:
+      episodes:
+        description: "Episode files separated by spaces, or 'all'"
+        required: true
+        default: all
+      upload:
+        description: "Upload to YouTube as private (for approval in YouTube Studio)"
+        type: boolean
+        default: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install ffmpeg
+        run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+      - name: Cache voice model
+        uses: actions/cache@v4
+        with:
+          path: models
+          key: kokoro-v1.0
+      - run: ./scripts/fetch_models.sh
+      - run: pip install -r requirements.txt
+      - name: Pick episodes
+        id: pick
+        env:
+          EVENT: ${{ github.event_name }}
+          WANTED: ${{ inputs.episodes }}
+        run: |
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            if [ "$WANTED" = "all" ]; then eps=$(ls episodes/*/*.yaml); else eps="$WANTED"; fi
+          else
+            eps=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'episodes/*.yaml' 'episodes/*/*.yaml')
+          fi
+          echo "episodes=$(echo $eps | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
+      - name: Render
+        if: steps.pick.outputs.episodes != ''
+        run: python render.py ${{ steps.pick.outputs.episodes }}
+      - uses: actions/upload-artifact@v4
+        if: steps.pick.outputs.episodes != ''
+        with:
+          name: videos-${{ github.run_number }}
+          path: out/
+          retention-days: 14
+      - name: Upload to YouTube (private)
+        if: steps.pick.outputs.episodes != '' && inputs.upload
+        env:
+          YT_CLIENT_SECRET_JSON: ${{ secrets.YT_CLIENT_SECRET_JSON }}
+          YT_REFRESH_TOKEN_WHATIF: ${{ secrets.YT_REFRESH_TOKEN_WHATIF }}
+          YT_REFRESH_TOKEN_STOIC: ${{ secrets.YT_REFRESH_TOKEN_STOIC }}
+          YT_REFRESH_TOKEN_MITES: ${{ secrets.YT_REFRESH_TOKEN_MITES }}
+        run: |
+          pip install -r requirements-upload.txt
+          python upload_youtube.py out/*/*.mp4

@@ -1,0 +1,47 @@
+name: Long-form compilation
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "what-if-institute, stoic-ember or mind-mites"
+        required: true
+      episodes:
+        description: "Episode files in chapter order, separated by spaces"
+        required: true
+      title:
+        description: "Title of the long video"
+        required: true
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+      - uses: actions/cache@v4
+        with:
+          path: models
+          key: kokoro-v1.0
+      - run: ./scripts/fetch_models.sh
+      - run: pip install -r requirements.txt
+      - name: Render Shorts and stitch
+        env:
+          CHANNEL: ${{ inputs.channel }}
+          EPISODES: ${{ inputs.episodes }}
+          TITLE: ${{ inputs.title }}
+        run: |
+          python render.py $EPISODES
+          vids=""
+          for e in $EPISODES; do vids="$vids out/$(basename $(dirname $e))/$(basename ${e%.yaml}).mp4"; done
+          python compile.py "$CHANNEL" $vids --title "$TITLE"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: long-${{ github.run_number }}
+          path: out/long/
+          retention-days: 14

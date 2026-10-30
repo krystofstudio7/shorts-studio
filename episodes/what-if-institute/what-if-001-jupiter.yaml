@@ -1,0 +1,70 @@
+channel: what-if-institute
+id: what-if-001-jupiter
+series: What If You
+number: 1
+title: "What if you fell into Jupiter? 🪐"
+hook: What if you fell into Jupiter?
+description: |
+  No ground, no bottom, no way back. Here's what would actually happen, step by step.
+sources:
+  - "NASA, Galileo Probe mission (1995): probe transmitted for about 58 minutes during descent. https://science.nasa.gov/mission/galileo/"
+  - "NASA Jupiter fact sheet (escape velocity 59.5 km/s). https://nssdc.gsfc.nasa.gov/planetary/factsheet/jupiterfact.html"
+  - "Metallic hydrogen in Jupiter's interior: NASA Juno mission overview. https://science.nasa.gov/mission/juno/"
+lines:
+  - text: What if you fell into Jupiter?
+    nocap: true
+    pause: 0.4
+    scene:
+      bg: space
+      planet: {kind: jupiter, r: 430, x: 540, y: 1250, zoom: 0.25, spin: 0.12}
+      scout: {x: 600, y: 700, s: 0.9, pose: fall, drift: 40}
+  - text: You'd hit the atmosphere at about sixty kilometers per second. Jupiter's gravity makes sure of that.
+    scene:
+      tag: IMPACT
+      bg: space
+      planet: {kind: jupiter, r: 560, x: 540, y: 1700, spin: 0.12}
+      scout: {x: 560, y: 960, s: 0.75, pose: fall, drift: 10}
+      stat: {to: 60, unit: " KM/S", label: ENTRY SPEED}
+      stat_y: 560
+  - text: There's no ground to land on. Only clouds of ammonia, colder than minus one hundred degrees.
+    scene:
+      tag: CLOUD LAYER
+      bg: descent
+      colors: [[214, 190, 150], [150, 100, 60]]
+      scout: {x: 540, y: 980, s: 0.8, pose: fall}
+      stat: {from: 20, to: -110, unit: "°C", label: "AMMONIA CLOUDS (AND COLDER)"}
+      stat_y: 560
+  - text: In 1995, NASA's Galileo probe made this trip. It sent data for fifty eight minutes, then went silent.
+    caption: In 1995, NASA's Galileo probe made this trip. It sent data for 58 minutes, then went silent.
+    scene:
+      tag: DEEPER
+      bg: descent
+      colors: [[120, 80, 50], [60, 35, 25]]
+      speed: 1100
+      scout: {x: 760, y: 1000, s: 0.6, pose: fall}
+      stat: {to: 58, unit: " MIN", label: "GALILEO PROBE, 1995"}
+      stat_y: 560
+  - text: Keep falling, and the pressure climbs past a million times Earth's. Hydrogen turns into a liquid metal.
+    scene:
+      tag: THOUSANDS OF KM DOWN
+      bg: descent
+      colors: [[50, 25, 20], [20, 8, 10]]
+      speed: 1400
+      scout: {x: 540, y: 1000, s: 0.5, pose: fall}
+      stat: {to: 1000000, unit: "×", label: "EARTH'S AIR PRESSURE", dur: 1.6}
+      stat_y: 560
+  - text: So you'd never touch the bottom. Jupiter would crush and melt you long before.
+    scene:
+      bg: dark
+      color: [8, 4, 10]
+      big: THERE IS NO BOTTOM.
+      big_y: 760
+  - text: Send this to someone who thinks they'd survive.
+    pause: 1.0
+    scene:
+      bg: space
+      planet: {kind: jupiter, r: 430, x: 540, y: 1300, spin: 0.12}
+      scout: {x: 540, y: 820, s: 0.9, pose: wave}
+      share: Send this to someone who thinks they'd survive
+      share_y: 360
+      nocaptions: true

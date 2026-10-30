@@ -183,7 +183,12 @@ def caption_chunks(lines, tl, max_words=3):
         t, total = span["start"], sum(lens)
         for g, L in zip(groups, lens):
             d = (span["end"] - span["start"]) * L / total
-            caps.append({"text": " ".join(g), "start": t, "end": t + d})
+            words, wt = [], t
+            for w in g:
+                wd = d * (len(w) + 1) / L
+                words.append((w, wt, wt + wd))
+                wt += wd
+            caps.append({"text": " ".join(g), "start": t, "end": t + d, "words": words})
             t += d
     return caps
 

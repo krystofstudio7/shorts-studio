@@ -2,10 +2,10 @@
 import math
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
 from ..characters import stoic_figure
-from ..core import W, H, add, ease, font, gradient, pad, vignette
+from ..core import W, H, add, ease, font, fractal_noise, gradient, pad, vignette
 
 BLACK, CREAM, GOLD, EMBER, SEA = (12, 12, 12), (233, 227, 214), (176, 141, 87), (255, 130, 40), (20, 30, 38)
 
@@ -13,7 +13,7 @@ BLACK, CREAM, GOLD, EMBER, SEA = (12, 12, 12), (233, 227, 214), (176, 141, 87), 
 class Theme:
     brand = "STOIC EMBER"
     voice, speed = "bm_george", 0.95
-    crf = 26
+    crf = 28
     hashtags = ["#stoicism", "#history", "#seneca", "#marcusaurelius", "#philosophy", "#discipline"]
 
     def __init__(self):
@@ -26,7 +26,16 @@ class Theme:
         self.colors = {"bg": BLACK, "text": CREAM, "accent": CREAM, "accent2": GOLD, "pill_bg": GOLD, "pill_fg": BLACK,
                        "card_bg": (40, 36, 30), "card_fg": CREAM, "no": (180, 50, 40), "muted": (170, 150, 120), "hook": CREAM,
                        "brand": (150, 125, 85)}
-        self.caption = {"y": 1300, "fill": CREAM, "stroke": (0, 0, 0), "sw": 6}
+        self.caption = {"y": 1300, "fill": CREAM, "stroke": (0, 0, 0), "sw": 6, "hl": EMBER}
+        # drifting ground fog, tiles horizontally every W pixels
+        n = fractal_noise(H // 4, W // 2, 5, 21, wrap=True)
+        band = np.clip(1 - np.abs(np.linspace(-1, 1, H // 4) - 0.35) * 1.8, 0, 1)[:, None]
+        fog = (np.clip(n - 0.35, 0, 1) * band * 120)[..., None] * np.array([0.75, 0.68, 0.6])
+        fog = Image.fromarray(fog.astype(np.uint8)).resize((W, H), Image.BICUBIC)
+        self.fog = Image.new("RGB", (2 * W, H))
+        self.fog.paste(fog, (0, 0))
+        self.fog.paste(fog, (W, 0))
+        self.rays = self._rays()
         rng = np.random.default_rng(11)
         self.rain = [(rng.random() * W, rng.random() * H, 900 + rng.random() * 700, 30 + rng.random() * 60) for _ in range(170)]
         self.embers = [(rng.random() * W, rng.random() * H, 40 + rng.random() * 90, 1.5 + rng.random() * 3.5, rng.random() * 6) for _ in range(90)]
@@ -34,6 +43,14 @@ class Theme:
         self.grain = [np.repeat(np.repeat(x, 2, 0), 2, 1)[..., None] for x in g]
         self.vig = vignette(W, H, 0.9)
         self._glow = {}
+
+    def _rays(self):
+        """God rays falling from the top left, blurred once and reused."""
+        g = Image.new("RGB", (W, H), (0, 0, 0))
+        d = ImageDraw.Draw(g)
+        for x, w, c in ((120, 90, 36), (300, 140, 26), (520, 70, 30), (700, 160, 18)):
+            d.polygon([(x, -50), (x + w, -50), (x + w + 520, H), (x + 260, H)], fill=(c, int(c * 0.8), int(c * 0.55)))
+        return g.filter(ImageFilter.GaussianBlur(40))
 
     def music(self, dur):
         return pad(dur, (73.42, 110, 146.83, 174.61), vol=0.07, seed=4)
@@ -86,6 +103,8 @@ class Theme:
             d.line([810, 520, 810, 900], fill=(26, 22, 18), width=10)
             d.line([680, 710, 940, 710], fill=(26, 22, 18), width=10)
         elif kind == "night":
+            d.ellipse([760, 260, 900, 400], fill=(215, 205, 180))
+            d.ellipse([790, 250, 930, 390], fill=(16, 14, 18))
             rng = np.random.default_rng(2)
             for _ in range(160):
                 x, y = rng.integers(0, W), rng.integers(200, 1300)
@@ -102,9 +121,18 @@ class Theme:
         if p.get("fire", True) and p.get("setting", "black") != "black":
             img = add(img, self.glow(p.get("fire_x", 540), ground - 40, 300))
             d = ImageDraw.Draw(img)
+        kind = p.get("setting", "black")
+        if p.get("rays", kind in ("room", "city", "island")):
+            k = 0.75 + 0.25 * math.sin(t * 0.7)
+            img = add(img, Image.eval(self.rays, lambda v: int(v * k)))
+            d = ImageDraw.Draw(img)
         for f in p.get("figures", []):
             stoic_figure(d, f.get("x", 540) + f.get("walk", 0) * st, f.get("ground", ground), f.get("h", 520), f.get("pose", "standing"),
                          t=t, facing=f.get("facing", 1))
+        if kind != "black" and p.get("fog", True):
+            off = int(t * 18) % W
+            img = ImageChops.add(img, self.fog.crop((off, 0, off + W, H)))
+            d = ImageDraw.Draw(img)
         ra = p.get("rain", 0.0)
         if ra:
             for (x, y, sp, ln) in self.rain:
@@ -113,15 +141,17 @@ class Theme:
                 c = int(70 * ra)
                 d.line([xx, yy, xx - ln * 0.12, yy + ln], fill=(c, c, c + 6), width=2)
         ea = p.get("embers", 0.8)
+        layer = Image.new("RGB", (W, H))
+        d = ImageDraw.Draw(layer)
         for (x, y, sp, r, ph) in self.embers:
             yy = H - ((H - y + sp * t) % (H + 40))
             xx = x + 25 * math.sin(t * 0.8 + ph)
             k = ea * (0.6 + 0.4 * math.sin(t * 6 + ph * 3))
             d.ellipse([xx - r * 2.4, yy - r * 2.4, xx + r * 2.4, yy + r * 2.4], fill=(int(60 * k), int(18 * k), 0))
             d.ellipse([xx - r, yy - r, xx + r, yy + r], fill=(int(255 * k), int(130 * k), int(40 * k)))
-        return img
+        return ImageChops.add(img, layer) if ea else img
 
     def post(self, img, t):
         from ..core import FPS
-        arr = np.asarray(img, np.int16) + self.grain[int(t * FPS) % 4]
+        arr = np.asarray(img, np.int16) + self.grain[int(t * 12) % 4]
         return Image.fromarray((np.clip(arr, 0, 255) * self.vig).astype(np.uint8))

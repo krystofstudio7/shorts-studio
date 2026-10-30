@@ -2,7 +2,7 @@
 import math
 
 import numpy as np
-from PIL import Image, ImageDraw
+from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
 from ..characters import scout
 from ..core import W, H, Sphere, add, ease, font, fractal_noise, gradient, pad, starfield, vignette
@@ -58,6 +58,19 @@ def tex_moon(h=256, w=512, seed=5):
     return np.stack([tex, tex, tex * 0.97], -1)
 
 
+GLOW = {"earth": (70, 140, 255), "jupiter": (230, 170, 100), "mars": (240, 120, 70), "moon": (140, 140, 160)}
+
+
+def nebula(w, h, seed=7):
+    """Faint purple and teal clouds, rendered small and scaled up."""
+    a = fractal_noise(h // 4, w // 4, 6, seed)
+    b = fractal_noise(h // 4, w // 4, 6, seed + 1)
+    ca = np.clip((a - 0.45) * 2.2, 0, 1)[..., None] ** 1.6
+    cb = np.clip((b - 0.5) * 2.2, 0, 1)[..., None] ** 1.6
+    arr = ca * np.array([90, 40, 140]) + cb * np.array([20, 90, 120])
+    return Image.fromarray(arr.astype(np.uint8)).resize((w, h), Image.BICUBIC).filter(ImageFilter.GaussianBlur(6))
+
+
 TEXTURES = {"earth": tex_earth, "jupiter": tex_jupiter, "mars": tex_mars, "moon": tex_moon}
 
 
@@ -78,7 +91,13 @@ class Theme:
                        "card_bg": CREAM, "card_fg": NAVY, "no": ORANGE, "muted": (170, 180, 210), "hook": YEL, "brand": (200, 210, 240),
                        "stat_stroke": (0, 0, 0), "stat_stroke_w": 8}
         self.caption = {"y": 1280, "fill": YEL, "stroke": (0, 0, 0), "sw": 9}
-        self.stars = starfield(1300, 2400, 2200, seed=4)
+        self.caption["fill"], self.caption["hl"] = CREAM, YEL
+        self.stars = ImageChops.add(starfield(1300, 2400, 2200, seed=4), nebula(1300, 2400))
+        self.near = starfield(1300, 4000, 180, seed=9).filter(ImageFilter.GaussianBlur(1.2))
+        self.near = ImageChops.add(self.near, self.near)
+        rng = np.random.default_rng(5)
+        self.dust = [(rng.random() * W, rng.random(), 2 + rng.random() * 5, 0.5 + rng.random()) for _ in range(70)]
+        self._glows = {}
         self.vig = vignette(W, H, 0.7)
         self._spheres = {}
 
@@ -88,6 +107,25 @@ class Theme:
             self._spheres[key] = Sphere(TEXTURES[kind](), R)
         return self._spheres[key]
 
+    def atmosphere(self, img, kind, r, cx, cy):
+        """Soft coloured halo around a planet."""
+        r = int(r)
+        key = (kind, r // 8)
+        if key not in self._glows:
+            n = int(r * 3.2)
+            g = Image.new("RGB", (n, n), (0, 0, 0))
+            ImageDraw.Draw(g).ellipse([n / 2 - r * 1.06, n / 2 - r * 1.06, n / 2 + r * 1.06, n / 2 + r * 1.06],
+                                      fill=tuple(int(c * 0.75) for c in GLOW.get(kind, (120, 120, 140))))
+            self._glows[key] = g.filter(ImageFilter.GaussianBlur(r * 0.22))
+        g = self._glows[key]
+        x0, y0 = int(cx - g.width / 2), int(cy - g.height / 2)
+        box = (max(0, x0), max(0, y0), min(W, x0 + g.width), min(H, y0 + g.height))
+        if box[0] >= box[2] or box[1] >= box[3]:
+            return img
+        region = ImageChops.add(img.crop(box), g.crop((box[0] - x0, box[1] - y0, box[2] - x0, box[3] - y0)))
+        img.paste(region, box[:2])
+        return img
+
     def music(self, dur):
         return pad(dur, (98, 146.83, 196, 233.08), vol=0.05)
 
@@ -96,6 +134,9 @@ class Theme:
         if kind == "space":
             pan = t * 6
             img = self.stars.crop((int(110 + pan * 0.3), int(190 + pan), int(110 + pan * 0.3) + W, int(190 + pan) + H))
+            fast = t * 22
+            img = ImageChops.add(img, self.near.crop((int(110 + fast * 0.3), int(400 + fast) % 2000,
+                                                       int(110 + fast * 0.3) + W, int(400 + fast) % 2000 + H)))
             img = add(img, Image.new("RGB", (W, H), (4, 8, 22)))
         elif kind == "descent":
             top, bottom = p.get("colors", [[40, 30, 20], [120, 70, 40]])
@@ -107,12 +148,22 @@ class Theme:
                 c = tuple(min(255, int(v * 1.25)) for v in bottom)
                 wob = [(x, y + 18 * math.sin(x / 90 + i)) for x in range(0, W + 40, 40)]
                 d.line(wob, fill=c, width=26)
+            # speed streaks rushing past the camera
+            for (x, y0, w, k) in self.dust:
+                y = H - ((y0 * H + st * speed * 2.2 * k) % (H + 300))
+                d.line([x, y, x, y + 140 * k], fill=tuple(min(255, int(v * 1.6) + 30) for v in bottom), width=int(w))
         elif kind == "surface":
             sky, ground = p.get("colors", [[200, 120, 80], [150, 70, 40]])
             img = gradient(H, W, sky, sky)
             d = ImageDraw.Draw(img)
             xs = range(0, W + 20, 20)
+            far = tuple(int(a * 0.55 + b * 0.45) for a, b in zip(sky, ground))
+            d.polygon([(0, H)] + [(x, 1330 + 60 * math.sin(x / 210 + 1) + 25 * math.sin(x / 70) - st * 4) for x in xs] + [(W, H)], fill=far)
             d.polygon([(0, H)] + [(x, 1450 + 40 * math.sin(x / 130) + 20 * math.sin(x / 47)) for x in xs] + [(W, H)], fill=tuple(ground))
+            for (x, y0, w, k) in self.dust:
+                xx = (x + t * 60 * k) % W
+                yy = 300 + y0 * 1200 + 20 * math.sin(t + x)
+                d.ellipse([xx - w / 2, yy - w / 2, xx + w / 2, yy + w / 2], fill=tuple(min(255, v + 50) for v in sky))
         else:
             img = Image.new("RGB", (W, H), tuple(p.get("color", NAVY)))
         pl = p.get("planet")
@@ -122,6 +173,7 @@ class Theme:
             sp = self.sphere(pl["kind"], R).render(rot=t * pl.get("spin", 0.08), light=(-0.7, -0.35, 0.6))
             if zoom != 1:
                 sp = sp.resize((int(2 * R * zoom), int(2 * R * zoom)), Image.BILINEAR)
+            img = self.atmosphere(img, pl["kind"], sp.width / 2, pl.get("x", 540), pl.get("y", 1050))
             img.paste(sp, (int(pl.get("x", 540) - sp.width / 2), int(pl.get("y", 1050) - sp.height / 2)), sp)
         sc = p.get("scout")
         if sc:

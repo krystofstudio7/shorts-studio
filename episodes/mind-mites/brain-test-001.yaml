@@ -1,0 +1,62 @@
+channel: mind-mites
+id: brain-test-001
+series: Brain Test
+number: 1
+title: "Brain Test #1: Most people get this wrong 🐛"
+hook: Most people get this wrong
+description: |
+  A bat and a ball cost $1.10. The bat costs $1.00 more than the ball. How much is the ball?
+  Comment your FIRST answer, be honest.
+sources:
+  - "Frederick, S. (2005). Cognitive Reflection and Decision Making. Journal of Economic Perspectives, 19(4), 25-42."
+  - "Kahneman, D. (2011). Thinking, Fast and Slow."
+lines:
+  - text: A bat and a ball cost one dollar ten.
+    caption: A bat and a ball cost $1.10.
+    scene:
+      icons: [{kind: bat, x: 380, y: 620, s: 1.1}, {kind: ball, x: 780, y: 600}]
+      rows: [{l: TOGETHER, r: "$1.10"}, {l: "BAT = BALL +", r: "$1.00"}, {l: BALL, r: "?", hl: true}]
+      rows_shown: 1
+      rows_y: 860
+      mite: {x: 860, y: 1660, s: 0.55, mood: waiting}
+  - text: The bat costs one dollar more than the ball.
+    caption: The bat costs $1.00 more than the ball.
+    update: {rows_shown: 2}
+  - text: How much is the ball? You have three seconds.
+    update: {rows_shown: 3, countdown: 3, countdown_y: 1620, mite: {x: 860, y: 1700, s: 0.45, mood: waiting}}
+    pause: 3.1
+  - text: Ten cents? That's what most people say. And it's wrong.
+    caption: 10 cents? That's what most people say. And it's wrong.
+    scene:
+      big: 10 CENTS?
+      big_y: 520
+      rows: [{l: "$0.10 + $1.10", r: "= $1.20", mark: "no"}]
+      rows_y: 800
+      mite: {x: 540, y: 1650, s: 0.8, mood: shock}
+  - text: If the ball is ten cents, the bat is a dollar ten, and together that's a dollar twenty.
+    caption: If the ball is 10 cents, the bat is $1.10, and together that's $1.20.
+  - text: The ball costs five cents. The bat, one dollar five.
+    caption: "The ball costs 5 cents. The bat: $1.05."
+    update:
+      rows: [{l: "$0.10 + $1.10", r: "= $1.20", mark: "no"}, {l: "$0.05 + $1.05", r: "= $1.10", mark: ok}]
+      mite: {x: 540, y: 1650, s: 0.8, mood: happy}
+  - text: In a famous 2005 study, more than half of students at Harvard, MIT and Princeton got it wrong.
+    scene:
+      bg: dark
+      stat: {to: 50, unit: "%+", label: "OF HARVARD, MIT & PRINCETON STUDENTS GOT IT WRONG"}
+      stat_y: 640
+      mite: {x: 540, y: 1660, s: 0.6, mood: sad}
+  - text: Your fast brain answers before your slow brain checks. If it feels obvious, check it once.
+    scene:
+      big: FEELS OBVIOUS? CHECK ONCE.
+      big_y: 620
+      big_size: 110
+      mite: {x: 540, y: 1660, s: 0.8, mood: smug}
+  - text: Send this to a friend who said ten cents.
+    caption: Send this to a friend who said 10 cents.
+    pause: 1.0
+    scene:
+      share: Send this to a friend who said 10 cents
+      share_y: 560
+      mite: {x: 540, y: 1000, s: 1.3, mood: happy, pop: true}
+      nocaptions: true

@@ -1,0 +1,63 @@
+channel: stoic-ember
+id: story-001-seneca-corsica
+series: One Stoic Story
+number: 1
+title: "Seneca was exiled for 8 years. Here's what he wrote home."
+hook: In 41 AD, Seneca lost everything.
+description: |
+  Exiled to Corsica by Emperor Claudius, Seneca wrote a letter to comfort his grieving mother.
+  One Stoic Story, true and short.
+sources:
+  - "Seneca, To Helvia on Consolation, trans. Aubrey Stewart (1900), Bohn's Classical Library."
+  - "Exile 41 AD under Claudius, recall 49 AD: Encyclopaedia Britannica, 'Seneca'."
+lines:
+  - text: In 41 AD, Seneca lost everything.
+    nocap: true
+    pause: 0.5
+    scene:
+      setting: city
+      figures: [{x: 540, pose: standing, h: 560}]
+      rain: 0.6
+  - text: The emperor Claudius exiled him to Corsica. No career. No friends. No Rome.
+    scene:
+      tag: CORSICA · 41 AD
+      setting: island
+      figures: [{x: 570, ground: 1010, pose: standing, h: 150}]
+      rain: 0.8
+      fire: false
+  - text: He would stay there for eight years.
+    update: {big: 8 YEARS, big_y: 620}
+  - text: And while he was there, he wrote a letter. Not to complain. To comfort his mother, who was grieving for him.
+    scene:
+      tag: A LETTER HOME
+      setting: room
+      figures: [{x: 360, pose: writing, h: 620}]
+      fire_x: 300
+      rain: 0.0
+  - text: It is the mind which makes men rich. This it is that accompanies them into exile.
+    nocap: true
+    pause: 0.9
+    scene:
+      setting: black
+      quote: {text: "“It is the mind which makes men rich: this it is that accompanies them into exile.”", source: "Seneca · To Helvia on Consolation · trans. A. Stewart (1900)"}
+      quote_y: 820
+      nocaptions: true
+  - text: In 49 AD, Rome called him back, to teach a young boy named Nero. But that's another story.
+    scene:
+      tag: ROME · 49 AD
+      setting: city
+      figures: [{x: 400, pose: standing, h: 560}, {x: 680, pose: standing, h: 340, facing: -1}]
+  - text: They can take your city. They can't take your mind.
+    scene:
+      setting: black
+      big: THEY CAN'T TAKE YOUR MIND.
+      big_y: 760
+      embers: 1.0
+  - text: Send this to someone who is starting over.
+    pause: 1.0
+    scene:
+      setting: island
+      figures: [{x: 570, ground: 1010, pose: standing, h: 150}]
+      share: Send this to someone who is starting over
+      share_y: 520
+      nocaptions: true

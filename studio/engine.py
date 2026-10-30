@@ -8,8 +8,21 @@ import numpy as np
 import yaml
 from PIL import Image, ImageDraw
 
-from .core import (W, H, FPS, build_voice, caption_chunks, ease, ease_out, encode, fade, mix, resize, srt,
+from . import sfx
+from .core import (W, H, FPS, build_voice, caption_chunks, clamp01, ease, ease_out, encode, fade, mix, resize, srt,
                    text_block, wrap)
+
+TRANSITION = 0.28
+
+
+def back_out(t, k=1.7):
+    """Ease with a small overshoot, for things that pop in."""
+    t = clamp01(t) - 1
+    return 1 + t * t * ((k + 1) * t + k)
+
+
+def shade(col, k=0.45):
+    return tuple(int(c * k) for c in col)
 
 
 def load_episode(path):
@@ -39,6 +52,9 @@ def plan_scenes(lines, tl):
             cur = copy.deepcopy(cur)
         for k, v in ln.get("update", {}).items():
             cur[k] = v
+        born = cur.setdefault("_row_born", {})
+        for j, r in enumerate(cur.get("rows", [])[: cur.get("rows_shown", len(cur.get("rows", [])))]):
+            born.setdefault((j, r.get("l"), r.get("mark")), start if "scene" in ln else tl[i]["start"])
         if "countdown" in ln.get("scene", {}) or "countdown" in ln.get("update", {}):
             cur["_countdown_at"] = tl[i]["end"]
         plan.append({"params": cur, "start": start})
@@ -57,9 +73,11 @@ def draw_overlays(img, th, p, t, st, ctx):
         d.rounded_rectangle([(W - tw) / 2 - 28, y0, (W + tw) / 2 + 28, y0 + 64], 32, fill=C["pill_bg"])
         d.text((W / 2, y0 + 32), p["tag"], font=f, fill=C["pill_fg"], anchor="mm")
     if p.get("big"):
-        a = ease_out(st / 0.3)
-        f = resize(F["display"], p.get("big_size", F["display"].size) * (0.85 + 0.15 * a))
-        text_block(d, p["big"], f, W / 2, p.get("big_y", 640), p.get("big_color") and tuple(p["big_color"]) or C["accent"],
+        a = back_out(st / 0.35)
+        f = resize(F["display"], p.get("big_size", F["display"].size) * (0.7 + 0.3 * a))
+        y = p.get("big_y", 640)
+        text_block(d, p["big"], f, W / 2 + 6, y + 10, C.get("shadow", shade(C["bg"], 0.35)), maxw=920)
+        text_block(d, p["big"], f, W / 2, y, p.get("big_color") and tuple(p["big_color"]) or C["accent"],
                    maxw=920, stroke_width=p.get("big_stroke", 0), stroke_fill=C["bg"])
     if p.get("stat"):
         s = p["stat"]
@@ -68,7 +86,12 @@ def draw_overlays(img, th, p, t, st, ctx):
         dec = s.get("decimals", 0)
         num = f"{v:,.{dec}f}"
         y = p.get("stat_y", 760)
-        d.text((W / 2, y), f"{s.get('prefix', '')}{num}{s.get('unit', '')}", font=F["stat"], fill=C["accent"], anchor="mm",
+        done = st - s.get("dur", 1.2)
+        punch = 1 + (0.12 * (1 - ease_out(done / 0.25)) if done > 0 else 0)
+        sf = resize(F["stat"], F["stat"].size * back_out(st / 0.3) * punch)
+        txt = f"{s.get('prefix', '')}{num}{s.get('unit', '')}"
+        d.text((W / 2 + 8, y + 12), txt, font=sf, fill=C.get("shadow", shade(C["bg"], 0.35)), anchor="mm")
+        d.text((W / 2, y), txt, font=sf, fill=C["accent"], anchor="mm",
                stroke_width=C.get("stat_stroke_w", 0), stroke_fill=C.get("stat_stroke", C["bg"]))
         if s.get("label"):
             text_block(d, s["label"], F["body"], W / 2, y + F["stat"].size * 0.75, C["text"], maxw=880,
@@ -119,31 +142,95 @@ def draw_rows(d, th, p, t, ctx):
     rows = p["rows"][: p.get("rows_shown", len(p["rows"]))]
     y = p.get("rows_y", 760)
     gap = p.get("rows_gap", 150)
+    born = p.get("_row_born", {})
     for i, r in enumerate(rows):
+        k = back_out((t - born.get((i, r.get("l"), r.get("mark")), t - 1)) / 0.3)
+        dx = (1 - k) * 160
         yy = y + i * gap
         fill = C["accent2"] if r.get("mark") == "ok" else C["card_bg"]
-        d.rounded_rectangle([90, yy - 62, W - 90, yy + 62], 30, fill=fill)
-        d.text((140, yy), r.get("l", ""), font=F["row"], fill=C["card_fg"], anchor="lm")
+        d.rounded_rectangle([90 + dx + 8, yy - 62 + 12, W - 90 + dx + 8, yy + 62 + 12], 30, fill=C.get("shadow", shade(C["bg"])))
+        d.rounded_rectangle([90 + dx, yy - 62, W - 90 + dx, yy + 62], 30, fill=fill)
+        d.text((140 + dx, yy), r.get("l", ""), font=F["row"], fill=C["card_fg"], anchor="lm")
         right = r.get("r", "")
         if right:
-            d.text((W - (210 if r.get("mark") else 140), yy), right, font=F["row"],
+            d.text((W - (210 if r.get("mark") else 140) + dx, yy), right, font=F["row"],
                    fill=C["no"] if r.get("hl") else C["card_fg"], anchor="rm")
         if r.get("mark"):
-            mark(d, r["mark"], W - 150, yy, 1.0, C["card_fg"] if r["mark"] == "ok" else C["no"])
+            mark(d, r["mark"], W - 150 + dx, yy, 0.6 + 0.4 * k, C["card_fg"] if r["mark"] == "ok" else C["no"])
 
 
 def draw_caption(img, th, cap, t):
+    """Up to three words, the one being spoken highlighted and slightly larger."""
     d = ImageDraw.Draw(img)
     cs = th.caption
-    f = th.fonts["caption"]
+    base = th.fonts["caption"]
     pop = 1 + 0.08 * (1 - ease_out((t - cap["start"]) / 0.12))
-    f = resize(f, f.size * pop)
-    s = cap["text"].upper() if cs.get("upper", True) else cap["text"]
-    lines = wrap(d, s, f, 900)
-    lh = f.size * 1.08
+    f = resize(base, base.size * pop)
+    fh = resize(base, base.size * pop * 1.1)
+    words = [(w.upper() if cs.get("upper", True) else w, a, b) for w, a, b in cap["words"]]
+    space = d.textlength(" ", font=f)
+    lines, cur, cw = [], [], 0
+    for w in words:
+        wl = d.textlength(w[0], font=fh)
+        if cur and cw + space + wl > 940:
+            lines.append(cur)
+            cur, cw = [], 0
+        cur.append(w)
+        cw += wl + (space if cw else 0)
+    lines.append(cur)
+    lh = f.size * 1.12
     y0 = cs["y"] - lh * (len(lines) - 1) / 2
-    for i, l in enumerate(lines):
-        d.text((W / 2, y0 + i * lh), l, font=f, fill=cs["fill"], anchor="mm", stroke_width=cs["sw"], stroke_fill=cs["stroke"])
+    for li, line in enumerate(lines):
+        widths = [d.textlength(w, font=fh if a <= t < b else f) for w, a, b in line]
+        x = W / 2 - (sum(widths) + space * (len(line) - 1)) / 2
+        for (w, a, b), wd in zip(line, widths):
+            on = a <= t < b
+            d.text((x, y0 + li * lh), w, font=fh if on else f, fill=cs.get("hl", cs["fill"]) if on else cs["fill"],
+                   anchor="lm", stroke_width=cs["sw"], stroke_fill=cs["stroke"])
+            x += wd + space
+
+
+def camera(img, p, st, t):
+    """Slow push-in on every scene, plus an optional short shake on impact."""
+    z = 1 + p.get("push", 0.06) * ease(st / 8)
+    ox = oy = 0.0
+    if p.get("shake") and st < 0.6:
+        amp = 22 * (1 - st / 0.6)
+        ox, oy = amp * math.sin(t * 90), amp * math.cos(t * 77)
+    if z == 1 and not ox:
+        return img
+    w, h = W / z, H / z
+    x0 = (W - w) / 2 + ox
+    y0 = (H - h) / 2 + oy + p.get("pan_y", 0) * ease(st / 8)
+    return img.resize((W, H), Image.BILINEAR, box=(x0, y0, x0 + w, y0 + h))
+
+
+def sound_events(ep, plan, tl):
+    ev = [(0.0, "boom")] if ep.get("hook") else []
+    prev = None
+    for i, seg in enumerate(plan):
+        p = seg["params"]
+        new_scene = prev is None or seg["start"] != prev["start"]
+        if new_scene and i > 0:
+            ev.append((seg["start"] - 0.15, "whoosh"))
+        if new_scene and any(k in p for k in ("big", "stat", "quote", "share")):
+            ev.append((seg["start"] + 0.05, "pop"))
+        if "stat" in p and new_scene:
+            ev.append((seg["start"] + p["stat"].get("dur", 1.2), "ding" if p.get("stat_ding") else "pop"))
+        if "rows" in p:
+            shown = p["rows"][: p.get("rows_shown", len(p["rows"]))]
+            before = [] if new_scene else prev["params"]["rows"][: prev["params"].get("rows_shown", len(prev["params"].get("rows", [])))]
+            for r in shown[len(before):] if len(shown) > len(before) else []:
+                ev.append((tl[i]["start"] + 0.05, {"ok": "ding", "no": "buzz"}.get(r.get("mark"), "pop")))
+            if new_scene:
+                pass
+            elif shown != before and len(shown) == len(before):
+                ev.append((tl[i]["start"] + 0.05, "ding"))
+        if "_countdown_at" in p and (prev is None or "_countdown_at" not in prev["params"]):
+            for k in range(p.get("countdown", 3)):
+                ev.append((p["_countdown_at"] + k, "tick"))
+        prev = seg
+    return ev
 
 
 # ---------- render ----------
@@ -156,8 +243,13 @@ def render_episode(path, out_dir, preview=None):
     dur += ep.get("tail", 0.4)
     caps = caption_chunks(lines, tl)
     plan = plan_scenes(lines, tl)
-    audio = mix(voice, th.music(dur))
+    audio = mix(voice, th.music(dur), sfx.track(sound_events(ep, plan, tl), dur, getattr(th, "sfx_vol", 0.45)))
     ctx = {"ep": ep, "tl": tl, "dur": dur, "theme": th}
+    starts = sorted({seg["start"] for seg in plan})
+
+    def scene_bg(seg, t):
+        st = t - seg["start"]
+        return camera(th.background(seg["params"], t, st, ctx), seg["params"], st, t)
 
     def frame(t):
         li = line_at(tl, t)
@@ -165,7 +257,14 @@ def render_episode(path, out_dir, preview=None):
         p = seg["params"]
         st = t - seg["start"]
         ctx["line"], ctx["lt"] = li, t - tl[li]["start"]
-        img = th.background(p, t, st, ctx)
+        img = scene_bg(seg, t)
+        if 0 < seg["start"] and st < TRANSITION:
+            prev = next(s2 for s2 in reversed(plan[:li]) if s2["start"] < seg["start"])
+            k = ease(st / TRANSITION)
+            old = scene_bg(prev, t)
+            canvas = Image.new("RGB", (W, H))
+            canvas.paste(old, (0, int(-H * 0.35 * k)))
+            img = Image.blend(canvas, img.transform((W, H), Image.AFFINE, (1, 0, 0, 0, 1, -int(H * 0.35 * (1 - k)))), k)
         draw_overlays(img, th, p, t, st, ctx)
         img = th.post(img, t)
         d = ImageDraw.Draw(img)

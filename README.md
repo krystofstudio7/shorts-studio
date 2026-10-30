@@ -36,10 +36,12 @@ lines:
 ```
 
 Prvky dostupné ve všech kanálech: `tag`, `big`, `stat`, `rows`, `countdown`, `quote`, `share`, `nocaptions`.
+Kamera: každá scéna má pomalý nájezd (`push`, výchozí 0.06, 0 vypne), `shake: true` pro otřes při nárazu, `pan_y` pro posun.
+Zvukové efekty (whoosh mezi scénami, pop u textů, ding u správné odpovědi, tikání odpočtu) se přidávají samy podle scén.
 Podle kanálu navíc:
 
 - **What If Institute:** `bg` (space, descent, surface, dark), `planet` (earth, jupiter, mars, moon), `scout` (pose: float, fall, wave, stand, sit)
-- **Stoic Ember:** `setting` (city, island, sea, shipwreck, camp, room, night, black), `figures` (pose: standing, seated, writing, walking, lying), `rain`, `embers`, `fire`
+- **Stoic Ember:** `setting` (city, island, sea, shipwreck, camp, room, night, black), `figures` (pose: standing, seated, writing, walking, lying), `rain`, `embers`, `fire`, `fog`, `rays`
 - **Mind Mites:** `bg` (dark), `icons` (bat, ball, tag), `mite` (mood: happy, sad, shock, waiting, smug)
 
 ## Lokálně

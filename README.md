@@ -7,13 +7,14 @@ Výrobní linka pro kanály **What If Institute**, **Stoic Ember** a **Mind Mite
 ```
 episodes/<kanál>/<epizoda>.yaml   ->  render.py   ->  out/<kanál>/<epizoda>.mp4 (+ .json popisek, .srt titulky)
 hotové Shorts                     ->  compile.py  ->  out/long/<kanál>_<název>.mp4 (+ kapitoly)
-hotové video                      ->  upload_youtube.py  ->  YouTube jako SOUKROMÉ video ke schválení
+hotové video                      ->  upload_youtube.py  ->  YouTube jako VEŘEJNÉ video
 ```
 
 1. Epizodu napíše Claude jako soubor v `episodes/` a přidá ji do repozitáře.
-2. GitHub Actions ji sám vyrenderuje (workflow **Render videos**). Hotová videa jsou ke stažení u běhu workflow v sekci *Artifacts*.
-3. Ke schválení: spusť **Render videos** ručně a zaškrtni *Upload to YouTube*. Video se nahraje jako soukromé, v YouTube Studiu ho zkontroluješ a přepneš na veřejné nebo naplánuješ.
-4. Dlouhé video: workflow **Long-form compilation** (kanál, seznam epizod v pořadí kapitol, název).
+2. GitHub Actions ji sám vyrenderuje a rovnou nahraje na YouTube jako veřejnou (workflow **Render videos**). Hotová videa jsou ke stažení i u běhu workflow v sekci *Artifacts*.
+3. Ruční spuštění **Render videos** nabízí *Upload to YouTube*: public, private nebo none.
+4. Každé nahrání se zapíše do `published/<kanál>/<epizoda>.json`, takže se stejná epizoda nikdy nenahraje dvakrát.
+5. Dlouhé video: workflow **Long-form compilation** (kanál, seznam epizod v pořadí kapitol, název).
 
 ## Epizoda
 
@@ -59,5 +60,5 @@ python compile.py mind-mites --last 12 --title "12 Brain Tests Most People Fail"
 ## Poznámky
 
 - Fonty ve složce `fonts/` jsou z Google Fonts pod licencí SIL Open Font License, takže je smíme používat i komerčně.
-- Dokud YouTube neschválí audit API, jsou nahraná videa vždy soukromá.
+- Dokud Google neschválí audit YouTube API, YouTube nahraná videa zamkne jako soukromá, i když chceme veřejná. Po schválení auditu začnou být veřejná bez dalších změn.
 - GitHub Actions má u soukromého repozitáře 2 000 minut měsíčně zdarma. Jeden Short trvá zhruba 2–3 minuty.

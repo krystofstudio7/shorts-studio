@@ -201,6 +201,7 @@ def metadata(ep, th, dur):
     desc = ep.get("description", "").strip()
     if ep.get("sources"):
         desc += "\n\nSources:\n" + "\n".join(f"- {s}" for s in ep["sources"])
+    desc += "\n\nNarration voice and visuals are AI-assisted (text-to-speech and code-drawn animation)."
     desc += "\n\n" + " ".join(tags)
     return {
         "channel": ep["channel"], "id": ep["id"], "title": ep["title"], "series": ep.get("series"),

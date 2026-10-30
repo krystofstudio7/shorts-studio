@@ -53,7 +53,7 @@ def upload(path, privacy):
         "status": {
             "privacyStatus": privacy,
             "selfDeclaredMadeForKids": False,
-            "containsSyntheticMedia": bool(meta.get("ai_label")),
+            "containsSyntheticMedia": True,  # AI voice and visuals, disclosed on every upload
         },
     }
     req = yt.videos().insert(part="snippet,status", body=body, media_body=MediaFileUpload(path, chunksize=-1, resumable=True))

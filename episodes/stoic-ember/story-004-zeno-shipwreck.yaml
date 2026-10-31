@@ -1,0 +1,63 @@
+channel: stoic-ember
+id: story-004-zeno-shipwreck
+series: One Stoic Story
+number: 4
+title: "A shipwreck created Stoicism. True story."
+hook: He lost everything at sea.
+description: |
+  A merchant lost his ship and his cargo, walked into a bookshop in Athens, and started a philosophy that is still alive.
+  One Stoic Story, true and short.
+sources:
+  - "Diogenes Laërtius, Lives of the Eminent Philosophers, Book 7, 'Zeno' (sections 2-5)."
+  - "Encyclopaedia Britannica, 'Zeno of Citium' and 'Stoicism' (named after the Stoa Poikile, the Painted Porch, in Athens)."
+lines:
+  - text: Around 310 BC, a merchant lost everything at sea.
+    nocap: true
+    pause: 0.4
+    scene:
+      setting: shipwreck
+      rain: 0.9
+      fire: false
+  - text: His name was Zeno. His ship, carrying expensive purple dye, sank near Athens.
+    scene:
+      tag: NEAR ATHENS · c. 310 BC
+      setting: shipwreck
+      rain: 1.0
+      fire: false
+  - text: Broke and stranded, he wandered into a bookshop and started reading about Socrates.
+    scene:
+      tag: A BOOKSHOP IN ATHENS
+      setting: room
+      figures: [{x: 360, pose: seated, h: 560}]
+      fire_x: 320
+  - text: He asked the bookseller where he could find men like that. A philosopher was walking past. Follow him, he said.
+    scene:
+      setting: city
+      figures: [{x: 360, pose: standing, h: 540}, {x: 720, pose: walking, h: 540, walk: 25, facing: -1}]
+  - text: Zeno followed. Years later, he taught on a painted porch in Athens. In Greek, a stoa.
+    scene:
+      tag: THE STOA
+      setting: city
+      figures: [{x: 540, pose: standing, h: 560}, {x: 200, pose: seated, h: 340}, {x: 880, pose: seated, h: 340, facing: -1}]
+  - text: His students were named after that porch. The Stoics.
+    scene:
+      setting: black
+      big: "STOA. STOICS."
+      big_y: 720
+      embers: 1.0
+  - text: Later he said his voyage went well the day he was shipwrecked.
+    nocap: true
+    pause: 0.6
+    scene:
+      setting: black
+      quote: {text: "His voyage went well, he said, the day he was shipwrecked.", source: "Zeno · as told by Diogenes Laërtius, Lives 7.4"}
+      quote_y: 820
+      nocaptions: true
+  - text: Send this to someone whose ship just sank.
+    pause: 1.0
+    scene:
+      setting: sea
+      figures: [{x: 540, ground: 1180, pose: standing, h: 200}]
+      share: Send this to someone whose ship just sank
+      share_y: 520
+      nocaptions: true

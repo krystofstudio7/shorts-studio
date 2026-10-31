@@ -1,0 +1,70 @@
+channel: what-if-institute
+id: what-if-005-black-hole
+series: What If You
+number: 5
+title: "What if you fell into a black hole? 🕳️"
+hook: Small black hole or giant one?
+description: |
+  The size of the black hole decides everything. One rips you apart. The other lets you float right in.
+sources:
+  - "NASA Science, Black Holes. https://science.nasa.gov/universe/black-holes/"
+  - "Event Horizon Telescope (2022): Sagittarius A*, about 4 million solar masses, about 27,000 light-years away. https://eventhorizontelescope.org/"
+lines:
+  - text: What if you fell into a black hole? It depends on which one.
+    nocap: true
+    pause: 0.4
+    scene:
+      bg: space
+      scout: {x: 540, y: 900, s: 0.9, pose: fall, drift: 30}
+  - text: A small one, a few times heavier than the Sun, pulls on your feet far harder than your head.
+    scene:
+      tag: SMALL BLACK HOLE
+      bg: dark
+      color: [4, 2, 10]
+      scout: {x: 540, y: 1000, s: 0.8, pose: fall, angle: 90}
+      big: FEET FIRST.
+      big_y: 540
+  - text: You'd be stretched thin like a noodle. Scientists really call it spaghettification.
+    scene:
+      bg: dark
+      color: [10, 2, 14]
+      big: SPAGHETTI- FICATION
+      big_y: 620
+      big_size: 120
+      shake: true
+  - text: But a giant one is gentler. The one at the center of our galaxy is about four million times heavier than the Sun.
+    caption: A giant one is gentler. Ours, Sagittarius A*, is ~4 million Suns heavy.
+    scene:
+      tag: SAGITTARIUS A*
+      bg: space
+      scout: {x: 760, y: 1560, s: 0.6, pose: float}
+      stat: {to: 4000000, unit: "", label: "TIMES THE SUN'S MASS", dur: 1.6}
+      stat_y: 560
+  - text: You could float past the point of no return and feel nothing at all. At first.
+    scene:
+      bg: dark
+      color: [2, 2, 6]
+      scout: {x: 540, y: 1000, s: 0.8, pose: float}
+      big: NO RETURN.
+      big_y: 540
+  - text: To a friend watching from far away, you'd seem to slow down, turn red, and fade. Never quite falling in.
+    scene:
+      tag: WHAT YOUR FRIEND SEES
+      bg: space
+      scout: {x: 540, y: 1000, s: 0.5, pose: float}
+      big: FROZEN IN TIME.
+      big_y: 540
+  - text: The nearest known black hole is more than a thousand light years away. You're safe.
+    scene:
+      bg: space
+      scout: {x: 540, y: 1000, s: 0.9, pose: wave}
+      big: "YOU'RE SAFE. FOR NOW."
+      big_y: 540
+  - text: Send this to someone who'd jump in anyway.
+    pause: 1.0
+    scene:
+      bg: space
+      scout: {x: 540, y: 1000, s: 1.0, pose: wave}
+      share: Send this to someone who'd jump in anyway
+      share_y: 360
+      nocaptions: true

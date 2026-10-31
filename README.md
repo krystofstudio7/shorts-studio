@@ -11,8 +11,9 @@ hotové video                      ->  upload_youtube.py  ->  YouTube jako VEŘE
 ```
 
 1. Epizodu napíše Claude jako soubor v `episodes/` a přidá ji do repozitáře.
-2. GitHub Actions ji sám vyrenderuje a rovnou nahraje na YouTube jako veřejnou (workflow **Render videos**). Hotová videa jsou ke stažení i u běhu workflow v sekci *Artifacts*.
-3. Ruční spuštění **Render videos** nabízí *Upload to YouTube*: public, private nebo none.
+2. Po přidání epizody ji GitHub Actions jen vyrenderuje jako náhled (workflow **Render videos**, video je ke stažení v sekci *Artifacts*).
+3. Každý den v 15:00 UTC workflow vezme z každého kanálu další nezveřejněnou epizodu (podle názvu souboru), vyrenderuje ji a nahraje na YouTube jako veřejnou. Epizoda s `publish_after: 2026-11-05` počká do toho dne. Fronta: `python next_episodes.py`.
+   Ruční spuštění **Render videos** nabízí *episodes* (due, all, nebo soubory) a *Upload to YouTube*: public, private nebo none.
 4. Každé nahrání se zapíše do `published/<kanál>/<epizoda>.json`, takže se stejná epizoda nikdy nenahraje dvakrát.
 5. Dlouhé video: workflow **Long-form compilation** (kanál, seznam epizod v pořadí kapitol, název).
 

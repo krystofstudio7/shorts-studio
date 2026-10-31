@@ -1,0 +1,68 @@
+channel: stoic-ember
+id: story-003-marcus-plague
+series: One Stoic Story
+number: 3
+title: "The most powerful man on Earth wrote notes to calm himself down."
+hook: An emperor's private diary. Never meant for you.
+description: |
+  War on the border, a plague at home, and an emperor writing notes to himself by lamplight.
+  One Stoic Story, true and short.
+sources:
+  - "Marcus Aurelius, Meditations 8.47, trans. George Long (1862)."
+  - "Encyclopaedia Britannica, 'Marcus Aurelius' and 'Antonine Plague' (from 165 AD). Meditations Book 1 is marked 'Among the Quadi at the Granua', Book 2 'This in Carnuntum'."
+lines:
+  - text: The most powerful man on Earth kept a private diary. It was never meant for us.
+    nocap: true
+    pause: 0.4
+    scene:
+      setting: camp
+      figures: [{x: 540, pose: standing, h: 560}]
+      rain: 0.3
+  - text: Marcus Aurelius ruled Rome. And for years, he ruled it from a war camp on the Danube frontier.
+    scene:
+      tag: THE DANUBE · 170s AD
+      setting: camp
+      figures: [{x: 360, pose: standing, h: 540}]
+      rain: 0.5
+  - text: Back home, a plague was killing millions across the empire.
+    scene:
+      tag: THE ANTONINE PLAGUE
+      setting: city
+      rain: 0.8
+      big: MILLIONS DEAD.
+      big_y: 520
+  - text: At night, by lamplight, he wrote notes to himself. Reminders on how to stay calm and fair.
+    scene:
+      tag: TO HIMSELF
+      setting: room
+      figures: [{x: 360, pose: writing, h: 620}]
+      fire_x: 300
+  - text: If thou art pained by any external thing, it is not this thing that disturbs thee, but thine own judgement about it.
+    nocap: true
+    pause: 0.9
+    scene:
+      setting: black
+      quote: {text: "“If thou art pained by any external thing, it is not this thing that disturbs thee, but thy own judgement about it.”", source: "Marcus Aurelius · Meditations 8.47 · trans. G. Long (1862)"}
+      quote_y: 820
+      nocaptions: true
+  - text: Those notes survived him. Today we call them the Meditations, and millions still read them.
+    scene:
+      tag: MEDITATIONS
+      setting: room
+      figures: [{x: 360, pose: writing, h: 620}]
+      fire_x: 300
+  - text: You can't control the plague or the war. You can control what you tell yourself about it.
+    scene:
+      setting: black
+      big: CONTROL THE STORY YOU TELL YOURSELF.
+      big_y: 740
+      big_size: 96
+      embers: 1.0
+  - text: Send this to someone carrying too much right now.
+    pause: 1.0
+    scene:
+      setting: camp
+      figures: [{x: 540, pose: standing, h: 560}]
+      share: Send this to someone carrying too much right now
+      share_y: 520
+      nocaptions: true

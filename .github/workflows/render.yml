@@ -11,19 +11,23 @@ on:
         required: true
         default: all
       upload:
-        description: "Upload to YouTube as private (for approval in YouTube Studio)"
-        type: boolean
-        default: false
+        description: "Upload to YouTube"
+        type: choice
+        options: [public, private, none]
+        default: public
+
+permissions:
+  contents: write
 
 jobs:
   render:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 2
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -57,13 +61,25 @@ jobs:
           name: videos-${{ github.run_number }}
           path: out/
           retention-days: 14
-      - name: Upload to YouTube (private)
-        if: steps.pick.outputs.episodes != '' && inputs.upload
+      - name: Upload to YouTube
+        # pushes of new episodes publish straight away; manual runs follow the "upload" choice
+        if: steps.pick.outputs.episodes != '' && (github.event_name == 'push' || inputs.upload != 'none')
         env:
           YT_CLIENT_SECRET_JSON: ${{ secrets.YT_CLIENT_SECRET_JSON }}
           YT_REFRESH_TOKEN_WHATIF: ${{ secrets.YT_REFRESH_TOKEN_WHATIF }}
           YT_REFRESH_TOKEN_STOIC: ${{ secrets.YT_REFRESH_TOKEN_STOIC }}
           YT_REFRESH_TOKEN_MITES: ${{ secrets.YT_REFRESH_TOKEN_MITES }}
+          YT_PRIVACY: ${{ github.event_name == 'push' && 'public' || inputs.upload }}
         run: |
           pip install -r requirements-upload.txt
           python upload_youtube.py out/*/*.mp4
+      - name: Remember what was uploaded
+        if: always() && steps.pick.outputs.episodes != '' && (github.event_name == 'push' || inputs.upload != 'none')
+        run: |
+          [ -d published ] || exit 0
+          git config user.name "shorts-studio-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add published
+          git diff --cached --quiet && exit 0
+          git commit -m "Record YouTube uploads"
+          git pull --rebase origin main && git push origin HEAD:main

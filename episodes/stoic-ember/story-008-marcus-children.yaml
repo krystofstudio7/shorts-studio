@@ -1,0 +1,70 @@
+channel: stoic-ember
+id: story-008-marcus-children
+series: One Stoic Story
+number: 8
+title: "The emperor who buried his children. What he wrote after."
+hook: An emperor who outlived his children.
+description: |
+  Marcus Aurelius had at least 12 children, and many of them died young. Here's what the most powerful man in the world wrote to himself about loss.
+  One Stoic Story, true and short.
+sources:
+  - "Encyclopaedia Britannica, 'What was Marcus Aurelius's family like?': Marcus and Faustina had at least 12 children, including Commodus. https://britannica.com/question/What-was-Marcus-Aureliuss-family-like"
+  - "Marcus Aurelius, Meditations 11.34, trans. George Long (1862), quoting Epictetus (Discourses 3.24)."
+affiliate: "Meditations, Gregory Hays translation (Amazon Associates link pending)"
+lines:
+  - text: The most powerful man in the world couldn't save his own children.
+    nocap: true
+    pause: 0.4
+    scene:
+      setting: room
+      figures: [{x: 540, pose: seated, h: 560}]
+      fire_x: 540
+  - text: Marcus Aurelius and his wife Faustina had at least twelve children.
+    caption: Marcus Aurelius and his wife Faustina had at least 12 children.
+    scene:
+      tag: ROME · 2ND CENTURY
+      setting: city
+      figures: [{x: 360, pose: standing, h: 560}, {x: 600, pose: standing, h: 520, facing: -1}]
+      stat: {to: 12, unit: "+", label: CHILDREN}
+      stat_y: 520
+  - text: Many died young. Of all his sons, only one, Commodus, lived to follow him.
+    scene:
+      setting: black
+      big: MANY DIED YOUNG.
+      big_y: 720
+      embers: 0.6
+  - text: He was emperor. He had the best doctors in the world. It didn't matter.
+    scene:
+      setting: room
+      figures: [{x: 540, pose: seated, h: 560}]
+      fire_x: 540
+      rain: 0.5
+  - text: In his private notes, he copied a hard lesson from Epictetus.
+    scene:
+      tag: MEDITATIONS 11.34
+      setting: room
+      figures: [{x: 360, pose: writing, h: 620}]
+      fire_x: 300
+  - text: When a man kisses his child, said Epictetus, he should whisper to himself, tomorrow perchance thou wilt die.
+    nocap: true
+    pause: 0.9
+    scene:
+      setting: black
+      quote: {text: "“When a man kisses his child, said Epictetus, he should whisper to himself, ‘To-morrow perchance thou wilt die.’”", source: "Marcus Aurelius · Meditations 11.34 · trans. G. Long (1862)"}
+      quote_y: 820
+      nocaptions: true
+  - text: It sounds cold. It isn't. It means, love them fully today, because nothing is promised.
+    scene:
+      setting: black
+      big: LOVE THEM FULLY TODAY.
+      big_y: 720
+      embers: 1.0
+  - text: Send this to someone you love, today.
+    pause: 1.0
+    scene:
+      setting: room
+      figures: [{x: 540, pose: seated, h: 560}]
+      fire_x: 540
+      share: Send this to someone you love, today
+      share_y: 520
+      nocaptions: true

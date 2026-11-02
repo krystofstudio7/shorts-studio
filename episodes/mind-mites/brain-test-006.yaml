@@ -1,0 +1,54 @@
+channel: mind-mites
+id: brain-test-006
+series: Brain Test
+number: 6
+title: "Brain Test #6: The letter K trick 🐛"
+hook: Your memory is lying to you
+description: |
+  Are there more English words that START with K, or that have K as the THIRD letter?
+  Comment your FIRST answer.
+sources:
+  - "Tversky, A. & Kahneman, D. (1973). Availability: A heuristic for judging frequency and probability. Cognitive Psychology, 5(2), 207-232."
+  - "Kahneman, D. (2011). Thinking, Fast and Slow."
+affiliate: "Thinking, Fast and Slow (Amazon Associates link pending)"
+lines:
+  - text: Are there more English words that start with the letter K, or that have K as the third letter?
+    caption: More English words that START with K, or with K as the THIRD letter?
+    scene:
+      rows: [{l: "K _ _ _", r: "START"}, {l: "_ _ K _", r: "3RD LETTER"}]
+      rows_y: 760
+      mite: {x: 860, y: 1660, s: 0.55, mood: waiting}
+  - text: Pick one. Three seconds.
+    update: {countdown: 3, countdown_y: 1620, mite: {x: 860, y: 1700, s: 0.45, mood: waiting}}
+    pause: 3.1
+  - text: Most people say words that start with K. Kite, king, kitchen. They come to mind instantly.
+    scene:
+      big: KITE. KING. KITCHEN.
+      big_y: 560
+      mite: {x: 540, y: 1650, s: 0.8, mood: shock}
+  - text: But there are about twice as many words with K in third place. Like, make, ask, bike.
+    caption: But there are about TWICE as many with K third. Like, make, ask, bike.
+    scene:
+      rows: [{l: "K _ _ _", r: "START", mark: "no"}, {l: "_ _ K _", r: "×2", mark: ok}]
+      rows_y: 760
+      mite: {x: 540, y: 1650, s: 0.8, mood: happy}
+  - text: Your brain searches words by their first letter. Easy to remember feels like more common.
+    scene:
+      bg: dark
+      big: EASY TO RECALL ≠ COMMON
+      big_y: 640
+      big_size: 104
+      mite: {x: 540, y: 1660, s: 0.6, mood: smug}
+  - text: It's called the availability heuristic. It's why a fireball on the news feels scarier than your drive to work.
+    scene:
+      big: THE AVAILABILITY HEURISTIC
+      big_y: 560
+      big_size: 100
+      mite: {x: 540, y: 1650, s: 0.8, mood: happy}
+  - text: Send this to a friend who picked K first.
+    pause: 1.0
+    scene:
+      share: Send this to a friend who picked K first
+      share_y: 560
+      mite: {x: 540, y: 1000, s: 1.3, mood: happy, pop: true}
+      nocaptions: true

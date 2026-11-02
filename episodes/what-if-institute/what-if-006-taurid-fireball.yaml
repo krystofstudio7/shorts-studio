@@ -1,0 +1,73 @@
+channel: what-if-institute
+id: what-if-006-taurid-fireball
+series: What If You
+number: 6
+title: "What if a fireball exploded above your city? ☄️"
+hook: A fireball explodes over your city.
+description: |
+  The Taurid meteor shower peaks this week, and it's famous for fireballs. Here's what actually happens when one blows up above you.
+sources:
+  - "EarthSky, Taurid meteors: South Taurids peak 5 Nov 2026, North Taurids 12 Nov 2026; parent comet 2P/Encke; about 1% of Taurids are fireballs. https://earthsky.org/astronomy-essentials/taurid-meteors-all-you-need-to-know/"
+  - "American Meteor Society, Fireball FAQ (fireballs brighter than Venus; most meteors burn up 50-120 km high). https://www.amsmeteors.org/fireballs/faqf/"
+  - "Popova, O. P. et al. (2013). Chelyabinsk airburst, damage assessment, meteorite recovery, and characterization. Science 342, 1069-1073."
+  - "Smithsonian / Alabama Museum of Natural History: Sylacauga meteorite struck Ann Hodges, 30 November 1954."
+affiliate: "star map / binoculars (Amazon Associates link pending)"
+lines:
+  - text: What if a fireball exploded right above your city?
+    nocap: true
+    pause: 0.4
+    scene:
+      bg: space
+      planet: {kind: earth, r: 520, x: 540, y: 1650, spin: 0.08}
+      scout: {x: 760, y: 700, s: 0.8, pose: float}
+  - text: This week, the Taurid meteor shower peaks. Its fireballs come from the dust of comet Encke.
+    scene:
+      tag: TAURIDS · NOV 5 & 12
+      bg: space
+      planet: {kind: earth, r: 520, x: 540, y: 1650, spin: 0.08}
+      big: FIREBALL SEASON.
+      big_y: 560
+  - text: A typical Taurid is a pebble, hitting the air at about twenty seven kilometers per second.
+    caption: A typical Taurid is a pebble, hitting the air at about 27 km/s.
+    scene:
+      tag: A PEBBLE
+      bg: descent
+      colors: [[30, 40, 90], [10, 14, 40]]
+      speed: 1800
+      scout: {x: 540, y: 1000, s: 0.6, pose: fall}
+      stat: {to: 27, unit: " KM/S", label: "TAURID ENTRY SPEED"}
+      stat_y: 560
+  - text: It flashes brighter than Venus, then breaks apart fifty kilometers up. Maybe a boom later. That's it.
+    caption: It flashes brighter than Venus, breaks apart 50+ km up. Maybe a boom later. That's it.
+    scene:
+      tag: 50+ KM UP
+      bg: surface
+      colors: [[30, 40, 80], [20, 30, 25]]
+      scout: {x: 540, y: 1560, s: 0.75, pose: stand}
+      big: "...BOOM."
+      big_y: 600
+  - text: The dangerous kind is bigger. In 2013, a twenty meter rock exploded over Chelyabinsk. Shattered windows injured about fifteen hundred people.
+    caption: In 2013, a 20 m rock exploded over Chelyabinsk. Shattered windows injured ~1,500 people.
+    scene:
+      tag: CHELYABINSK · 2013
+      bg: dark
+      color: [40, 20, 10]
+      stat: {to: 1500, label: PEOPLE INJURED, dur: 1.4}
+      stat_y: 600
+  - text: The first confirmed person hit by a meteorite? Ann Hodges, Alabama, 1954. Through the roof, a bruised hip. She was fine.
+    caption: "The first confirmed person hit by a meteorite: Ann Hodges, Alabama, 1954. She was fine."
+    scene:
+      tag: SYLACAUGA · 1954
+      bg: surface
+      colors: [[40, 50, 90], [30, 35, 30]]
+      scout: {x: 540, y: 1560, s: 0.75, pose: sit}
+      big: BRUISED. NOT BROKEN.
+      big_y: 600
+  - text: Send this to someone who'd watch the sky with you.
+    pause: 1.0
+    scene:
+      bg: space
+      scout: {x: 540, y: 1000, s: 1.0, pose: wave}
+      share: Send this to someone who'd watch the sky with you
+      share_y: 360
+      nocaptions: true

@@ -1,0 +1,62 @@
+channel: stoic-ember
+id: story-009-cleanthes
+series: One Stoic Story
+number: 9
+title: "He carried water all night so he could study all day."
+hook: He arrived with four coins.
+description: |
+  Cleanthes came to Athens almost penniless, worked nights hauling water, and ended up leading the Stoic school.
+  One Stoic Story, true and short.
+sources:
+  - "Diogenes Laërtius, Lives of the Eminent Philosophers, Book 7, 'Cleanthes' (7.168-176): a former boxer who came to Athens with four drachmas, drew water at night for gardens, studied under Zeno, and succeeded him as head of the school."
+lines:
+  - text: He arrived in Athens with four coins in his pocket.
+    nocap: true
+    pause: 0.4
+    scene:
+      setting: city
+      figures: [{x: 540, pose: walking, h: 540, walk: 12}]
+  - text: His name was Cleanthes, a former boxer. He wanted to study with Zeno, the founder of Stoicism.
+    scene:
+      tag: ATHENS · c. 300 BC
+      setting: city
+      figures: [{x: 360, pose: standing, h: 560}, {x: 700, pose: standing, h: 520, facing: -1}]
+      stat: {to: 4, unit: " COINS", label: ALL HE HAD}
+      stat_y: 520
+  - text: So at night, he hauled water for the city's gardens. During the day, he listened to Zeno.
+    scene:
+      tag: NIGHT SHIFT
+      setting: night
+      figures: [{x: 540, pose: walking, h: 520, walk: 15}]
+  - text: People got suspicious. How could a man with no money look so healthy and never miss a lesson?
+    scene:
+      setting: city
+      figures: [{x: 540, pose: standing, h: 560}]
+      big: "HOW?"
+      big_y: 520
+  - text: "The story goes he was taken to court for it. His witness: the gardener he worked for."
+    scene:
+      tag: IN COURT
+      setting: city
+      figures: [{x: 360, pose: standing, h: 560}, {x: 700, pose: standing, h: 500, facing: -1}]
+  - text: He kept at it for years. When Zeno died, Cleanthes became the head of the Stoic school.
+    scene:
+      setting: black
+      big: FROM WATER CARRIER TO HEAD OF THE SCHOOL.
+      big_y: 720
+      big_size: 90
+      embers: 1.0
+  - text: Nobody is too poor or too late to start. They just have to be willing to carry the water.
+    scene:
+      setting: night
+      figures: [{x: 540, pose: walking, h: 520, walk: 15}]
+      big: CARRY THE WATER.
+      big_y: 520
+  - text: Send this to someone working nights for their dream.
+    pause: 1.0
+    scene:
+      setting: night
+      figures: [{x: 540, pose: walking, h: 520}]
+      share: Send this to someone working nights for their dream
+      share_y: 520
+      nocaptions: true

@@ -1,0 +1,63 @@
+channel: stoic-ember
+id: story-007-seneca-time
+series: One Stoic Story
+number: 7
+title: "The clocks went back. Seneca says you lost more than an hour."
+hook: You got an extra hour. Seneca laughs.
+description: |
+  The clocks just went back and everyone got a free hour. Two thousand years ago, Seneca wrote to his friend Paulinus about where our hours really go.
+  One Stoic Story, true and short.
+sources:
+  - "Seneca, De Brevitate Vitae (On the Shortness of Life), addressed to Paulinus, c. 49 AD; trans. Aubrey Stewart, Minor Dialogues (1889). Lines in this video are paraphrased."
+affiliate: "On the Shortness of Life, Seneca (Amazon Associates link pending)"
+lines:
+  - text: The clocks just went back. Everyone got a free hour. Seneca would laugh.
+    nocap: true
+    pause: 0.4
+    scene:
+      setting: night
+      figures: [{x: 540, pose: standing, h: 560}]
+  - text: Around 49 AD, Seneca wrote to his friend Paulinus, who ran Rome's grain supply.
+    scene:
+      tag: ROME · c. 49 AD
+      setting: room
+      figures: [{x: 360, pose: writing, h: 620}]
+      fire_x: 300
+  - text: People complain that life is short, Seneca wrote. But life isn't short. We waste most of it.
+    scene:
+      setting: black
+      big: LIFE ISN'T SHORT. WE WASTE IT.
+      big_y: 720
+      big_size: 96
+      embers: 1.0
+  - text: We'd never let a stranger take our money. But we hand out our hours to anyone who asks.
+    scene:
+      tag: THE TRADE
+      setting: city
+      figures: [{x: 360, pose: standing, h: 540}, {x: 700, pose: standing, h: 540, facing: -1}]
+      big: GUARD YOUR HOURS.
+      big_y: 520
+  - text: Busy people plan everything for later, then reach old age and realize they never started.
+    scene:
+      setting: camp
+      figures: [{x: 540, pose: seated, h: 480}]
+  - text: "Seneca's answer: live now. Today is the only part you actually hold."
+    scene:
+      setting: black
+      big: LIVE NOW.
+      big_y: 720
+      embers: 1.0
+  - text: So you got an extra hour this week. What are you going to do with it?
+    scene:
+      setting: night
+      figures: [{x: 540, pose: standing, h: 560}]
+      big: "+1 HOUR"
+      big_y: 520
+  - text: Send this to someone who's always waiting for later.
+    pause: 1.0
+    scene:
+      setting: night
+      figures: [{x: 540, pose: standing, h: 560}]
+      share: Send this to someone who's always waiting for later
+      share_y: 520
+      nocaptions: true

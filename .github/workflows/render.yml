@@ -60,7 +60,10 @@ jobs:
           fi
           echo "episodes=$(echo $eps | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
       - name: Render
+        id: render
         if: steps.pick.outputs.episodes != ''
+        # a failed episode is reported at the end; the ones that rendered still get published
+        continue-on-error: true
         run: python render.py ${{ steps.pick.outputs.episodes }}
       - uses: actions/upload-artifact@v4
         if: steps.pick.outputs.episodes != ''
@@ -79,6 +82,7 @@ jobs:
           YT_PRIVACY: ${{ github.event_name == 'schedule' && 'public' || inputs.upload }}
         run: |
           pip install -r requirements-upload.txt
+          ls out/*/*.mp4 >/dev/null 2>&1 || exit 0
           python upload_youtube.py out/*/*.mp4
       - name: Remember what was uploaded
         if: always() && steps.pick.outputs.episodes != '' && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.upload != 'none'))
@@ -90,3 +94,6 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Record YouTube uploads"
           git pull --rebase origin main && git push origin HEAD:main
+      - name: Fail if an episode did not render
+        if: steps.render.outcome == 'failure'
+        run: exit 1

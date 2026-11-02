@@ -8,6 +8,7 @@ import argparse
 import glob
 import os
 import sys
+import traceback
 
 from studio.engine import render_episode
 
@@ -24,14 +25,23 @@ def main():
     eps = a.episodes or (sorted(glob.glob("episodes/*/*.yaml")) if a.all else [])
     if not eps:
         ap.error("give episode files or --all")
+    failed = []
     for ep in eps:
         channel = os.path.basename(os.path.dirname(ep))
         out_dir = os.path.join(a.out, channel)
         target = os.path.join(out_dir, os.path.splitext(os.path.basename(ep))[0] + ".mp4")
         if a.all and not a.preview and os.path.exists(target) and os.path.getmtime(target) > os.path.getmtime(ep):
             continue
-        path, dur = render_episode(ep, out_dir, preview=[] if a.preview else None)
+        try:
+            path, dur = render_episode(ep, out_dir, preview=[] if a.preview else None)
+        except Exception:
+            # one broken episode must not stop the others from rendering and publishing
+            traceback.print_exc()
+            print(f"::error::render failed: {ep}", flush=True)
+            failed.append(ep)
+            continue
         print(f"{path}  {dur:.1f}s", flush=True)
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":

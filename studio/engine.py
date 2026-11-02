@@ -198,11 +198,13 @@ def camera(img, p, st, t):
     if p.get("shake") and st < 0.6:
         amp = 22 * (1 - st / 0.6)
         ox, oy = amp * math.sin(t * 90), amp * math.cos(t * 77)
+        z = max(z, 1 + 2.2 * amp / W)  # zoom in enough that the shake never shows an edge
     if z == 1 and not ox:
         return img
     w, h = W / z, H / z
-    x0 = (W - w) / 2 + ox
-    y0 = (H - h) / 2 + oy + p.get("pan_y", 0) * ease(st / 8)
+    # keep the crop box inside the frame, whatever push, shake and pan add up to
+    x0 = min(max((W - w) / 2 + ox, 0), W - w)
+    y0 = min(max((H - h) / 2 + oy + p.get("pan_y", 0) * ease(st / 8), 0), H - h)
     return img.resize((W, H), Image.BILINEAR, box=(x0, y0, x0 + w, y0 + h))
 
 

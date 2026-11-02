@@ -5,6 +5,7 @@ import numpy as np
 from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
 from ..characters import scout
+from ..photo import space
 from ..core import W, H, Sphere, add, ease, font, fractal_noise, gradient, pad, starfield, vignette
 
 NAVY, YEL, CREAM, ORANGE = (11, 23, 54), (255, 210, 63), (242, 245, 255), (255, 107, 53)
@@ -76,6 +77,7 @@ TEXTURES = {"earth": tex_earth, "jupiter": tex_jupiter, "mars": tex_mars, "moon"
 
 class Theme:
     brand = "WHAT IF INSTITUTE"
+    photo_grade = staticmethod(space)
     voice, speed = "am_michael", 1.0
     crf = 20
     hashtags = ["#whatif", "#science", "#space", "#physics", "#didyouknow", "#learnontiktok"]
@@ -98,6 +100,8 @@ class Theme:
         rng = np.random.default_rng(5)
         self.dust = [(rng.random() * W, rng.random(), 2 + rng.random() * 5, 0.5 + rng.random()) for _ in range(70)]
         self._glows = {}
+        ramp = np.clip((np.arange(H) - H * 0.45) / (H * 0.5), 0, 1)[:, None] * 0.6
+        self.shade = Image.fromarray(((1 - np.repeat(ramp, W, 1)) * 255).astype(np.uint8), "L")
         self.vig = vignette(W, H, 0.7)
         self._spheres = {}
 
@@ -180,6 +184,19 @@ class Theme:
             drift = sc.get("drift", 0) * st
             bob = 14 * math.sin(t * 1.6)
             scout(img, sc.get("x", 760), sc.get("y", 520) + drift + bob, sc.get("s", 0.8), t, sc.get("pose", "float"), sc.get("angle", 0))
+        return img
+
+    def over_photo(self, img, p, t, st):
+        """Over a real photo: darker lower half for captions, and Scout if the scene has him."""
+        if p["photo"].get("fit") == "contain":
+            # a whole planet on black: let the starfield show through the empty space around it
+            img = ImageChops.lighter(img, self.background({"bg": "space"}, t, st, {}))
+        img = Image.composite(img, Image.new("RGB", (W, H)), self.shade)
+        sc = p.get("scout")
+        if sc:
+            bob = 14 * math.sin(t * 1.6)
+            scout(img, sc.get("x", 760), sc.get("y", 520) + sc.get("drift", 0) * st + bob, sc.get("s", 0.8), t,
+                  sc.get("pose", "float"), sc.get("angle", 0))
         return img
 
     def post(self, img, t):

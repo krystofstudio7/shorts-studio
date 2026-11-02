@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image, ImageChops, ImageDraw
 
 from ..characters import mite
-from ..core import W, H, font, plucks, ease_out
+from ..core import W, H, font, plucks, ease_out, resize
 
 PINK, INK, MINT, CREAM, SUN, RED = (255, 90, 138), (26, 14, 43), (124, 242, 200), (255, 246, 229), (255, 201, 60), (230, 40, 70)
 
@@ -74,6 +74,9 @@ class Theme:
                        "card_bg": CREAM, "card_fg": INK, "no": RED, "muted": (90, 60, 100), "hook": INK, "brand": INK}
         self.caption = {"y": 1280, "fill": CREAM, "stroke": INK, "sw": 10, "hl": SUN}
         self.base = {False: radial((255, 122, 160), (232, 62, 118)), True: radial((52, 30, 80), (18, 9, 30))}
+        rng = np.random.default_rng(3)
+        self.bits = [(W / 2 + rng.normal(0, 60), rng.normal(0, 420), -900 - rng.random() * 600, rng.random() * 6, rng.integers(0, 4))
+                     for _ in range(70)]
         self.pat = {False: pattern((30, 14, 22)), True: pattern((26, 18, 44))}
 
     def music(self, dur):
@@ -93,7 +96,19 @@ class Theme:
         m = p.get("mite", {"x": W / 2, "y": 1650, "s": 0.8})
         if m:
             grow = ease_out(st / 0.3) if m.get("pop") else 1
-            sx, sy, ss = m.get("x", W / 2), m.get("y", 1650), m.get("s", 0.8) * grow
+            lt = ctx.get("lt", st)
+            mood = m.get("mood", "happy")
+            # a little hop when Mite reacts, a thought bubble while it waits
+            hop = -70 * m.get("s", 0.8) * math.sin(math.pi * min(lt / 0.45, 1)) if mood in ("happy", "shock") and lt < 0.45 else 0
+            m = {**m, "y": m.get("y", 1650) + hop}
+            sx, sy, ss = m["x"] if "x" in m else W / 2, m["y"], m.get("s", 0.8) * grow
+            if mood == "waiting":
+                bx, by = sx + 150 * ss, sy - 300 * ss
+                for k, (ox, oy, r) in enumerate(((-70, 150, 12), (-40, 100, 20))):
+                    d.ellipse([bx + ox * ss - r * ss, by + oy * ss - r * ss, bx + ox * ss + r * ss, by + oy * ss + r * ss], fill=CREAM)
+                rr = 70 * ss * (1 + 0.05 * math.sin(t * 4))
+                d.ellipse([bx - rr, by - rr, bx + rr, by + rr], fill=CREAM, outline=INK, width=max(2, int(6 * ss)))
+                d.text((bx, by + 4), "?", font=resize(self.fonts["display"], max(20, int(90 * ss))), fill=INK, anchor="mm")
             if not dark:
                 d.ellipse([sx - 150 * ss, sy + 120 * ss, sx + 150 * ss, sy + 160 * ss], fill=(196, 50, 100))
             if dark:
@@ -101,7 +116,20 @@ class Theme:
                 d.ellipse([m.get("x", W / 2) - r, m.get("y", 1650) - r, m.get("x", W / 2) + r, m.get("y", 1650) + r], fill=PINK)
             mite(d, m.get("x", W / 2), m.get("y", 1650), m.get("s", 0.8) * grow + 0.01, t, m.get("mood", "happy"),
                  tuple(m.get("look", (0, 0))))
+        # confetti when a correct answer appears
+        for (i, _l, mk), born in p.get("_row_born", {}).items():
+            if mk == "ok" and 0 <= t - born < 1.8:
+                self.confetti(d, t - born)
         return img
+
+    def confetti(self, d, e):
+        cols = (MINT, SUN, CREAM, (120, 180, 255))
+        for i, (x, vx, vy, rot, c) in enumerate(self.bits):
+            x1 = x + vx * e
+            y1 = 700 + vy * e + 900 * e * e
+            a = rot + e * 8
+            w, h = 22 * math.cos(a), 12
+            d.polygon([(x1 - w, y1 - h), (x1 + w, y1 - h * 0.4), (x1 + w, y1 + h), (x1 - w, y1 + h * 0.4)], fill=cols[c])
 
     def post(self, img, t):
         return img

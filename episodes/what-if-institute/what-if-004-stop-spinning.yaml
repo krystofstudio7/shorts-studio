@@ -14,8 +14,7 @@ lines:
     nocap: true
     pause: 0.4
     scene:
-      bg: space
-      planet: {kind: earth, r: 430, x: 540, y: 1200, spin: 0.0}
+      photo: {src: assets/whatif/earth-nasa-2.jpg, fit: contain, at: 0.75, focus: [0.5, 0.5], zoom: [0.8, 0.92]}
       scout: {x: 760, y: 660, s: 0.8, pose: float}
   - text: Right now, at the equator, you're moving at about sixteen hundred seventy kilometers per hour.
     caption: Right now, at the equator, you're moving at about 1,670 km/h.
@@ -37,17 +36,14 @@ lines:
     caption: Winds faster than any hurricane. More than 5 times a Category 5.
     scene:
       tag: WIND
-      bg: descent
-      colors: [[150, 170, 190], [90, 110, 130]]
-      speed: 1600
-      scout: {x: 540, y: 1000, s: 0.6, pose: fall}
+      photo: {src: assets/whatif/hurricane-nasa-2.jpg, focus: [0.4, 0.55], zoom: [1.0, 1.25]}
+      shake: true
       stat: {to: 5, unit: "×", label: "A CATEGORY 5 HURRICANE"}
       stat_y: 560
   - text: And later, without the spin, the oceans would slowly drain toward the poles.
     scene:
       tag: THE OCEANS MOVE
-      bg: space
-      planet: {kind: earth, r: 430, x: 540, y: 1150, spin: 0.0}
+      photo: {src: assets/whatif/earth-nasa-4.jpg, fit: contain, at: 0.75, focus: [0.5, 0.5], zoom: [0.92, 0.82]}
       big: TWO POLAR OCEANS.
       big_y: 520
   - text: One giant continent would wrap around the middle. And one day would last a whole year.

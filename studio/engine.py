@@ -8,7 +8,7 @@ import numpy as np
 import yaml
 from PIL import Image, ImageDraw
 
-from . import sfx
+from . import photo, sfx
 from .core import (W, H, FPS, build_voice, caption_chunks, clamp01, ease, ease_out, encode, fade, mix, resize, srt,
                    text_block, wrap)
 
@@ -251,8 +251,14 @@ def render_episode(path, out_dir, preview=None):
     starts = sorted({seg["start"] for seg in plan})
 
     def scene_bg(seg, t):
-        st = t - seg["start"]
-        return camera(th.background(seg["params"], t, st, ctx), seg["params"], st, t)
+        st, p = t - seg["start"], seg["params"]
+        if p.get("photo"):
+            # a real image with its own slow zoom/pan, then the channel's atmosphere on top
+            img = photo.frame(p["photo"], st, getattr(th, "photo_grade", None))
+            if hasattr(th, "over_photo"):
+                img = th.over_photo(img, p, t, st)
+            return camera(img, {**p, "push": 0}, st, t)
+        return camera(th.background(p, t, st, ctx), p, st, t)
 
     def frame(t):
         li = line_at(tl, t)
@@ -303,7 +309,15 @@ def metadata(ep, th, dur):
     desc = ep.get("description", "").strip()
     if ep.get("sources"):
         desc += "\n\nSources:\n" + "\n".join(f"- {s}" for s in ep["sources"])
-    desc += "\n\nNarration voice and visuals are AI-assisted (text-to-speech and code-drawn animation)."
+    srcs = []
+    for ln in ep["lines"]:
+        for blk in (ln.get("scene") or {}, ln.get("update") or {}):
+            if blk.get("photo") and blk["photo"]["src"] not in srcs:
+                srcs.append(blk["photo"]["src"])
+    if srcs:
+        desc += "\n\nImages:\n" + "\n".join(f"- {c}" for c in photo.credits_for(srcs))
+    desc += ("\n\nNarration is AI text-to-speech. " + ("Artwork and photos are public-domain, credited above; animation and effects are code-drawn."
+             if srcs else "Visuals are code-drawn animation."))
     desc += "\n\n" + " ".join(tags)
     return {
         "channel": ep["channel"], "id": ep["id"], "title": ep["title"], "series": ep.get("series"),

@@ -1,0 +1,40 @@
+# group: list of {name, q, sources, n}. Run by .github/workflows/fetch-assets.yml
+stoic:
+  - {name: seneca, q: "Seneca", sources: [commons, met, aic], n: 4}
+  - {name: death-of-seneca, q: "Death of Seneca painting", sources: [commons], n: 4}
+  - {name: marcus-aurelius, q: "Marcus Aurelius", sources: [commons, met, aic], n: 4}
+  - {name: marcus-equestrian, q: "Equestrian Statue of Marcus Aurelius", sources: [commons], n: 3}
+  - {name: epictetus, q: "Epictetus", sources: [commons, met], n: 3}
+  - {name: zeno, q: "Zeno of Citium", sources: [commons], n: 3}
+  - {name: roman-triumph, q: "Roman triumph painting", sources: [commons, met, aic], n: 4}
+  - {name: roman-forum, q: "Roman Forum ruins painting", sources: [commons, met, aic], n: 4}
+  - {name: ancient-rome, q: "ancient Rome", sources: [met, aic], n: 4}
+  - {name: athens, q: "Athens Acropolis painting", sources: [commons, met, aic], n: 4}
+  - {name: shipwreck, q: "shipwreck painting storm", sources: [commons, met, aic], n: 4}
+  - {name: stormy-sea, q: "stormy sea", sources: [met, aic], n: 4}
+  - {name: memento-mori, q: "vanitas still life skull", sources: [met, aic, commons], n: 4}
+  - {name: roman-bust, q: "Roman portrait bust marble", sources: [met, aic], n: 4}
+  - {name: roman-soldiers, q: "Roman legion soldiers", sources: [commons, met], n: 3}
+  - {name: plague, q: "plague in an ancient city", sources: [met, aic, commons], n: 3}
+  - {name: philosopher, q: "philosopher reading", sources: [met, aic], n: 4}
+  - {name: corsica, q: "Corsica coast", sources: [commons, aic], n: 3}
+  - {name: socrates, q: "Death of Socrates", sources: [met, commons], n: 3}
+  - {name: prison, q: "prisoner cell", sources: [met, aic], n: 3}
+  - {name: night-candle, q: "candlelight night study", sources: [met, aic], n: 3}
+whatif:
+  - {name: jupiter, q: "Jupiter Juno", sources: [nasa], n: 5}
+  - {name: mars-surface, q: "Mars surface Curiosity panorama", sources: [nasa], n: 5}
+  - {name: mars-globe, q: "Mars globe Viking", sources: [nasa], n: 3}
+  - {name: moon-surface, q: "Apollo lunar surface", sources: [nasa], n: 5}
+  - {name: earth, q: "Earth from space Blue Marble", sources: [nasa], n: 5}
+  - {name: fireball, q: "fireball meteor", sources: [nasa], n: 4}
+  - {name: meteor-shower, q: "meteor shower", sources: [nasa], n: 4}
+  - {name: black-hole, q: "black hole illustration", sources: [nasa], n: 5}
+  - {name: exoplanet-lava, q: "lava world exoplanet illustration", sources: [nasa], n: 4}
+  - {name: nebula, q: "Hubble nebula", sources: [nasa], n: 5}
+  - {name: astronaut, q: "astronaut spacewalk", sources: [nasa], n: 4}
+  - {name: solar-flare, q: "solar flare", sources: [nasa], n: 4}
+  - {name: artemis, q: "Artemis I Orion Moon", sources: [nasa], n: 4}
+  - {name: galaxy, q: "Milky Way center", sources: [nasa], n: 3}
+  - {name: earth-interior, q: "Earth interior core", sources: [nasa], n: 3}
+  - {name: hurricane, q: "hurricane from space", sources: [nasa], n: 3}

@@ -14,7 +14,10 @@ BLACK, CREAM, GOLD, EMBER, SEA = (12, 12, 12), (233, 227, 214), (176, 141, 87), 
 class Theme:
     brand = "STOIC EMBER"
     photo_grade = staticmethod(warm_dark)
-    voice, speed = "bm_george", 0.95
+    # deeper, warmer narrator (Krystof picked this sample 2026-11-02): Onyx + EQ, gentle compression, a little room
+    voice, speed = "am_onyx", 0.9
+    voice_fx = ("highpass=f=70,equalizer=f=160:t=q:w=1:g=3,equalizer=f=3500:t=q:w=1.2:g=-2,"
+                "acompressor=threshold=-20dB:ratio=3:attack=10:release=200,aecho=0.85:0.5:35|60:0.10|0.06,loudnorm=I=-16")
     crf = 28
     hashtags = ["#stoicism", "#history", "#seneca", "#marcusaurelius", "#philosophy", "#discipline"]
 

@@ -164,6 +164,16 @@ def build_voice(lines, voice, speed=1.0, gap=0.3, lead=0.15):
     return np.concatenate(chunks), tl, t
 
 
+def voice_fx(audio, chain):
+    """Run the narration through an ffmpeg audio filter chain (EQ, compression, room), same length out."""
+    import subprocess
+    out = subprocess.run(["ffmpeg", "-loglevel", "error", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "pipe:0",
+                          "-af", chain, "-f", "f32le", "-ar", str(SR), "-ac", "1", "pipe:1"],
+                         input=audio.astype(np.float32).tobytes(), capture_output=True, check=True).stdout
+    a = np.frombuffer(out, np.float32)
+    return np.pad(a, (0, max(len(audio) - len(a), 0)))[:len(audio)].copy()
+
+
 def caption_chunks(lines, tl, max_words=3):
     """Split each spoken line into short caption groups, timed by character length."""
     caps = []

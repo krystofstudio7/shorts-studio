@@ -1,0 +1,75 @@
+channel: what-if-institute
+id: what-if-004-stop-spinning
+series: What If You
+number: 4
+title: "What if Earth stopped spinning for one second? 🌍"
+hook: Earth stops spinning. You don't.
+description: |
+  The ground stops. The air and everything on it keeps going. Here's what happens next.
+sources:
+  - "NASA, Earth's rotation: the equator moves at about 1,670 km/h. https://image.gsfc.nasa.gov/poetry/ask/a10840.html"
+  - "Fraczek, W. (2007). Why Bother About Earth's Rotation? ArcUser, Esri (oceans would migrate toward the poles)."
+lines:
+  - text: What if Earth suddenly stopped spinning?
+    nocap: true
+    pause: 0.4
+    scene:
+      bg: space
+      planet: {kind: earth, r: 430, x: 540, y: 1200, spin: 0.0}
+      scout: {x: 760, y: 660, s: 0.8, pose: float}
+  - text: Right now, at the equator, you're moving at about sixteen hundred seventy kilometers per hour.
+    caption: Right now, at the equator, you're moving at about 1,670 km/h.
+    scene:
+      tag: YOU, RIGHT NOW
+      bg: space
+      planet: {kind: earth, r: 520, x: 540, y: 1600, spin: 0.4}
+      stat: {to: 1670, unit: " KM/H", label: "SPEED AT THE EQUATOR"}
+      stat_y: 560
+  - text: If the ground stopped, you wouldn't. Neither would the air, the oceans, or the buildings.
+    scene:
+      bg: surface
+      colors: [[120, 170, 220], [70, 110, 60]]
+      scout: {x: 540, y: 1150, s: 0.8, pose: fall}
+      big: EVERYTHING KEEPS GOING.
+      big_y: 560
+      shake: true
+  - text: Winds faster than any hurricane would sweep the planet. That's more than five times a category five.
+    caption: Winds faster than any hurricane. More than 5 times a Category 5.
+    scene:
+      tag: WIND
+      bg: descent
+      colors: [[150, 170, 190], [90, 110, 130]]
+      speed: 1600
+      scout: {x: 540, y: 1000, s: 0.6, pose: fall}
+      stat: {to: 5, unit: "×", label: "A CATEGORY 5 HURRICANE"}
+      stat_y: 560
+  - text: And later, without the spin, the oceans would slowly drain toward the poles.
+    scene:
+      tag: THE OCEANS MOVE
+      bg: space
+      planet: {kind: earth, r: 430, x: 540, y: 1150, spin: 0.0}
+      big: TWO POLAR OCEANS.
+      big_y: 520
+  - text: One giant continent would wrap around the middle. And one day would last a whole year.
+    scene:
+      bg: space
+      planet: {kind: earth, r: 430, x: 540, y: 1150, spin: 0.0}
+      stat: {to: 365, unit: " DAYS", label: "LENGTH OF ONE DAY"}
+      stat_y: 520
+  - text: Good news. Nothing we know of can stop Earth that fast. It slows by about two milliseconds per century.
+    caption: Good news. Nothing can stop Earth that fast. It slows by ~2 milliseconds per century.
+    scene:
+      bg: space
+      planet: {kind: earth, r: 430, x: 540, y: 1200, spin: 0.2}
+      scout: {x: 760, y: 660, s: 0.8, pose: float}
+      big: KEEP SPINNING.
+      big_y: 420
+  - text: Send this to someone who says the world should stop for a second.
+    pause: 1.0
+    scene:
+      bg: space
+      planet: {kind: earth, r: 430, x: 540, y: 1300, spin: 0.2}
+      scout: {x: 540, y: 820, s: 0.9, pose: wave}
+      share: Send this to someone who wants the world to stop
+      share_y: 360
+      nocaptions: true

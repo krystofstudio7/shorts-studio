@@ -1,0 +1,55 @@
+channel: mind-mites
+id: brain-test-002
+series: Brain Test
+number: 2
+title: "Brain Test #2: The lily pad trick 🐛"
+hook: Your brain wants to say 24
+description: |
+  Lily pads double every day and cover the lake in 48 days. When was the lake half covered?
+  Comment your FIRST answer, be honest.
+sources:
+  - "Frederick, S. (2005). Cognitive Reflection and Decision Making. Journal of Economic Perspectives, 19(4), 25-42."
+lines:
+  - text: A patch of lily pads doubles in size every day.
+    scene:
+      rows: [{l: EVERY DAY, r: "×2"}, {l: FULL LAKE, r: "DAY 48"}, {l: HALF THE LAKE, r: "?", hl: true}]
+      rows_shown: 1
+      rows_y: 760
+      mite: {x: 860, y: 1660, s: 0.55, mood: waiting}
+  - text: It takes forty eight days to cover the whole lake.
+    caption: It takes 48 days to cover the whole lake.
+    update: {rows_shown: 2}
+  - text: How long until it covers half the lake? Three seconds.
+    update: {rows_shown: 3, countdown: 3, countdown_y: 1620, mite: {x: 860, y: 1700, s: 0.45, mood: waiting}}
+    pause: 3.1
+  - text: Twenty four? That's the fast answer. And it's wrong.
+    caption: 24? That's the fast answer. And it's wrong.
+    scene:
+      big: DAY 24?
+      big_y: 520
+      rows: [{l: "HALF AT DAY 24", r: "", mark: "no"}]
+      rows_y: 800
+      mite: {x: 540, y: 1650, s: 0.8, mood: shock}
+  - text: It doubles every day. So the day before it's full, it's exactly half.
+    update:
+      rows: [{l: "HALF AT DAY 24", r: "", mark: "no"}, {l: "DAY 47 × 2", r: "DAY 48", mark: ok}]
+  - text: Day forty seven. Half the lake, one day before the end.
+    caption: Day 47. Half the lake, one day before the end.
+    scene:
+      big: DAY 47
+      big_y: 620
+      mite: {x: 540, y: 1650, s: 0.8, mood: happy}
+  - text: Our brains think in straight lines. Doubling doesn't care. It looks slow, then explodes.
+    scene:
+      bg: dark
+      big: SLOW, SLOW, BOOM.
+      big_y: 640
+      mite: {x: 540, y: 1660, s: 0.6, mood: smug}
+  - text: Send this to a friend who said twenty four.
+    caption: Send this to a friend who said 24.
+    pause: 1.0
+    scene:
+      share: Send this to a friend who said 24
+      share_y: 560
+      mite: {x: 540, y: 1000, s: 1.3, mood: happy, pop: true}
+      nocaptions: true

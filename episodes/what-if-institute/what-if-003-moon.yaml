@@ -1,0 +1,68 @@
+channel: what-if-institute
+id: what-if-003-moon
+series: What If You
+number: 3
+title: "What if the Moon disappeared tonight? 🌕"
+hook: The Moon vanishes tonight. Then what?
+description: |
+  No more Moon. The tides, the nights and even Earth's tilt would change. Here's how.
+sources:
+  - "NOAA Tides & Currents: the Sun's tide-generating force is about 46% of the Moon's. https://tidesandcurrents.noaa.gov/restles3.html"
+  - "Laskar, J., Joutel, F., Robutel, P. (1993). Stabilization of the Earth's obliquity by the Moon. Nature 361, 615-617."
+  - "NASA Science, Earth's Moon: the Moon moderates Earth's wobble on its axis. https://science.nasa.gov/moon/"
+lines:
+  - text: What if the Moon disappeared tonight?
+    nocap: true
+    pause: 0.4
+    scene:
+      bg: space
+      planet: {kind: moon, r: 330, x: 540, y: 1150, spin: 0.05}
+      scout: {x: 760, y: 640, s: 0.8, pose: float}
+  - text: First, the nights. Without moonlight, every night would be as dark as a new moon.
+    scene:
+      tag: DARKER NIGHTS
+      bg: dark
+      color: [4, 6, 14]
+      scout: {x: 540, y: 1150, s: 0.8, pose: sit}
+      big: EVERY NIGHT, PITCH BLACK.
+      big_y: 620
+  - text: Then, the oceans. The Sun makes tides too, but they're less than half as strong as the Moon's.
+    scene:
+      tag: TIDES
+      bg: space
+      planet: {kind: earth, r: 420, x: 540, y: 1250, spin: 0.1}
+      stat: {to: 46, unit: "%", label: "SUN'S TIDAL PULL VS THE MOON'S"}
+      stat_y: 560
+  - text: So high tides would shrink to about a third of what we see today.
+    caption: So the biggest tides would shrink to about a third of today's.
+    update: {stat: {from: 100, to: 33, unit: "%", label: "OF TODAY'S BIGGEST TIDES", dur: 1.4}}
+  - text: The scary part is slower. The Moon keeps Earth's tilt steady. That tilt is what gives us seasons.
+    scene:
+      tag: THE TILT
+      bg: space
+      planet: {kind: earth, r: 420, x: 540, y: 1150, spin: 0.25}
+      big: "23.4°"
+      big_y: 520
+  - text: Without it, over millions of years, the tilt could swing wildly. Seasons could become extreme.
+    scene:
+      bg: space
+      planet: {kind: earth, r: 420, x: 540, y: 1150, spin: 0.6}
+      big: SEASONS GO WILD.
+      big_y: 520
+      shake: true
+  - text: We'd survive the night. Our great great grandchildren's planet would be a different story.
+    scene:
+      bg: dark
+      color: [6, 8, 18]
+      scout: {x: 540, y: 1150, s: 0.9, pose: sit}
+      big: THANK THE MOON.
+      big_y: 620
+  - text: Send this to someone who never looks up at night.
+    pause: 1.0
+    scene:
+      bg: space
+      planet: {kind: moon, r: 330, x: 540, y: 1300, spin: 0.05}
+      scout: {x: 540, y: 820, s: 0.9, pose: wave}
+      share: Send this to someone who never looks up at night
+      share_y: 360
+      nocaptions: true

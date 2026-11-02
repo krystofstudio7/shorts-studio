@@ -1,0 +1,65 @@
+channel: stoic-ember
+id: story-005-stockdale
+series: One Stoic Story
+number: 5
+title: "7 years as a prisoner of war. One old book got him through."
+hook: Shot down. Captured. Seven years.
+description: |
+  A US Navy pilot was shot down over Vietnam and held for more than seven years. He had studied Epictetus.
+  One Stoic Story, true and short.
+sources:
+  - "Stockdale, J. B. (1993). Courage Under Fire: Testing Epictetus's Doctrines in a Laboratory of Human Behavior. Hoover Institution."
+  - "U.S. Navy / Congressional Medal of Honor Society: Vice Admiral James B. Stockdale, shot down 9 September 1965, released February 1973, Medal of Honor 1976."
+lines:
+  - text: In 1965, James Stockdale was shot down over North Vietnam.
+    nocap: true
+    pause: 0.4
+    scene:
+      setting: night
+      figures: [{x: 540, pose: standing, h: 560}]
+      rain: 0.4
+  - text: As he parachuted down, he thought of one book. A Stoic handbook by Epictetus.
+    scene:
+      tag: SEPTEMBER 1965
+      setting: night
+      figures: [{x: 540, pose: standing, h: 400}]
+  - text: He would spend more than seven years as a prisoner. Four of them alone, in a cell.
+    scene:
+      tag: PRISONER OF WAR
+      setting: room
+      figures: [{x: 540, pose: seated, h: 520}]
+      fire: false
+      stat: {to: 7, unit: "+ YEARS", label: A PRISONER}
+      stat_y: 520
+  - text: He was tortured again and again. And he still organized the other prisoners to resist.
+    scene:
+      setting: black
+      big: HE KEPT LEADING.
+      big_y: 700
+  - text: Epictetus taught him to separate what he controlled from what he didn't. His captors controlled his body. Not his will.
+    scene:
+      tag: WHAT HE CONTROLLED
+      setting: room
+      figures: [{x: 540, pose: seated, h: 520}]
+      fire: false
+      big: NOT HIS WILL.
+      big_y: 520
+  - text: In 1973 he came home. Three years later, he received the Medal of Honor.
+    scene:
+      tag: "1973"
+      setting: city
+      figures: [{x: 540, pose: standing, h: 560}]
+  - text: He said that old book saved his life. It was almost two thousand years old.
+    scene:
+      setting: black
+      big: A 2,000-YEAR-OLD BOOK.
+      big_y: 720
+      embers: 1.0
+  - text: Send this to someone going through something hard.
+    pause: 1.0
+    scene:
+      setting: night
+      figures: [{x: 540, pose: standing, h: 560}]
+      share: Send this to someone going through something hard
+      share_y: 520
+      nocaptions: true

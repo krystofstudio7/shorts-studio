@@ -1,0 +1,68 @@
+channel: stoic-ember
+id: story-002-epictetus
+series: One Stoic Story
+number: 2
+title: "He was born a slave. An emperor studied his words."
+hook: Born a slave. Died a legend.
+description: |
+  Epictetus started life as a slave in Rome and ended it as the most famous teacher of his age.
+  One Stoic Story, true and short.
+sources:
+  - "Epictetus, Enchiridion 1, trans. Thomas Wentworth Higginson (1865)."
+  - "Encyclopaedia Britannica, 'Epictetus': born a slave c. 55 AD in Hierapolis, owned by Epaphroditus; banished from Rome by Domitian c. 89-93 AD; taught at Nicopolis."
+lines:
+  - text: Epictetus was born a slave. He died one of the most famous teachers in the world.
+    nocap: true
+    pause: 0.4
+    scene:
+      setting: city
+      figures: [{x: 540, pose: standing, h: 560}]
+      rain: 0.3
+  - text: As a boy, he was owned by a secretary of the emperor Nero. He walked with a limp his whole life.
+    scene:
+      tag: ROME · 1ST CENTURY
+      setting: city
+      figures: [{x: 420, pose: walking, h: 520, walk: 18}]
+      rain: 0.4
+  - text: He owned nothing. Not even his own body. So he studied the one thing nobody could take.
+    scene:
+      tag: A SLAVE'S LESSON
+      setting: room
+      figures: [{x: 360, pose: seated, h: 560}]
+      fire_x: 320
+  - text: There are things which are within our power, and there are things which are beyond our power.
+    nocap: true
+    pause: 0.9
+    scene:
+      setting: black
+      quote: {text: "“There are things which are within our power, and there are things which are beyond our power.”", source: "Epictetus · Enchiridion 1 · trans. T. W. Higginson (1865)"}
+      quote_y: 820
+      nocaptions: true
+  - text: Once freed, he taught in Rome. Then the emperor Domitian banished every philosopher from the city.
+    scene:
+      tag: BANISHED
+      setting: sea
+      figures: [{x: 540, ground: 1180, pose: standing, h: 200}]
+      rain: 0.6
+      fire: false
+  - text: So he opened a school in Greece. Students came from all over the empire. One wrote down everything he said.
+    scene:
+      tag: NICOPOLIS, GREECE
+      setting: camp
+      figures: [{x: 300, pose: standing, h: 520}, {x: 620, pose: seated, h: 360, facing: -1}, {x: 820, pose: seated, h: 360, facing: -1}]
+  - text: Decades later, an emperor named Marcus Aurelius was reading his words.
+    scene:
+      setting: black
+      big: THE SLAVE AN EMPEROR LEARNED FROM.
+      big_y: 720
+      big_size: 96
+      embers: 1.0
+  - text: Send this to someone who feels stuck.
+    pause: 1.0
+    scene:
+      setting: room
+      figures: [{x: 360, pose: seated, h: 560}]
+      fire_x: 320
+      share: Send this to someone who feels stuck
+      share_y: 520
+      nocaptions: true

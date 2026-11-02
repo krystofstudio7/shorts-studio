@@ -68,16 +68,17 @@ def draw_overlays(img, th, p, t, st, ctx):
     if p.get("tag"):
         a = ease_out(st / 0.35)
         f = F["label"]
-        tw = d.textlength(p["tag"], font=f)
+        tag = str(p["tag"])
+        tw = d.textlength(tag, font=f)
         y0 = 290 - (1 - a) * 30
         d.rounded_rectangle([(W - tw) / 2 - 28, y0, (W + tw) / 2 + 28, y0 + 64], 32, fill=C["pill_bg"])
-        d.text((W / 2, y0 + 32), p["tag"], font=f, fill=C["pill_fg"], anchor="mm")
+        d.text((W / 2, y0 + 32), tag, font=f, fill=C["pill_fg"], anchor="mm")
     if p.get("big"):
         a = back_out(st / 0.35)
         f = resize(F["display"], p.get("big_size", F["display"].size) * (0.7 + 0.3 * a))
         y = p.get("big_y", 640)
-        text_block(d, p["big"], f, W / 2 + 6, y + 10, C.get("shadow", shade(C["bg"], 0.35)), maxw=920)
-        text_block(d, p["big"], f, W / 2, y, p.get("big_color") and tuple(p["big_color"]) or C["accent"],
+        text_block(d, str(p["big"]), f, W / 2 + 6, y + 10, C.get("shadow", shade(C["bg"], 0.35)), maxw=920)
+        text_block(d, str(p["big"]), f, W / 2, y, p.get("big_color") and tuple(p["big_color"]) or C["accent"],
                    maxw=920, stroke_width=p.get("big_stroke", 0), stroke_fill=C["bg"])
     if p.get("stat"):
         s = p["stat"]

@@ -1,0 +1,78 @@
+channel: what-if-institute
+id: what-if-002-mars
+series: What If You
+number: 2
+title: "What if you stood on Mars without a suit? 🔴"
+hook: What if you skipped the spacesuit?
+description: |
+  Mars won't crush you or freeze you first. Here's what actually gets you, second by second.
+sources:
+  - "NASA Mars Fact Sheet: surface pressure about 6.4 mb vs 1014 mb on Earth; mean temperature about -65 °C. https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html"
+  - "NASA, Ask an Astrophysicist: a person exposed to vacuum stays conscious for about 15 seconds."
+  - "Roth, E. M. (1968). Rapid (Explosive) Decompression Emergencies in Pressure-Suited Subjects. NASA CR-1223 (animal survival of near-vacuum up to about 90 seconds)."
+lines:
+  - text: What if you stood on Mars without a spacesuit?
+    nocap: true
+    pause: 0.4
+    scene:
+      bg: surface
+      colors: [[205, 130, 90], [150, 70, 40]]
+      scout: {x: 540, y: 1580, s: 0.75, pose: stand}
+  - text: The air there is less than one percent as thick as Earth's.
+    scene:
+      tag: THIN AIR
+      bg: surface
+      colors: [[200, 125, 85], [145, 65, 38]]
+      scout: {x: 700, y: 1580, s: 0.75, pose: stand}
+      stat: {to: 0.6, decimals: 1, unit: "%", label: "OF EARTH'S AIR PRESSURE"}
+      stat_y: 600
+  - text: At that pressure, the water on your tongue and in your eyes starts to boil.
+    scene:
+      bg: surface
+      colors: [[190, 110, 75], [140, 60, 35]]
+      scout: {x: 540, y: 1580, s: 0.75, pose: stand}
+      big: YOUR SPIT BOILS.
+      big_y: 620
+      shake: true
+  - text: Even though it's freezing. Around minus sixty degrees, on an average day.
+    caption: Even though it's freezing. Around -60°C on an average day.
+    scene:
+      tag: COLD BOIL
+      bg: surface
+      colors: [[150, 95, 80], [110, 55, 40]]
+      scout: {x: 540, y: 1580, s: 0.75, pose: stand}
+      stat: {from: 20, to: -60, unit: "°C", label: AVERAGE TEMPERATURE}
+      stat_y: 600
+  - text: There's almost no oxygen to breathe, so you'd black out in about fifteen seconds.
+    caption: There's almost no oxygen, so you'd black out in about 15 seconds.
+    scene:
+      tag: NO OXYGEN
+      bg: dark
+      color: [30, 12, 10]
+      scout: {x: 540, y: 1150, s: 0.8, pose: sit}
+      stat: {from: 0, to: 15, unit: " SEC", label: UNTIL YOU BLACK OUT}
+      stat_y: 600
+  - text: If someone dragged you inside within about ninety seconds, you'd probably survive. After that, probably not.
+    caption: Dragged inside within about 90 seconds, you'd probably survive. After that, probably not.
+    scene:
+      bg: dark
+      color: [12, 6, 8]
+      big: "~90 SECONDS TO BE SAVED"
+      big_y: 700
+      big_size: 120
+  - text: So Mars wouldn't crush you or freeze you. It would boil and suffocate you first.
+    scene:
+      bg: surface
+      colors: [[205, 130, 90], [150, 70, 40]]
+      scout: {x: 540, y: 1580, s: 0.75, pose: stand}
+      big: KEEP THE SUIT ON.
+      big_y: 620
+  - text: Send this to someone who wants to move to Mars.
+    pause: 1.0
+    scene:
+      bg: space
+      planet: {kind: mars, r: 430, x: 540, y: 1300, spin: 0.1}
+      scout: {x: 540, y: 820, s: 0.9, pose: wave}
+      share: Send this to someone who wants to move to Mars
+      share_y: 360
+      nocaptions: true

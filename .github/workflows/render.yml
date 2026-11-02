@@ -1,15 +1,19 @@
 name: Render videos
 
 on:
+  # every day: publish the next queued episode of each channel
+  schedule:
+    - cron: "0 15 * * *"
+  # new or changed episodes: render only, as a preview in Artifacts
   push:
     branches: [main]
     paths: ["episodes/**"]
   workflow_dispatch:
     inputs:
       episodes:
-        description: "Episode files separated by spaces, or 'all'"
+        description: "'due' (next queued episode per channel), 'all', or episode files separated by spaces"
         required: true
-        default: all
+        default: due
       upload:
         description: "Upload to YouTube"
         type: choice
@@ -46,7 +50,10 @@ jobs:
           EVENT: ${{ github.event_name }}
           WANTED: ${{ inputs.episodes }}
         run: |
-          if [ "$EVENT" = "workflow_dispatch" ]; then
+          if [ "$EVENT" = "schedule" ] || [ "$WANTED" = "due" ]; then
+            eps=$(python next_episodes.py)
+            [ -n "$eps" ] || echo "::warning::Episode queue is empty, nothing to publish today"
+          elif [ "$EVENT" = "workflow_dispatch" ]; then
             if [ "$WANTED" = "all" ]; then eps=$(ls episodes/*/*.yaml); else eps="$WANTED"; fi
           else
             eps=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'episodes/*.yaml' 'episodes/*/*.yaml')
@@ -62,19 +69,19 @@ jobs:
           path: out/
           retention-days: 14
       - name: Upload to YouTube
-        # pushes of new episodes publish straight away; manual runs follow the "upload" choice
-        if: steps.pick.outputs.episodes != '' && (github.event_name == 'push' || inputs.upload != 'none')
+        # the daily schedule publishes; manual runs follow the "upload" choice; pushes only render
+        if: steps.pick.outputs.episodes != '' && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.upload != 'none'))
         env:
           YT_CLIENT_SECRET_JSON: ${{ secrets.YT_CLIENT_SECRET_JSON }}
           YT_REFRESH_TOKEN_WHATIF: ${{ secrets.YT_REFRESH_TOKEN_WHATIF }}
           YT_REFRESH_TOKEN_STOIC: ${{ secrets.YT_REFRESH_TOKEN_STOIC }}
           YT_REFRESH_TOKEN_MITES: ${{ secrets.YT_REFRESH_TOKEN_MITES }}
-          YT_PRIVACY: ${{ github.event_name == 'push' && 'public' || inputs.upload }}
+          YT_PRIVACY: ${{ github.event_name == 'schedule' && 'public' || inputs.upload }}
         run: |
           pip install -r requirements-upload.txt
           python upload_youtube.py out/*/*.mp4
       - name: Remember what was uploaded
-        if: always() && steps.pick.outputs.episodes != '' && (github.event_name == 'push' || inputs.upload != 'none')
+        if: always() && steps.pick.outputs.episodes != '' && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.upload != 'none'))
         run: |
           [ -d published ] || exit 0
           git config user.name "shorts-studio-bot"

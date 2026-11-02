@@ -15,15 +15,13 @@ lines:
     nocap: true
     pause: 0.4
     scene:
-      setting: shipwreck
+      photo: {src: assets/stoic/shipwreck-commons-2.jpg, focus: [0.42, 0.5], zoom: [1.0, 1.15]}
       rain: 0.9
-      fire: false
   - text: His name was Zeno. His ship, carrying expensive purple dye, sank near Athens.
     scene:
       tag: NEAR ATHENS · c. 310 BC
-      setting: shipwreck
-      rain: 1.0
-      fire: false
+      photo: {src: assets/stoic/shipwreck-commons-3.jpg, focus: [0.45, 0.5], zoom: [1.0, 1.15], pan: [0.06, 0]}
+      rain: 0.7
   - text: Broke and stranded, he wandered into a bookshop and started reading about Socrates.
     scene:
       tag: A BOOKSHOP IN ATHENS
@@ -32,13 +30,11 @@ lines:
       fire_x: 320
   - text: He asked the bookseller where he could find men like that. A philosopher was walking past. Follow him, he said.
     scene:
-      setting: city
-      figures: [{x: 360, pose: standing, h: 540}, {x: 720, pose: walking, h: 540, walk: 25, facing: -1}]
+      photo: {src: assets/stoic/athens-commons-3.jpg, focus: [0.55, 0.45], zoom: [1.0, 1.15], pan: [-0.06, 0]}
   - text: Zeno followed. Years later, he taught on a painted porch in Athens. In Greek, a stoa.
     scene:
       tag: THE STOA
-      setting: city
-      figures: [{x: 540, pose: standing, h: 560}, {x: 200, pose: seated, h: 340}, {x: 880, pose: seated, h: 340, facing: -1}]
+      photo: {src: assets/stoic/zeno-commons-3.jpg, focus: [0.5, 0.42], zoom: [1.0, 1.12]}
   - text: His students were named after that porch. The Stoics.
     scene:
       setting: black
@@ -56,8 +52,7 @@ lines:
   - text: Send this to someone whose ship just sank.
     pause: 1.0
     scene:
-      setting: sea
-      figures: [{x: 540, ground: 1180, pose: standing, h: 200}]
+      photo: {src: assets/stoic/corsica-commons-2.jpg, focus: [0.6, 0.5], zoom: [1.0, 1.1]}
       share: Send this to someone whose ship just sank
       share_y: 520
       nocaptions: true

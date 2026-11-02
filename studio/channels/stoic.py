@@ -5,6 +5,7 @@ import numpy as np
 from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
 from ..characters import stoic_figure
+from ..photo import warm_dark
 from ..core import W, H, add, ease, font, fractal_noise, gradient, pad, vignette
 
 BLACK, CREAM, GOLD, EMBER, SEA = (12, 12, 12), (233, 227, 214), (176, 141, 87), (255, 130, 40), (20, 30, 38)
@@ -12,6 +13,7 @@ BLACK, CREAM, GOLD, EMBER, SEA = (12, 12, 12), (233, 227, 214), (176, 141, 87), 
 
 class Theme:
     brand = "STOIC EMBER"
+    photo_grade = staticmethod(warm_dark)
     voice, speed = "bm_george", 0.95
     crf = 28
     hashtags = ["#stoicism", "#history", "#seneca", "#marcusaurelius", "#philosophy", "#discipline"]
@@ -36,6 +38,9 @@ class Theme:
         self.fog.paste(fog, (0, 0))
         self.fog.paste(fog, (W, 0))
         self.rays = self._rays()
+        # mask that keeps the top of a photo and fades the bottom ~40% towards black
+        ramp = np.clip((np.arange(H) - H * 0.5) / (H * 0.45), 0, 1)[:, None] * 0.65
+        self.shade = Image.fromarray(((1 - np.repeat(ramp, W, 1)) * 255).astype(np.uint8), "L")
         rng = np.random.default_rng(11)
         self.rain = [(rng.random() * W, rng.random() * H, 900 + rng.random() * 700, 30 + rng.random() * 60) for _ in range(170)]
         self.embers = [(rng.random() * W, rng.random() * H, 40 + rng.random() * 90, 1.5 + rng.random() * 3.5, rng.random() * 6) for _ in range(90)]
@@ -129,10 +134,16 @@ class Theme:
         for f in p.get("figures", []):
             stoic_figure(d, f.get("x", 540) + f.get("walk", 0) * st, f.get("ground", ground), f.get("h", 520), f.get("pose", "standing"),
                          t=t, facing=f.get("facing", 1))
-        if kind != "black" and p.get("fog", True):
+        return self.over_photo(img, {**p, "fog": kind != "black" and p.get("fog", True)}, t, st)
+
+    def over_photo(self, img, p, t, st):
+        """Fog, rain and drifting embers over any background, drawn or real."""
+        if p.get("photo"):
+            img = Image.composite(img, Image.new("RGB", (W, H)), self.shade)  # darker lower third for captions
+        if p.get("fog", True):
             off = int(t * 18) % W
             img = ImageChops.add(img, self.fog.crop((off, 0, off + W, H)))
-            d = ImageDraw.Draw(img)
+        d = ImageDraw.Draw(img)
         ra = p.get("rain", 0.0)
         if ra:
             for (x, y, sp, ln) in self.rain:

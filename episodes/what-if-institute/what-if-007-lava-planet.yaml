@@ -1,0 +1,72 @@
+channel: what-if-institute
+id: what-if-007-lava-planet
+series: What If You
+number: 7
+title: "What if you landed on a lava planet? 🌋"
+hook: The whole planet is lava.
+description: |
+  TOI-561 b is covered in molten rock and orbits its star in under 11 hours. The James Webb Space Telescope just found it has an atmosphere it shouldn't be able to keep.
+sources:
+  - "University of Groningen / ApJ Letters (11 Dec 2025): TOI-561 b, about 1.4 Earth radii, orbit under 11 hours, dayside ~1,800 °C vs ~2,700 °C expected for bare rock. https://www.rug.nl/fse/news/matter-and-space/james-webb-space-telescope-detects-thick-atmosphere-around-broiling-lava-world"
+  - "University of Waterloo / The Astronomical Journal (Oct 2026): TOI-561 b reflects about three quarters of the starlight that hits it; silicate clouds suggested by simulations, composition still unknown."
+lines:
+  - text: What if you landed on a planet made of lava?
+    nocap: true
+    pause: 0.4
+    scene:
+      bg: surface
+      colors: [[60, 20, 10], [230, 90, 20]]
+      scout: {x: 540, y: 1000, s: 0.8, pose: float}
+  - text: It's real. It's called TOI five sixty one b, and it's about one point four times the size of Earth.
+    caption: It's real. TOI-561 b, about 1.4 times the size of Earth.
+    scene:
+      tag: TOI-561 b
+      bg: space
+      planet: {kind: mars, r: 420, x: 540, y: 1250, spin: 0.25}
+      stat: {to: 1.4, decimals: 1, unit: "×", label: "EARTH'S SIZE"}
+      stat_y: 520
+  - text: It orbits its star so closely that one year there lasts less than eleven hours.
+    caption: It orbits so close to its star that one year there lasts under 11 hours.
+    scene:
+      tag: ONE YEAR
+      bg: space
+      planet: {kind: mars, r: 420, x: 540, y: 1250, spin: 0.6}
+      stat: {to: 11, unit: " HOURS", label: "LESS THAN THIS"}
+      stat_y: 520
+  - text: The surface is molten rock. Bare rock that close should hit twenty seven hundred degrees.
+    caption: The surface is molten rock. Bare rock that close should be ~2,700°C.
+    scene:
+      tag: MAGMA OCEAN
+      bg: surface
+      colors: [[80, 25, 10], [240, 110, 30]]
+      scout: {x: 540, y: 1560, s: 0.7, pose: stand}
+      stat: {to: 2700, unit: "°C", label: EXPECTED}
+      stat_y: 520
+  - text: But the Webb telescope measured closer to eighteen hundred. Something is cooling it down. An atmosphere.
+    caption: But Webb measured closer to 1,800°C. Something is cooling it. An atmosphere.
+    update: {stat: {from: 2700, to: 1800, unit: "°C", label: MEASURED BY WEBB, dur: 1.4}}
+  - text: It reflects three quarters of its starlight. Maybe clouds of rock vapor. Nobody knows yet.
+    caption: It reflects ~3/4 of its starlight. Maybe clouds of rock vapor. Nobody knows yet.
+    scene:
+      tag: STILL A MYSTERY
+      bg: dark
+      color: [40, 14, 8]
+      big: CLOUDS OF ROCK?
+      big_y: 620
+  - text: You wouldn't last a second. But it shows rocky worlds can keep air where nobody expected.
+    scene:
+      bg: surface
+      colors: [[60, 20, 10], [230, 90, 20]]
+      scout: {x: 540, y: 1000, s: 0.8, pose: float}
+      big: "IT SHOULDN'T HAVE AIR. IT DOES."
+      big_y: 520
+      big_size: 100
+  - text: Send this to someone who says nothing new happens in space.
+    pause: 1.0
+    scene:
+      bg: space
+      planet: {kind: mars, r: 430, x: 540, y: 1300, spin: 0.3}
+      scout: {x: 540, y: 820, s: 0.9, pose: wave}
+      share: Send this to someone who says nothing new happens in space
+      share_y: 360
+      nocaptions: true

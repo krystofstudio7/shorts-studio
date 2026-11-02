@@ -1,0 +1,72 @@
+channel: what-if-institute
+id: what-if-009-tunnel-through-earth
+series: What If You
+number: 9
+title: "What if you jumped into a tunnel through the Earth? 🕳️"
+hook: Jump in here. Pop out there.
+description: |
+  Dig a tunnel straight through the planet and jump. How long until you come out the other side? Physicists actually calculated it.
+sources:
+  - "Klotz, A. R. (2015). The gravity tunnel in a non-uniform Earth. American Journal of Physics 83, 231 (about 38 minutes using real density data; about 42 minutes for uniform density)."
+  - "NASA Earth fact sheet: mean radius 6,371 km. https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html"
+lines:
+  - text: What if you dug a tunnel straight through the Earth and jumped in?
+    nocap: true
+    pause: 0.4
+    scene:
+      bg: space
+      planet: {kind: earth, r: 430, x: 540, y: 1150, spin: 0.1}
+      scout: {x: 540, y: 600, s: 0.8, pose: fall}
+  - text: Ignore the heat and the air for a second. Just you, falling through a perfect tunnel.
+    scene:
+      tag: THE TUNNEL
+      bg: descent
+      colors: [[90, 60, 40], [40, 20, 15]]
+      speed: 900
+      scout: {x: 540, y: 1000, s: 0.7, pose: fall}
+  - text: You'd speed up all the way to the center, to more than seven kilometers per second.
+    caption: You'd speed up all the way to the center, to more than 7 km/s.
+    scene:
+      tag: THE CENTER
+      bg: descent
+      colors: [[200, 80, 20], [120, 30, 10]]
+      speed: 2000
+      scout: {x: 540, y: 1000, s: 0.6, pose: fall}
+      stat: {to: 7, unit: "+ KM/S", label: "AT THE CENTER"}
+      stat_y: 560
+  - text: Then gravity pulls you back, and you slow down all the way up the other side.
+    scene:
+      bg: descent
+      colors: [[90, 60, 40], [40, 20, 15]]
+      speed: 600
+      scout: {x: 540, y: 1000, s: 0.7, pose: float}
+  - text: A physicist calculated the trip using Earth's real density. Thirty eight minutes, door to door.
+    caption: A physicist used Earth's real density. 38 minutes, door to door.
+    scene:
+      tag: ONE WAY
+      bg: space
+      planet: {kind: earth, r: 430, x: 540, y: 1250, spin: 0.1}
+      stat: {to: 38, unit: " MIN", label: "TO THE OTHER SIDE"}
+      stat_y: 520
+  - text: You'd pop out exactly at the other end, stop for a moment, and fall back in. Forever, unless someone grabs you.
+    scene:
+      bg: surface
+      colors: [[120, 170, 220], [70, 110, 60]]
+      scout: {x: 540, y: 1500, s: 0.8, pose: wave}
+      big: GRAB THE EDGE.
+      big_y: 560
+  - text: In real life, the heat and pressure would stop you long before the center. But the math is beautiful.
+    scene:
+      bg: dark
+      color: [30, 10, 5]
+      big: THE MATH IS BEAUTIFUL.
+      big_y: 620
+  - text: Send this to someone you'd meet on the other side.
+    pause: 1.0
+    scene:
+      bg: space
+      planet: {kind: earth, r: 430, x: 540, y: 1300, spin: 0.1}
+      scout: {x: 540, y: 820, s: 0.9, pose: wave}
+      share: Send this to someone you'd meet on the other side
+      share_y: 360
+      nocaptions: true

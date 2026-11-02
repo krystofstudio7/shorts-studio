@@ -1,0 +1,76 @@
+channel: what-if-institute
+id: what-if-008-moon-radiation
+series: What If You
+number: 8
+title: "What if you lived on the Moon with no shielding? 🌑"
+hook: Two days on the Moon. One Earth year.
+description: |
+  The Moon has no air and no magnetic field. Here's how much radiation you'd get living there, from real measurements made on the lunar surface.
+sources:
+  - "Zhang, S. et al. (2020). First measurements of the radiation dose on the lunar surface. Science Advances 6(39), eaaz1334 (Chang'e 4 LND: ~1,369 µSv/day; ~2.6× ISS GCR dose)."
+  - "UNSCEAR: average natural background dose on Earth about 2.4 mSv per year."
+  - "NASA-STD-3001 (2022): astronaut career effective dose limit 600 mSv."
+lines:
+  - text: What if you moved to the Moon and lived there with no shielding?
+    nocap: true
+    pause: 0.4
+    scene:
+      bg: surface
+      colors: [[20, 20, 28], [120, 120, 125]]
+      scout: {x: 540, y: 1560, s: 0.75, pose: stand}
+  - text: On Earth, our air and magnetic field block most space radiation. The Moon has neither.
+    scene:
+      tag: NO SHIELD
+      bg: space
+      planet: {kind: moon, r: 420, x: 540, y: 1300, spin: 0.05}
+      big: NO AIR. NO MAGNETIC FIELD.
+      big_y: 520
+      big_size: 110
+  - text: "China's Chang'e 4 lander measured it: about thirteen hundred microsieverts a day."
+    caption: China's Chang'e 4 lander measured it on the surface. ~1,369 microsieverts a day.
+    scene:
+      tag: CHANG'E 4
+      bg: surface
+      colors: [[20, 20, 28], [120, 120, 125]]
+      stat: {to: 1369, unit: " µSv", label: PER DAY}
+      stat_y: 560
+  - text: That's more than two hundred times what you get on the ground on Earth. Two days there is like a whole year here.
+    caption: That's 200+ times Earth's ground level. Two days there ≈ a year here.
+    scene:
+      bg: dark
+      color: [10, 10, 16]
+      big: "2 DAYS = 1 EARTH YEAR"
+      big_y: 620
+  - text: In about fourteen months, you'd pass NASA's radiation limit for an astronaut's entire career.
+    caption: In ~14 months, you'd pass NASA's limit for an astronaut's entire career.
+    scene:
+      tag: NASA CAREER LIMIT
+      bg: surface
+      colors: [[20, 20, 28], [120, 120, 125]]
+      scout: {x: 540, y: 1560, s: 0.75, pose: sit}
+      stat: {to: 600, unit: " mSv", label: "~14 MONTHS ON THE MOON"}
+      stat_y: 560
+  - text: And a big solar storm could hit you with a lot more in a few hours. Hiding fast would matter.
+    scene:
+      bg: dark
+      color: [50, 30, 0]
+      big: SOLAR STORM.
+      big_y: 620
+      shake: true
+  - text: So Moon bases will likely be buried under lunar soil. The Moon becomes the shield.
+    scene:
+      tag: THE FIX
+      bg: surface
+      colors: [[20, 20, 28], [120, 120, 125]]
+      scout: {x: 540, y: 1560, s: 0.75, pose: wave}
+      big: LIVE UNDERGROUND.
+      big_y: 600
+  - text: Send this to someone who wants a house on the Moon.
+    pause: 1.0
+    scene:
+      bg: space
+      planet: {kind: moon, r: 430, x: 540, y: 1300, spin: 0.05}
+      scout: {x: 540, y: 820, s: 0.9, pose: wave}
+      share: Send this to someone who wants a house on the Moon
+      share_y: 360
+      nocaptions: true

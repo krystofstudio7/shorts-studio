@@ -1,0 +1,66 @@
+channel: stoic-ember
+id: story-006-memento-mori
+series: One Stoic Story
+number: 6
+title: "The whisper behind every Roman victory parade."
+hook: At his greatest moment, someone whispered.
+description: |
+  Roman generals paraded through the city like gods. According to one ancient writer, someone behind them kept reminding them they were only human.
+  One Stoic Story, true and short. Our main source, Tertullian, wrote around 200 AD, long after the Republic, so treat the details with care.
+sources:
+  - "Tertullian, Apology 33 (c. 197 AD), trans. S. Thelwall, Ante-Nicene Fathers vol. 3: the triumphing general is reminded from behind that he is a man."
+  - "Marcus Aurelius, Meditations 2.11, trans. George Long (1862)."
+affiliate: "Meditations, Gregory Hays translation (Amazon Associates link pending)"
+lines:
+  - text: At the greatest moment of his life, a Roman general heard a whisper.
+    nocap: true
+    pause: 0.4
+    scene:
+      setting: city
+      figures: [{x: 540, pose: standing, h: 560}]
+  - text: Rome gave a winning general a triumph. A parade, cheering crowds, his face painted red like a god.
+    scene:
+      tag: THE TRIUMPH
+      setting: city
+      figures: [{x: 300, pose: walking, h: 520, walk: 20}, {x: 600, pose: standing, h: 380}, {x: 820, pose: standing, h: 380, facing: -1}]
+  - text: But according to the writer Tertullian, someone stood behind him the whole time, reminding him he was only human.
+    scene:
+      tag: TERTULLIAN · c. 200 AD
+      setting: city
+      figures: [{x: 460, pose: standing, h: 560}, {x: 640, pose: standing, h: 500, facing: -1}]
+      big: YOU ARE ONLY HUMAN.
+      big_y: 520
+  - text: Tertullian wrote this centuries later, so we can't be sure it's true. But the idea stuck. Memento mori.
+    scene:
+      setting: black
+      big: MEMENTO MORI.
+      big_y: 720
+      embers: 1.0
+  - text: The Stoics used it every day. Not to be gloomy. To live better today.
+    scene:
+      tag: THE STOIC VERSION
+      setting: room
+      figures: [{x: 360, pose: writing, h: 620}]
+      fire_x: 300
+  - text: Since it is possible that thou mayest depart from life this very moment, regulate every act and thought accordingly.
+    nocap: true
+    pause: 0.9
+    scene:
+      setting: black
+      quote: {text: "“Since it is possible that thou mayest depart from life this very moment, regulate every act and thought accordingly.”", source: "Marcus Aurelius · Meditations 2.11 · trans. G. Long (1862)"}
+      quote_y: 820
+      nocaptions: true
+  - text: Success fades. Time doesn't wait. Say the thing today.
+    scene:
+      setting: black
+      big: SAY IT TODAY.
+      big_y: 720
+      embers: 1.0
+  - text: Send this to someone you haven't told enough.
+    pause: 1.0
+    scene:
+      setting: city
+      figures: [{x: 540, pose: standing, h: 560}]
+      share: Send this to someone you haven't told enough
+      share_y: 520
+      nocaptions: true

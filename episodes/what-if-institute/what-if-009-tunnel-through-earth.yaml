@@ -20,41 +20,32 @@ lines:
   - text: Ignore the heat and the air for a second. Just you, falling through a perfect tunnel.
     scene:
       tag: THE TUNNEL
-      bg: descent
-      colors: [[90, 60, 40], [40, 20, 15]]
-      speed: 900
-      scout: {x: 540, y: 1000, s: 0.7, pose: fall}
+      bg: space
+      sim: {kind: tunnel, trip: [0, 0.12], dur: 5, ease: false}
   - text: You'd speed up all the way to the center, to more than seven kilometers per second.
     caption: You'd speed up all the way to the center, to more than 7 km/s.
     scene:
-      tag: THE CENTER
-      bg: descent
-      colors: [[200, 80, 20], [120, 30, 10]]
-      speed: 2000
-      scout: {x: 540, y: 1000, s: 0.6, pose: fall}
+      bg: space
+      sim: {kind: tunnel, trip: [0.12, 0.25], dur: 4.5, ease: false}
       stat: {to: 7, unit: "+ KM/S", label: "AT THE CENTER"}
-      stat_y: 560
+      stat_y: 400
   - text: Then gravity pulls you back, and you slow down all the way up the other side.
     scene:
-      bg: descent
-      colors: [[90, 60, 40], [40, 20, 15]]
-      speed: 600
-      scout: {x: 540, y: 1000, s: 0.7, pose: float}
+      bg: space
+      sim: {kind: tunnel, trip: [0.25, 0.5], dur: 5}
   - text: A physicist calculated the trip using Earth's real density. Thirty eight minutes, door to door.
     caption: A physicist used Earth's real density. 38 minutes, door to door.
     scene:
-      tag: ONE WAY
       bg: space
-      planet: {kind: earth, r: 430, x: 540, y: 1250, spin: 0.1}
+      sim: {kind: tunnel, trip: [0, 0.5], dur: 5}
       stat: {to: 38, unit: " MIN", label: "TO THE OTHER SIDE"}
-      stat_y: 520
+      stat_y: 400
   - text: You'd pop out exactly at the other end, stop for a moment, and fall back in. Forever, unless someone grabs you.
     scene:
-      bg: surface
-      colors: [[120, 170, 220], [70, 110, 60]]
-      scout: {x: 540, y: 1500, s: 0.8, pose: wave}
+      bg: space
+      sim: {kind: tunnel, trip: [0.5, 1.5], dur: 7, ease: false}
       big: GRAB THE EDGE.
-      big_y: 560
+      big_y: 420
   - text: In real life, the heat and pressure would stop you long before the center. But the math is beautiful.
     scene:
       bg: dark

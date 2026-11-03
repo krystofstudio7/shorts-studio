@@ -15,7 +15,7 @@ on:
         required: true
         default: due
       upload:
-        description: "Upload to YouTube"
+        description: "Upload (public also posts Facebook and Instagram Reels)"
         type: choice
         options: [public, private, none]
         default: public
@@ -84,6 +84,17 @@ jobs:
           pip install -r requirements-upload.txt
           ls out/*/*.mp4 >/dev/null 2>&1 || exit 0
           python upload_youtube.py out/*/*.mp4
+      - name: Post to Facebook and Instagram Reels
+        id: meta
+        # same runs as YouTube, but only public ones (Reels have no private mode)
+        if: steps.pick.outputs.episodes != '' && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.upload == 'public'))
+        continue-on-error: true
+        env:
+          META_SYSTEM_USER_TOKEN: ${{ secrets.META_SYSTEM_USER_TOKEN }}
+        run: |
+          pip install -r requirements-upload.txt
+          ls out/*/*.mp4 >/dev/null 2>&1 || exit 0
+          python upload_meta.py out/*/*.mp4
       - name: Remember what was uploaded
         if: always() && steps.pick.outputs.episodes != '' && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.upload != 'none'))
         run: |
@@ -92,8 +103,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add published
           git diff --cached --quiet && exit 0
-          git commit -m "Record YouTube uploads"
+          git commit -m "Record uploads"
           git pull --rebase origin main && git push origin HEAD:main
-      - name: Fail if an episode did not render
-        if: steps.render.outcome == 'failure'
+      - name: Fail if an episode did not render or a Reels upload failed
+        if: steps.render.outcome == 'failure' || steps.meta.outcome == 'failure'
         run: exit 1

@@ -6,6 +6,7 @@ from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
 from ..characters import scout
 from ..photo import space
+from .. import sims
 from ..core import W, H, Sphere, add, ease, font, fractal_noise, gradient, pad, starfield, vignette
 
 NAVY, YEL, CREAM, ORANGE = (11, 23, 54), (255, 210, 63), (242, 245, 255), (255, 107, 53)
@@ -179,6 +180,8 @@ class Theme:
                 sp = sp.resize((int(2 * R * zoom), int(2 * R * zoom)), Image.BILINEAR)
             img = self.atmosphere(img, pl["kind"], sp.width / 2, pl.get("x", 540), pl.get("y", 1050))
             img.paste(sp, (int(pl.get("x", 540) - sp.width / 2), int(pl.get("y", 1050) - sp.height / 2)), sp)
+        if p.get("sim"):
+            img = sims.draw(img, p["sim"], t, st)
         sc = p.get("scout")
         if sc:
             drift = sc.get("drift", 0) * st

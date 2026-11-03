@@ -15,19 +15,19 @@ lines:
     pause: 0.4
     scene:
       bg: space
-      scout: {x: 540, y: 900, s: 0.9, pose: fall, drift: 30}
+      sim: {kind: black_hole, y: 1080, r: 130}
+      scout: {x: 780, y: 620, s: 0.7, pose: fall, drift: 30}
   - text: A small one, a few times heavier than the Sun, pulls on your feet far harder than your head.
     scene:
       tag: SMALL BLACK HOLE
-      bg: dark
-      color: [4, 2, 10]
-      scout: {x: 540, y: 1000, s: 0.8, pose: fall, angle: 90}
+      bg: space
+      sim: {kind: black_hole, y: 1060, r: 90, fall: small, dur: 7, start_dist: 7, s: 0.45}
       big: FEET FIRST.
       big_y: 540
   - text: You'd be stretched thin like a noodle. Scientists really call it spaghettification.
     scene:
-      bg: dark
-      color: [10, 2, 14]
+      bg: space
+      sim: {kind: black_hole, y: 1060, r: 90, fall: small, dur: 4.5, start_dist: 3.2, start_angle: 60, s: 0.4}
       big: SPAGHETTI- FICATION
       big_y: 620
       big_size: 120
@@ -37,21 +37,20 @@ lines:
     scene:
       tag: SAGITTARIUS A*
       bg: space
-      scout: {x: 760, y: 1560, s: 0.6, pose: float}
+      sim: {kind: black_hole, y: 1130, r: 190, spin: 0.5}
       stat: {to: 4000000, unit: "", label: "TIMES THE SUN'S MASS", dur: 1.6}
       stat_y: 560
   - text: You could float past the point of no return and feel nothing at all. At first.
     scene:
-      bg: dark
-      color: [2, 2, 6]
-      scout: {x: 540, y: 1000, s: 0.8, pose: float}
+      bg: space
+      sim: {kind: black_hole, y: 1130, r: 190, spin: 0.5, fall: giant, dur: 5, start_dist: 3.2, start_angle: -70}
       big: NO RETURN.
       big_y: 540
   - text: To a friend watching from far away, you'd seem to slow down, turn red, and fade. Never quite falling in.
     scene:
       tag: WHAT YOUR FRIEND SEES
       bg: space
-      scout: {x: 540, y: 1000, s: 0.5, pose: float}
+      sim: {kind: black_hole, y: 1130, r: 190, spin: 0.5, fall: frozen, dur: 6, start_dist: 2.4, start_angle: -70}
       big: FROZEN IN TIME.
       big_y: 540
   - text: The nearest known black hole is more than a thousand light years away. You're safe.

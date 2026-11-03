@@ -9,7 +9,7 @@ import yaml
 from PIL import Image, ImageDraw
 
 from . import photo, sfx
-from .core import (W, H, FPS, build_voice, caption_chunks, clamp01, ease, ease_out, encode, fade, mix, resize, srt,
+from .core import (W, H, FPS, build_voice, voice_fx, caption_chunks, clamp01, ease, ease_out, encode, fade, mix, resize, srt,
                    text_block, wrap)
 
 TRANSITION = 0.28
@@ -243,6 +243,8 @@ def render_episode(path, out_dir, preview=None):
     th = get_theme(ep["channel"])
     lines = ep["lines"]
     voice, tl, dur = build_voice(lines, th.voice, ep.get("speed", th.speed))
+    if getattr(th, "voice_fx", None):
+        voice = voice_fx(voice, th.voice_fx)
     dur += ep.get("tail", 0.4)
     caps = caption_chunks(lines, tl)
     plan = plan_scenes(lines, tl)

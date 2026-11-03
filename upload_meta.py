@@ -104,12 +104,30 @@ def facebook_reel(page, path, text):
     return vid
 
 
-def instagram_reel(page, token, path, text):
+def fb_video_url(page, video_id):
+    """Download link of a Reel already posted on the Facebook page (used as a fallback source for Instagram)."""
+    for _ in range(30):
+        src = call("GET", f"{GRAPH}/{video_id}", params={"fields": "source", "access_token": page["page_token"]}).get("source")
+        if src:
+            return src
+        time.sleep(10)
+    raise MetaError(f"Facebook video {video_id} has no download link yet")
+
+
+def instagram_reel(page, token, path, text, fb_video_id=None):
     ig = page["ig_id"]
     box = call("POST", f"{GRAPH}/{ig}/media", data={"media_type": "REELS", "upload_type": "resumable", "caption": text,
                                                    "share_to_feed": "true", "access_token": token})
     cid = box["id"]
-    push_bytes(box.get("uri") or f"https://rupload.facebook.com/ig-api-upload/{VERSION}/{cid}", token, path)
+    try:
+        push_bytes(box.get("uri") or f"https://rupload.facebook.com/ig-api-upload/{VERSION}/{cid}", token, path)
+    except MetaError as e:
+        if not fb_video_id:
+            raise
+        # Instagram's direct upload sometimes refuses a file it accepts by URL: hand it the copy already on Facebook
+        print(f"::warning::Instagram direct upload failed ({e}); retrying from the Facebook copy")
+        cid = call("POST", f"{GRAPH}/{ig}/media", data={"media_type": "REELS", "video_url": fb_video_url(page, fb_video_id),
+                                                       "caption": text, "share_to_feed": "true", "access_token": token})["id"]
     for _ in range(60):  # Instagram processes the video before it can be published (usually under a minute)
         st = call("GET", f"{GRAPH}/{cid}", params={"fields": "status_code,status", "access_token": token})
         if st.get("status_code") == "FINISHED":
@@ -146,7 +164,10 @@ def upload(path, pages, token, only=None, dry=False):
             print(f"[dry run] would post {path} to {platform} ({page['page_name']}), caption {len(text)} chars")
             continue
         try:
-            rid = facebook_reel(page, path, text) if platform == "facebook" else instagram_reel(page, token, path, text)
+            if platform == "facebook":
+                rid = facebook_reel(page, path, text)
+            else:
+                rid = instagram_reel(page, token, path, text, rec.get("facebook_id"))
             rec[f"{platform}_id"] = rid
             print(f"posted {path} -> {platform} {rid}")
         except (MetaError, requests.RequestException) as e:

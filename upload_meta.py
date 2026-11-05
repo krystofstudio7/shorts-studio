@@ -22,6 +22,9 @@ import time
 
 import requests
 
+from quality.caption import reels_description
+from quality.text import clean
+
 VERSION = os.environ.get("META_GRAPH_VERSION", "v23.0")
 GRAPH = f"https://graph.facebook.com/{VERSION}"
 CHANNELS = {"whatifinstitute": "what-if-institute", "stoicember": "stoic-ember", "mindmites": "mind-mites"}
@@ -66,8 +69,13 @@ def discover(token):
 
 
 def caption(meta, limit=CAPTION_LIMIT):
-    """Title + description; if too long, drop the image credits first, then the sources (they stay on YouTube)."""
-    desc = meta["description"]
+    """Title + description; if too long, drop the image credits first, then the sources (they stay on YouTube).
+
+    Typography is cleaned and hashtags are cut to Instagram's limit of 5 (other-platform tags like
+    #learnontiktok go first), see quality/caption.py.
+    """
+    desc = reels_description(meta["description"], meta.get("hashtags"))
+    meta = {**meta, "title": clean(meta["title"])}
     full = f"{meta['title']}\n\n{desc}"
     if len(full) <= limit:
         return full

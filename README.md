@@ -46,6 +46,13 @@ Podle kanálu navíc:
 - **Stoic Ember:** `setting` (city, island, sea, shipwreck, camp, room, night, black), `figures` (pose: standing, seated, writing, walking, lying), `rain`, `embers`, `fire`, `fog`, `rays`
 - **Mind Mites:** `bg` (dark), `icons` (bat, ball, tag), `mite` (mood: happy, sad, shock, waiting, smug)
 
+## Kontrola kvality a výkon
+
+- `python check_episodes.py FILES` (nebo `--all`): ohodnotí mluvený i textový hook (0–100), odhadne délku podle tempa našeho hlasu, upozorní na hook delší než 3 s, dlouhé statické záběry, chybějící smyčku na konci a AI fráze. Chyba (neviditelné znaky, pozdrav, „stop scrolling“, „follow for more“) shodí check, zbytek jsou rady. Běží automaticky na každém PR s epizodami (workflow **Check episodes**).
+- Popisky pro Facebook a Instagram se čistí automaticky: max. 5 hashtagů (limit Instagramu), bez tagů jiných platforem (#learnontiktok), bez pomlček a neviditelných znaků.
+- `python performance.py`: každé pondělí v 6:00 UTC (workflow **Performance report**) seřadí zveřejněná videa podle násobku mediánu kanálu a sdílení na 1 000 dosahu a porovná nejlepší a nejhorší třetinu (hook, délka, smyčka). Výsledek je v `reports/performance.md`. Instagram potřebuje u system user tokenu oprávnění `instagram_manage_insights`, YouTube podíl sledování potřebuje zapnuté YouTube Analytics API.
+- Části v `quality/` jsou převzaté z [instagram-agent-skill](https://github.com/Jakeschincariol/instagram-agent-skill) (licence MIT).
+
 ## Lokálně
 
 ```bash

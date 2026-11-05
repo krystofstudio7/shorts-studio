@@ -26,12 +26,15 @@ TOKENS = {
 EDUCATION = "27"
 
 
-def client(channel):
+def credentials(channel):
     secret = json.loads(os.environ["YT_CLIENT_SECRET_JSON"])
     app = secret.get("installed") or secret.get("web")
-    creds = Credentials(None, refresh_token=os.environ[TOKENS[channel]], client_id=app["client_id"],
-                        client_secret=app["client_secret"], token_uri=app.get("token_uri", "https://oauth2.googleapis.com/token"))
-    return build("youtube", "v3", credentials=creds, cache_discovery=False)
+    return Credentials(None, refresh_token=os.environ[TOKENS[channel]], client_id=app["client_id"],
+                       client_secret=app["client_secret"], token_uri=app.get("token_uri", "https://oauth2.googleapis.com/token"))
+
+
+def client(channel, api="youtube", version="v3"):
+    return build(api, version, credentials=credentials(channel), cache_discovery=False)
 
 
 def upload(path, privacy):

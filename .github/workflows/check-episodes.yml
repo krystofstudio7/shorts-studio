@@ -1,0 +1,33 @@
+name: Check episodes
+
+# Quality check for new or changed episodes: hook score, timing, AI-sounding wording, invisible
+# characters. Warnings are advice; only real errors (see check_episodes.py) fail the check.
+on:
+  pull_request:
+    paths: ["episodes/**", "quality/**", "check_episodes.py"]
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Check
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [ -n "$BASE" ]; then
+            eps=$(git diff --name-only --diff-filter=AM "$BASE" HEAD -- 'episodes/*/*.yaml')
+          fi
+          if [ -n "$eps" ]; then
+            python check_episodes.py --summary "$GITHUB_STEP_SUMMARY" $eps
+          else
+            python check_episodes.py --summary "$GITHUB_STEP_SUMMARY" --all
+          fi

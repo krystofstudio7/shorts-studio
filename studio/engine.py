@@ -8,6 +8,8 @@ import numpy as np
 import yaml
 from PIL import Image, ImageDraw
 
+from quality.text import clean
+
 from . import photo, sfx
 from .core import (W, H, FPS, build_voice, voice_fx, caption_chunks, clamp01, ease, ease_out, encode, fade, mix, resize, srt,
                    text_block, wrap)
@@ -322,7 +324,7 @@ def metadata(ep, th, dur):
              if srcs else "Visuals are code-drawn animation."))
     desc += "\n\n" + " ".join(tags)
     return {
-        "channel": ep["channel"], "id": ep["id"], "title": ep["title"], "series": ep.get("series"),
-        "number": ep.get("number"), "description": desc.strip(), "hashtags": tags,
+        "channel": ep["channel"], "id": ep["id"], "title": clean(ep["title"]), "series": ep.get("series"),
+        "number": ep.get("number"), "description": clean(desc.strip()), "hashtags": tags,
         "duration": round(dur, 2), "ai_label": ep.get("ai_label", False),
     }

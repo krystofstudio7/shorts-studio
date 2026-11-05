@@ -1,0 +1,364 @@
+[
+  {
+    "channel": "mind-mites",
+    "id": "brain-test-001",
+    "title": "Brain Test #1: Most people get this wrong 🐛",
+    "youtube_id": "SguR-Rqp4WM",
+    "yt": {
+      "views": 83,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 49.83,
+      "view_sec": 18.0,
+      "subs": 0
+    },
+    "episode": {
+      "hook": "A bat and a ball cost one dollar ten.",
+      "hook_score": 59,
+      "screen_hook": "Most people get this wrong",
+      "est_seconds": 39,
+      "loop": true
+    }
+  },
+  {
+    "channel": "mind-mites",
+    "id": "brain-test-002",
+    "title": "Brain Test #2: The lily pad trick 🐛",
+    "youtube_id": "3EvUwQWRcB0",
+    "yt": {
+      "views": 354,
+      "likes": 6,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 59.85,
+      "view_sec": 18.0,
+      "subs": 1
+    },
+    "episode": {
+      "hook": "A patch of lily pads doubles in size every day.",
+      "hook_score": 30,
+      "screen_hook": "Your brain wants to say 24",
+      "est_seconds": 32,
+      "loop": false
+    }
+  },
+  {
+    "channel": "mind-mites",
+    "id": "brain-test-003",
+    "title": "Brain Test #3: The machine question 🐛",
+    "youtube_id": "f-FVLglZZn8",
+    "yt": {
+      "views": 95,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 60.34,
+      "view_sec": 20.0,
+      "subs": 0
+    },
+    "episode": {
+      "hook": "Five machines make five widgets in five minutes.",
+      "hook_score": 51,
+      "screen_hook": "The answer is NOT 100",
+      "est_seconds": 34,
+      "loop": false
+    }
+  },
+  {
+    "channel": "mind-mites",
+    "id": "brain-test-004",
+    "title": "Brain Test #4: Would you switch doors? 🐛",
+    "youtube_id": "kxu2eMrqIe4",
+    "instagram_id": "18135794110729764",
+    "facebook_id": "2247639789429837",
+    "yt": {
+      "views": 68,
+      "likes": 3,
+      "comments": 0
+    },
+    "ig": {
+      "views": 120,
+      "reach": 105,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 5687
+    },
+    "episode": {
+      "hook": "Three doors. Behind one is a car. Behind the other two, goats.",
+      "hook_score": 49,
+      "screen_hook": "Thousands argued this answer was wrong",
+      "est_seconds": 38,
+      "loop": false
+    }
+  },
+  {
+    "channel": "mind-mites",
+    "id": "brain-test-005",
+    "title": "Brain Test #5: How many people for a shared birthday? 🐛",
+    "youtube_id": "pxAoyy90yzI",
+    "instagram_id": "18119355719319247",
+    "facebook_id": "1311773491046887",
+    "yt": {
+      "views": 195,
+      "likes": 2,
+      "comments": 0
+    },
+    "ig": {
+      "views": 111,
+      "reach": 101,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 7538
+    },
+    "episode": {
+      "hook": "How many people do you need in a room for a fifty percent chance that two share a birthday?",
+      "hook_score": 37,
+      "screen_hook": "Guess the number. You'll guess high.",
+      "est_seconds": 34,
+      "loop": true
+    }
+  },
+  {
+    "channel": "stoic-ember",
+    "id": "story-001-seneca-corsica",
+    "title": "Seneca was exiled for 8 years. Here's what he wrote home.",
+    "youtube_id": "KdX9gTsuQ2Q",
+    "yt": {
+      "views": 5,
+      "likes": 2,
+      "comments": 1,
+      "shares": 0,
+      "view_pct": 54.61,
+      "view_sec": 22.0,
+      "subs": 1
+    },
+    "episode": {
+      "hook": "In 41 AD, Seneca lost everything.",
+      "hook_score": 63,
+      "screen_hook": "In 41 AD, Seneca lost everything.",
+      "est_seconds": 40,
+      "loop": false
+    }
+  },
+  {
+    "channel": "stoic-ember",
+    "id": "story-002-epictetus",
+    "title": "He was born a slave. An emperor studied his words.",
+    "youtube_id": "peTs_OCskpw",
+    "yt": {
+      "views": 243,
+      "likes": 12,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 54.47,
+      "view_sec": 26.0,
+      "subs": 1
+    },
+    "episode": {
+      "hook": "Epictetus was born a slave. He died one of the most famous teachers in the world.",
+      "hook_score": 23,
+      "screen_hook": "Born a slave. Died a legend.",
+      "est_seconds": 49,
+      "loop": false
+    }
+  },
+  {
+    "channel": "stoic-ember",
+    "id": "story-003-marcus-plague",
+    "title": "The most powerful man on Earth wrote notes to calm himself down.",
+    "youtube_id": "UhltYc9sV0Y",
+    "yt": {
+      "views": 148,
+      "likes": 12,
+      "comments": 1,
+      "shares": 0,
+      "view_pct": 68.3,
+      "view_sec": 33.0,
+      "subs": 1
+    },
+    "episode": {
+      "hook": "The most powerful man on Earth kept a private diary. It was never meant for us.",
+      "hook_score": 46,
+      "screen_hook": "An emperor's private diary. Never meant for you.",
+      "est_seconds": 49,
+      "loop": false
+    }
+  },
+  {
+    "channel": "stoic-ember",
+    "id": "story-004-zeno-shipwreck",
+    "title": "A shipwreck created Stoicism. True story.",
+    "youtube_id": "aPiqS05v50o",
+    "instagram_id": "18167519848519757",
+    "facebook_id": "952000854371923",
+    "yt": {
+      "views": 338,
+      "likes": 19,
+      "comments": 1
+    },
+    "ig": {
+      "views": 1,
+      "reach": 1,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 882
+    },
+    "episode": {
+      "hook": "Around 310 BC, a merchant lost everything at sea.",
+      "hook_score": 60,
+      "screen_hook": "He lost everything at sea.",
+      "est_seconds": 40,
+      "loop": false
+    }
+  },
+  {
+    "channel": "stoic-ember",
+    "id": "story-005-stockdale",
+    "title": "7 years as a prisoner of war. One old book got him through.",
+    "youtube_id": "0TjD1w03niI",
+    "instagram_id": "18106122203570220",
+    "facebook_id": "1148200054670976",
+    "yt": {
+      "views": 83,
+      "likes": 4,
+      "comments": 0
+    },
+    "ig": {
+      "views": 3,
+      "reach": 3,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 5339
+    },
+    "episode": {
+      "hook": "In 1965, James Stockdale was shot down over North Vietnam.",
+      "hook_score": 51,
+      "screen_hook": "Shot down. Captured. Seven years.",
+      "est_seconds": 44,
+      "loop": false
+    }
+  },
+  {
+    "channel": "what-if-institute",
+    "id": "what-if-001-jupiter",
+    "title": "What if you fell into Jupiter? 🪐",
+    "youtube_id": "LtYiEpke1Y8",
+    "yt": {
+      "views": 506,
+      "likes": 12,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 54.2,
+      "view_sec": 22.0,
+      "subs": 1
+    },
+    "episode": {
+      "hook": "What if you fell into Jupiter?",
+      "hook_score": 47,
+      "screen_hook": "What if you fell into Jupiter?",
+      "est_seconds": 34,
+      "loop": false
+    }
+  },
+  {
+    "channel": "what-if-institute",
+    "id": "what-if-002-mars",
+    "title": "What if you stood on Mars without a suit? 🔴",
+    "youtube_id": "dS5KCzPozwo",
+    "yt": {
+      "views": 57,
+      "likes": 10,
+      "comments": 0,
+      "shares": 2,
+      "view_pct": 77.28,
+      "view_sec": 29.0,
+      "subs": 0
+    },
+    "episode": {
+      "hook": "What if you stood on Mars without a spacesuit?",
+      "hook_score": 78,
+      "screen_hook": "What if you skipped the spacesuit?",
+      "est_seconds": 37,
+      "loop": true
+    }
+  },
+  {
+    "channel": "what-if-institute",
+    "id": "what-if-003-moon",
+    "title": "What if the Moon disappeared tonight? 🌕",
+    "youtube_id": "ra-xdMd6N7c",
+    "yt": {
+      "views": 73,
+      "likes": 12,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 55.45,
+      "view_sec": 22.0,
+      "subs": 0
+    },
+    "episode": {
+      "hook": "What if the Moon disappeared tonight?",
+      "hook_score": 39,
+      "screen_hook": "The Moon vanishes tonight. Then what?",
+      "est_seconds": 39,
+      "loop": false
+    }
+  },
+  {
+    "channel": "what-if-institute",
+    "id": "what-if-004-stop-spinning",
+    "title": "What if Earth stopped spinning for one second? 🌍",
+    "youtube_id": "w-_NBgyvQzU",
+    "facebook_id": "1619725919636326",
+    "yt": {
+      "views": 688,
+      "likes": 23,
+      "comments": 0
+    },
+    "episode": {
+      "hook": "What if Earth suddenly stopped spinning?",
+      "hook_score": 39,
+      "screen_hook": "Earth stops spinning. You don't.",
+      "est_seconds": 41,
+      "loop": false
+    }
+  },
+  {
+    "channel": "what-if-institute",
+    "id": "what-if-005-black-hole",
+    "title": "What if you fell into a black hole? 🕳️",
+    "youtube_id": "7SmsEe4Yl_0",
+    "instagram_id": "17904131397373595",
+    "facebook_id": "1555758389903204",
+    "yt": {
+      "views": 536,
+      "likes": 15,
+      "comments": 0
+    },
+    "ig": {
+      "views": 246,
+      "reach": 197,
+      "shares": 1,
+      "saved": 0,
+      "likes": 2,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 14223
+    },
+    "episode": {
+      "hook": "What if you fell into a black hole? It depends on which one.",
+      "hook_score": 36,
+      "screen_hook": "Small black hole or giant one?",
+      "est_seconds": 45,
+      "loop": false
+    }
+  }
+]

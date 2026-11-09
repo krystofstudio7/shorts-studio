@@ -1,0 +1,105 @@
+channel: what-if-institute
+id: what-if-011-carrington-flare
+series: What If You
+number: 11
+title: What if the biggest solar storm ever hit today? ☀️
+hook: '1859: the telegraphs caught fire.'
+description: |
+  In 1859 a solar storm lit up skies near the equator and set telegraph paper on fire. What would the same storm do to our world?
+sources:
+- NASA, The Carrington Event (1-2 September 1859). https://science.nasa.gov/sun/
+- 'Lloyd''s (2013), Solar storm risk to the North American electric grid: a Carrington-level storm could cost the US $0.6-2.6 trillion.'
+lines:
+- text: What if the biggest solar storm ever recorded hit us today?
+  nocap: true
+  pause: 0.4
+  scene:
+    photo:
+      src: assets/whatif/solar-flare-nasa-4.jpg
+      focus:
+      - 0.6
+      - 0.55
+      zoom:
+      - 1.0
+      - 1.2
+- text: September 1859. An astronomer named Richard Carrington saw a blinding flash on the Sun.
+  scene:
+    tag: 1 SEPT 1859
+    photo:
+      src: assets/whatif/solar-flare-nasa-3.jpg
+      focus:
+      - 0.5
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.15
+- text: Within a day, auroras lit up the sky as far south as the Caribbean. People read newspapers by their light at night.
+  scene:
+    photo:
+      src: assets/whatif/jupiter-nasa-4.jpg
+      focus:
+      - 0.5
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.15
+    big: AURORAS IN THE TROPICS.
+    big_y: 520
+- text: Telegraph lines sparked. Operators got shocks, and some kept sending messages with their batteries unplugged.
+  scene:
+    bg: dark
+    color:
+    - 30
+    - 12
+    - 4
+    big: SPARKS FROM THE WIRES.
+    big_y: 620
+    shake: true
+- text: Today we have power grids, satellites and GPS. A study for Lloyd's estimated the damage in the US alone at up to two point six trillion dollars.
+  caption: 'Today: grids, satellites, GPS. Lloyd''s estimate for the US alone: up to $2.6 trillion.'
+  scene:
+    bg: space
+    planet:
+      kind: earth
+      r: 380
+      x: 540
+      y: 1200
+      spin: 0.2
+    stat:
+      to: 2.6
+      unit: ' TRILLION $'
+      label: ESTIMATED US DAMAGE
+    stat_y: 520
+- text: Good news. Spacecraft now watch the Sun around the clock and can give us about a day of warning.
+  scene:
+    photo:
+      src: assets/whatif/solar-flare-nasa-1.jpg
+      focus:
+      - 0.3
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.1
+    tag: EARLY WARNING
+- text: Operators can protect transformers and satellites can go into safe mode. And the auroras would be unforgettable.
+  scene:
+    bg: space
+    scout:
+      x: 540
+      y: 980
+      s: 0.9
+      pose: wave
+    big: LOOK UP.
+    big_y: 560
+- text: Send this to someone who'd watch the sky with you.
+  pause: 1.0
+  scene:
+    bg: space
+    scout:
+      x: 540
+      y: 820
+      s: 0.9
+      pose: wave
+    share: Send this to someone who'd watch the sky with you
+    share_y: 360
+    nocaptions: true

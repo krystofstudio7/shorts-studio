@@ -1,0 +1,112 @@
+channel: what-if-institute
+id: what-if-016-nearest-star
+series: What If You
+number: 16
+title: What if you flew to the nearest star? ✨
+hook: Pack snacks. Lots of snacks.
+description: |
+  Our fastest spacecraft heading out of the solar system would take tens of thousands of years to reach the nearest star.
+sources:
+- 'NASA: Proxima Centauri is about 4.24 light-years away. https://science.nasa.gov/'
+- NASA JPL, Voyager 1 travels at about 17 km/s. https://science.nasa.gov/mission/voyager/
+lines:
+- text: What if you flew to the nearest star?
+  nocap: true
+  pause: 0.4
+  scene:
+    photo:
+      src: assets/whatif/galaxy-nasa-2.jpg
+      focus:
+      - 0.5
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.15
+    scout:
+      x: 760
+      y: 960
+      s: 0.6
+      pose: float
+- text: Not the Sun. The next one. Proxima Centauri, four point two four light years away.
+  caption: 'Not the Sun. The next one: Proxima Centauri, 4.24 light-years away.'
+  scene:
+    tag: PROXIMA CENTAURI
+    bg: space
+    stat:
+      to: 4.24
+      unit: ' LY'
+      label: AWAY
+    stat_y: 520
+- text: Light gets there in four years. You'd take Voyager 1, one of our fastest spacecraft leaving the solar system.
+  scene:
+    bg: space
+    scout:
+      x: 540
+      y: 980
+      s: 0.8
+      pose: float
+    big: TAKE VOYAGER 1.
+    big_y: 520
+- text: It flies at about seventeen kilometers per second. Fast enough to cross the United States in five minutes.
+  caption: It flies at ~17 km/s. Across the USA in about 5 minutes.
+  scene:
+    bg: space
+    stat:
+      to: 17
+      unit: ' KM/S'
+      label: VOYAGER 1
+    stat_y: 520
+    scout:
+      x: 540
+      y: 980
+      s: 0.7
+      pose: fall
+- text: At that speed, the trip to Proxima would take about seventy five thousand years.
+  caption: 'At that speed: about 75,000 years to Proxima.'
+  scene:
+    bg: space
+    stat:
+      to: 75000
+      unit: ' YRS'
+      label: ONE WAY
+    stat_y: 520
+- text: Seventy five thousand years ago, humans hadn't even reached Australia yet.
+  caption: 75,000 years ago, humans hadn't even reached Australia.
+  scene:
+    photo:
+      src: assets/whatif/earth-nasa-3.jpg
+      focus:
+      - 0.5
+      - 0.6
+      zoom:
+      - 0.8
+      - 0.9
+      fit: contain
+      at: 0.7
+    big: THAT LONG.
+    big_y: 420
+- text: Space isn't just big. It's mostly empty. That's what makes every star we see so special.
+  scene:
+    photo:
+      src: assets/whatif/nebula-nasa-4.jpg
+      focus:
+      - 0.5
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.2
+    big: MOSTLY EMPTY.
+    big_y: 520
+- text: Send this to someone you'd travel seventy five thousand years with.
+  caption: Send this to someone you'd travel 75,000 years with.
+  pause: 1.0
+  scene:
+    bg: space
+    scout:
+      x: 540
+      y: 820
+      s: 0.9
+      pose: wave
+    share: Send this to someone you'd travel 75,000 years with
+    share_y: 360
+    nocaptions: true

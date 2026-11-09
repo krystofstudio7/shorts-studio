@@ -1,0 +1,103 @@
+channel: mind-mites
+id: brain-test-012
+series: Brain Test
+number: 12
+title: 'Brain Test #12: The giant Moon is an illusion 🌕'
+hook: The big Moon isn't bigger.
+description: |
+  A full Moon near the horizon looks huge. Photos show it isn't. Your brain is doing it. The 24 November supermoon is a good night to test it.
+sources:
+- Kaufman, L. & Rock, I. (1962). The moon illusion, I. Science, 136(3520), 953-961.
+- 'NASA Science, Moon illusion: the Moon''s angular size is about the same at the horizon and overhead. https://science.nasa.gov/moon/'
+lines:
+- text: Why does the Moon look huge when it's rising, and small when it's high in the sky?
+  scene:
+    bg: dark
+    big: WHY SO BIG?
+    big_y: 760
+    mite:
+      x: 860
+      y: 1660
+      s: 0.55
+      mood: waiting
+- text: Is it closer? Is the air magnifying it? Guess in three seconds.
+  update:
+    countdown: 3
+    countdown_y: 1620
+    mite:
+      x: 860
+      y: 1700
+      s: 0.45
+      mood: waiting
+  pause: 3.1
+- text: Neither. Photograph it at the horizon and overhead, and it's the same size.
+  scene:
+    rows:
+    - l: HORIZON
+      r: 0.5°
+      mark: ok
+    - l: OVERHEAD
+      r: 0.5°
+      mark: ok
+    rows_y: 760
+    mite:
+      x: 540
+      y: 1650
+      s: 0.8
+      mood: shock
+- text: Your brain makes it bigger. Near the horizon, it compares the Moon to trees and buildings and judges it farther away and larger.
+  scene:
+    bg: dark
+    big: YOUR BRAIN DID IT.
+    big_y: 640
+    mite:
+      x: 540
+      y: 1660
+      s: 0.6
+      mood: smug
+- text: Scientists have studied this since ancient times and still argue about the exact reason.
+  scene:
+    big: STILL DEBATED.
+    big_y: 760
+    mite:
+      x: 540
+      y: 1650
+      s: 0.8
+      mood: waiting
+- text: Try it. Hold your pinky at arm's length next to the rising Moon. It covers it easily. Do it again later. Same size.
+  scene:
+    rows:
+    - l: '1'
+      r: PINKY OUT
+    - l: '2'
+      r: COVER THE MOON
+      mark: ok
+    rows_y: 760
+    mite:
+      x: 540
+      y: 1650
+      s: 0.8
+      mood: happy
+- text: Supermoon on November twenty fourth. Perfect night for the test.
+  caption: Supermoon on November 24. Perfect night for the test.
+  scene:
+    tag: 24 NOV
+    big: TEST IT.
+    big_y: 760
+    mite:
+      x: 540
+      y: 1650
+      s: 0.8
+      mood: happy
+- text: Send this to someone who always photographs the Moon.
+  pause: 1.0
+  scene:
+    share: Send this to someone who always photographs the Moon
+    share_y: 560
+    mite:
+      x: 540
+      y: 1000
+      s: 1.3
+      mood: happy
+      pop: true
+    nocaptions: true

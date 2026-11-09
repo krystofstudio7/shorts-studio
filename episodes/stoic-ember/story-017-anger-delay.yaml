@@ -1,0 +1,79 @@
+channel: stoic-ember
+id: story-017-anger-delay
+series: One Stoic Story
+number: 17
+title: Seneca's cure for anger is just waiting.
+hook: 'The best cure for anger: wait.'
+description: |
+  Seneca wrote a whole book on anger. His simplest advice is also his strongest. One Stoic Story, true and short.
+sources:
+- 'Seneca, On Anger (De Ira) 2.29: the greatest remedy for anger is delay.'
+- 'Seneca, On Anger 3.36: his nightly review of the day.'
+lines:
+- text: Seneca watched anger destroy people at the court of Nero. So he wrote a whole book about it.
+  nocap: true
+  pause: 0.4
+  scene:
+    photo:
+      src: assets/stoic/death-of-seneca-commons-2.jpg
+      focus:
+      - 0.5
+      - 0.45
+      zoom:
+      - 1.0
+      - 1.15
+- text: His strongest advice is also the simplest. The greatest remedy for anger is delay.
+  scene:
+    setting: black
+    big: DELAY.
+    big_y: 720
+    embers: 1.2
+    tag: ON ANGER 2.29
+- text: Anger's first rush fades if you don't feed it. Give it a night, and you'll judge the situation with a clearer head.
+  scene:
+    setting: night
+    figures:
+    - x: 540
+      pose: standing
+      h: 420
+- text: He had another habit. Every night, when the lamp was out, he reviewed his whole day.
+  scene:
+    setting: room
+    figures:
+    - x: 380
+      pose: seated
+      h: 520
+    fire_x: 700
+    tag: ON ANGER 3.36
+- text: Where was I sharp with someone? Where did I overreact? Then he forgave himself and slept.
+  scene:
+    setting: black
+    big: REVIEW. FORGIVE. SLEEP.
+    big_y: 720
+- text: Two habits. Wait before you react. Look back before you sleep.
+  scene:
+    photo:
+      src: assets/stoic/seneca-commons-1.jpg
+      focus:
+      - 0.5
+      - 0.42
+      zoom:
+      - 1.0
+      - 1.12
+- text: That angry message you're about to send? It can wait until morning.
+  scene:
+    setting: black
+    big: SEND IT TOMORROW.
+    big_y: 720
+- text: Send this to someone who needs to sleep on it.
+  pause: 1.0
+  scene:
+    setting: sea
+    figures:
+    - x: 540
+      ground: 1180
+      pose: standing
+      h: 200
+    share: Send this to someone who needs to sleep on it
+    share_y: 520
+    nocaptions: true

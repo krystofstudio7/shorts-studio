@@ -1,0 +1,85 @@
+channel: stoic-ember
+id: story-012-burned-letters
+series: One Stoic Story
+number: 12
+title: He found the traitors' letters. He burned them unread.
+hook: He could read every traitor's letter.
+description: |
+  When his general rebelled, Marcus Aurelius was handed the rebels' letters. What he did with them says everything about him. One Stoic Story, true and short.
+sources:
+- 'Cassius Dio, Roman History 72 (71).27-29: the revolt of Avidius Cassius in AD 175 and Marcus''s leniency; Marcus had the conspirators'' correspondence burned without reading it.'
+lines:
+- text: AD 175. Rome's best general in the East declares himself emperor.
+  nocap: true
+  pause: 0.4
+  scene:
+    photo:
+      src: assets/stoic/roman-soldiers-commons-2.jpg
+      focus:
+      - 0.5
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.15
+    tag: AD 175
+- text: His name was Avidius Cassius. The real emperor, Marcus Aurelius, marched to face him.
+  scene:
+    photo:
+      src: assets/stoic/marcus-equestrian-commons-3.jpg
+      focus:
+      - 0.5
+      - 0.4
+      zoom:
+      - 1.0
+      - 1.12
+- text: Before they met, Cassius was killed by his own officers. The revolt collapsed.
+  scene:
+    setting: camp
+    figures:
+    - x: 540
+      pose: lying
+      h: 400
+    rain: 0.6
+- text: Marcus was handed the rebels' letters. Every name of every senator who had secretly backed the traitor.
+  scene:
+    setting: room
+    figures:
+    - x: 380
+      pose: seated
+      h: 520
+    fire_x: 700
+- text: He had them burned. Unread.
+  scene:
+    setting: black
+    big: BURNED. UNREAD.
+    big_y: 720
+    embers: 1.4
+- text: He didn't want to know who his enemies were. He wanted to keep the chance to treat them as friends.
+  scene:
+    photo:
+      src: assets/stoic/marcus-aurelius-commons-3.jpg
+      focus:
+      - 0.5
+      - 0.35
+      zoom:
+      - 1.0
+      - 1.12
+- text: How often do we go looking for reasons to be angry?
+  scene:
+    setting: night
+    figures:
+    - x: 540
+      pose: standing
+      h: 420
+- text: Send this to someone who knows when not to look.
+  pause: 1.0
+  scene:
+    setting: sea
+    figures:
+    - x: 540
+      ground: 1180
+      pose: standing
+      h: 200
+    share: Send this to someone who knows when not to look
+    share_y: 520
+    nocaptions: true

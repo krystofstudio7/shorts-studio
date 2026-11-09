@@ -1,0 +1,123 @@
+channel: what-if-institute
+id: what-if-012-moon-twice-as-close
+series: What If You
+number: 12
+title: What if the Moon were twice as close? 🌕
+hook: Same Moon. Half the distance.
+description: |
+  Move the Moon to half its distance and the tides, the sky and even the month change. Real numbers, simple physics.
+sources:
+- 'NASA Science, Moon facts: average distance about 384,400 km. https://science.nasa.gov/moon/'
+- Tidal force scales with 1/distance³ (Newtonian gravity); orbital period scales with distance^1.5 (Kepler's third law).
+lines:
+- text: What if the Moon were twice as close?
+  nocap: true
+  pause: 0.4
+  scene:
+    bg: space
+    planet:
+      kind: moon
+      r: 430
+      x: 540
+      y: 1150
+      spin: 0.05
+    scout:
+      x: 930
+      y: 600
+      s: 0.6
+      pose: float
+- text: Right now it's about three hundred eighty four thousand kilometers away. Cut that in half.
+  caption: Right now it's ~384,000 km away. Cut that in half.
+  scene:
+    bg: space
+    planet:
+      kind: moon
+      r: 260
+      x: 540
+      y: 1200
+      spin: 0.05
+      zoom: 0.7
+    stat:
+      to: 192000
+      unit: ' KM'
+      label: NEW DISTANCE
+    stat_y: 520
+- text: It would look twice as wide in the sky, and four times bigger overall.
+  scene:
+    photo:
+      src: assets/whatif/moon-surface-nasa-2.jpg
+      focus:
+      - 0.5
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.3
+    big: TWICE AS WIDE.
+    big_y: 520
+- text: But tides depend on distance cubed. Half the distance means about eight times the pull on the oceans.
+  scene:
+    bg: surface
+    colors:
+    - - 90
+      - 140
+      - 200
+    - - 30
+      - 60
+      - 110
+    stat:
+      to: 8
+      unit: ×
+      label: TIDAL PULL
+    stat_y: 520
+    shake: true
+- text: Coastal cities would see the sea rush in and out far more violently, twice a day.
+  scene:
+    photo:
+      src: assets/whatif/hurricane-nasa-3.jpg
+      focus:
+      - 0.5
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.15
+    big: TWICE A DAY.
+    big_y: 560
+- text: And the Moon would orbit faster. A full cycle of phases would take about ten days instead of a month.
+  caption: 'It would orbit faster. A full cycle of phases: ~10 days instead of a month.'
+  scene:
+    bg: space
+    planet:
+      kind: moon
+      r: 300
+      x: 540
+      y: 1150
+      spin: 0.3
+    stat:
+      to: 10
+      unit: ' DAYS'
+      label: ONE LUNAR MONTH
+    stat_y: 520
+- text: The real Moon is slowly doing the opposite. It drifts away about four centimeters every year.
+  caption: The real Moon does the opposite. It drifts away ~4 cm every year.
+  scene:
+    bg: space
+    planet:
+      kind: moon
+      r: 330
+      x: 540
+      y: 1150
+      spin: 0.05
+    big: BYE, SLOWLY.
+    big_y: 520
+- text: Send this to someone who loves a big full Moon.
+  pause: 1.0
+  scene:
+    bg: space
+    scout:
+      x: 540
+      y: 820
+      s: 0.9
+      pose: wave
+    share: Send this to someone who loves a big full Moon
+    share_y: 360
+    nocaptions: true

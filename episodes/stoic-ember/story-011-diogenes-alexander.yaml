@@ -1,0 +1,86 @@
+channel: stoic-ember
+id: story-011-diogenes-alexander
+series: One Stoic Story
+number: 11
+title: The most powerful man alive offered him anything.
+hook: Ask me for anything, said Alexander.
+description: |
+  Alexander the Great met a philosopher who lived in a barrel and owned almost nothing. The Stoics grew out of his school. One Stoic Story, true and short.
+sources:
+- Plutarch, Life of Alexander 14 (Diogenes asks Alexander to stand a little out of his sun).
+- 'Diogenes Laërtius, Lives 6 and 7: Zeno, founder of Stoicism, studied with the Cynic Crates, a follower of Diogenes.'
+lines:
+- text: Corinth, around 336 BC. The young king Alexander goes to meet a famous philosopher.
+  nocap: true
+  pause: 0.4
+  scene:
+    photo:
+      src: assets/stoic/athens-commons-2.jpg
+      focus:
+      - 0.5
+      - 0.45
+      zoom:
+      - 1.0
+      - 1.15
+    tag: CORINTH · c. 336 BC
+- text: Diogenes lived in a large clay jar and owned almost nothing. He was lying in the sun.
+  scene:
+    setting: city
+    figures:
+    - x: 540
+      pose: lying
+      h: 420
+    rays: true
+- text: Alexander stood over him and said, ask me for anything you want.
+  scene:
+    photo:
+      src: assets/stoic/roman-triumph-commons-3.jpg
+      focus:
+      - 0.5
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.15
+- text: Diogenes looked up and asked him to stand a little out of his sun.
+  scene:
+    setting: black
+    quote:
+      text: Stand a little out of my sun.
+      source: Diogenes to Alexander · as told by Plutarch, Life of Alexander 14
+    quote_y: 820
+    nocaptions: true
+- text: Alexander reportedly said that if he weren't Alexander, he would want to be Diogenes.
+  scene:
+    setting: black
+    big: NOTHING TO OFFER.
+    big_y: 720
+- text: A man who needs nothing can't be bribed or threatened. A follower of his school later taught Zeno, who founded Stoicism.
+  scene:
+    photo:
+      src: assets/stoic/zeno-commons-3.jpg
+      focus:
+      - 0.5
+      - 0.42
+      zoom:
+      - 1.0
+      - 1.12
+    tag: FROM DIOGENES TO THE STOICS
+- text: What do you want so badly that someone could use it against you?
+  scene:
+    setting: night
+    figures:
+    - x: 540
+      pose: seated
+      h: 400
+- text: Send this to someone who doesn't need much to be happy.
+  pause: 1.0
+  scene:
+    setting: sea
+    figures:
+    - x: 540
+      ground: 1180
+      pose: standing
+      h: 200
+    share: Send this to someone who doesn't need much to be happy
+    share_y: 520
+    nocaptions: true

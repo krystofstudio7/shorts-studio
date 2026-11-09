@@ -1,0 +1,121 @@
+channel: what-if-institute
+id: what-if-014-hurricane-eye
+series: What If You
+number: 14
+title: What if you flew into the eye of a hurricane? 🌀
+hook: Inside the storm, it's calm.
+description: |
+  Real pilots fly into hurricanes on purpose. Here's what it's like to punch through the wall and find blue sky.
+sources:
+- NOAA Aircraft Operations Center, Hurricane Hunters. https://www.omao.noaa.gov/aircraft-operations
+- 'NOAA, Hurricane structure: the eye is typically 30-65 km across with light winds; the strongest winds are in the eyewall.'
+lines:
+- text: What if you flew straight into a hurricane?
+  nocap: true
+  pause: 0.4
+  scene:
+    photo:
+      src: assets/whatif/hurricane-nasa-2.jpg
+      focus:
+      - 0.45
+      - 0.55
+      zoom:
+      - 1.0
+      - 1.25
+    scout:
+      x: 760
+      y: 960
+      s: 0.6
+      pose: fall
+- text: Real pilots do it on purpose. They're called Hurricane Hunters, and they measure the storm from inside.
+  scene:
+    tag: NOAA HURRICANE HUNTERS
+    photo:
+      src: assets/whatif/hurricane-nasa-3.jpg
+      focus:
+      - 0.5
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.15
+- text: First you hit the eyewall. The strongest winds and heaviest rain are here. The plane shakes hard.
+  scene:
+    bg: descent
+    colors:
+    - - 120
+      - 130
+      - 150
+    - - 60
+      - 70
+      - 90
+    speed: 1800
+    shake: true
+    big: THE EYEWALL.
+    big_y: 520
+- text: Then, suddenly, it's quiet. Light winds. Sometimes blue sky above you.
+  scene:
+    bg: surface
+    colors:
+    - - 120
+      - 170
+      - 220
+    - - 200
+      - 210
+      - 225
+    scout:
+      x: 540
+      y: 980
+      s: 0.8
+      pose: float
+    big: CALM.
+    big_y: 520
+- text: The eye is usually thirty to sixty five kilometers across, surrounded by a stadium of cloud walls.
+  caption: The eye is usually 30-65 km across, ringed by a stadium of cloud walls.
+  scene:
+    photo:
+      src: assets/whatif/hurricane-nasa-1.jpg
+      focus:
+      - 0.45
+      - 0.55
+      zoom:
+      - 1.2
+      - 1.5
+    stat:
+      to: 65
+      unit: ' KM'
+      label: UP TO THIS WIDE
+    stat_y: 420
+- text: Then you punch back out through the other side, collecting data that helps forecasters warn millions of people.
+  scene:
+    bg: descent
+    colors:
+    - - 120
+      - 130
+      - 150
+    - - 60
+      - 70
+      - 90
+    speed: 1600
+    big: DATA SAVES LIVES.
+    big_y: 560
+- text: On the ground, the calm eye is a trap. The other half of the storm is coming.
+  scene:
+    bg: dark
+    color:
+    - 10
+    - 14
+    - 24
+    big: DON'T GO OUTSIDE.
+    big_y: 620
+- text: Send this to someone who'd be the pilot.
+  pause: 1.0
+  scene:
+    bg: space
+    scout:
+      x: 540
+      y: 820
+      s: 0.9
+      pose: wave
+    share: Send this to someone who'd be the pilot
+    share_y: 360
+    nocaptions: true

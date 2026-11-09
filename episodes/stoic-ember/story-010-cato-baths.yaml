@@ -1,0 +1,90 @@
+channel: stoic-ember
+id: story-010-cato-baths
+series: One Stoic Story
+number: 10
+title: A stranger hit him in public. His reply was perfect.
+hook: A stranger struck him. He shrugged.
+description: |
+  Cato was struck by a stranger in the public baths. When the man came back to apologize, Cato's answer became one of Seneca's favourite examples. One Stoic Story, true and short.
+sources:
+- 'Seneca, On Anger (De Ira) 2.32: Cato, struck unknowingly in the baths, later said he did not remember being struck.'
+lines:
+- text: Rome, a crowded public bath. A man shoves through and hits someone hard.
+  nocap: true
+  pause: 0.4
+  scene:
+    photo:
+      src: assets/stoic/roman-forum-commons-3.jpg
+      focus:
+      - 0.5
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.15
+- text: He had no idea who he had struck. It was Cato, one of the most respected men in Rome.
+  scene:
+    tag: MARCUS CATO
+    setting: city
+    figures:
+    - x: 380
+      pose: standing
+      h: 540
+    - x: 720
+      pose: walking
+      h: 520
+      walk: 30
+      facing: -1
+- text: Later, someone told the man. Terrified, he came back to beg forgiveness.
+  scene:
+    setting: room
+    figures:
+    - x: 360
+      pose: standing
+      h: 540
+    - x: 720
+      pose: standing
+      h: 520
+      facing: -1
+    fire_x: 540
+- text: Cato could have demanded punishment. Instead, he said he didn't remember being struck.
+  scene:
+    setting: black
+    big: '"WHAT BLOW?"'
+    big_y: 720
+    embers: 1.0
+- text: Seneca tells this story in his book On Anger. Better not to notice an insult, he says, than to forgive it.
+  scene:
+    photo:
+      src: assets/stoic/seneca-commons-1.jpg
+      focus:
+      - 0.5
+      - 0.42
+      zoom:
+      - 1.0
+      - 1.12
+    tag: SENECA, ON ANGER 2.32
+- text: Anger needs fuel. Refuse to carry the insult, and there's nothing to burn.
+  scene:
+    setting: black
+    big: NO FUEL. NO FIRE.
+    big_y: 720
+    embers: 0.4
+- text: Next time someone bumps you, try Cato's answer.
+  scene:
+    setting: night
+    figures:
+    - x: 540
+      pose: standing
+      h: 420
+- text: Send this to someone who needs to let something go.
+  pause: 1.0
+  scene:
+    setting: sea
+    figures:
+    - x: 540
+      ground: 1180
+      pose: standing
+      h: 200
+    share: Send this to someone who needs to let something go
+    share_y: 520
+    nocaptions: true

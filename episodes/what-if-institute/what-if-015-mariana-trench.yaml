@@ -1,0 +1,124 @@
+channel: what-if-institute
+id: what-if-015-mariana-trench
+series: What If You
+number: 15
+title: What if you dove to the bottom of the ocean? 🌊
+hook: Everest would fit. With room spare.
+description: |
+  The deepest point on Earth is deeper than Everest is tall. Here's what the pressure would do, and who has actually been there.
+sources:
+- 'NOAA Ocean Exploration: Challenger Deep, Mariana Trench, roughly 10,900 m deep; pressure over 1,000 times surface pressure. https://oceanexplorer.noaa.gov/'
+- Mount Everest height 8,849 m (China-Nepal survey, 2020).
+lines:
+- text: What if you dove to the deepest point in the ocean?
+  nocap: true
+  pause: 0.4
+  scene:
+    bg: descent
+    colors:
+    - - 20
+      - 80
+      - 140
+    - - 5
+      - 20
+      - 50
+    speed: 700
+    scout:
+      x: 540
+      y: 900
+      s: 0.8
+      pose: fall
+- text: Challenger Deep in the Mariana Trench. Almost eleven kilometers down.
+  caption: Challenger Deep, Mariana Trench. Almost 11 km down.
+  scene:
+    tag: CHALLENGER DEEP
+    bg: descent
+    colors:
+    - - 10
+      - 50
+      - 100
+    - - 2
+      - 10
+      - 30
+    speed: 900
+    stat:
+      to: 10900
+      unit: ' M'
+      label: DEEP
+    stat_y: 520
+- text: Drop Mount Everest in there and its peak would still be two kilometers underwater.
+  caption: Drop Everest in and its peak would still be 2 km underwater.
+  scene:
+    bg: descent
+    colors:
+    - - 8
+      - 40
+      - 80
+    - - 2
+      - 8
+      - 24
+    speed: 600
+    big: 'EVEREST: UNDERWATER.'
+    big_y: 520
+- text: Sunlight disappears after about two hundred meters. Below that it's dark, cold and silent.
+  caption: 'Sunlight fades after ~200 m. Below: dark, cold, silent.'
+  scene:
+    bg: dark
+    color:
+    - 2
+    - 6
+    - 14
+    scout:
+      x: 540
+      y: 980
+      s: 0.7
+      pose: float
+    big: TOTAL DARKNESS.
+    big_y: 520
+- text: At the bottom, the water presses with more than a thousand times the air pressure you feel now.
+  scene:
+    bg: dark
+    color:
+    - 2
+    - 6
+    - 14
+    stat:
+      to: 1000
+      unit: ×
+      label: SURFACE PRESSURE
+    stat_y: 520
+    shake: true
+- text: Your body couldn't survive it. But inside a thick metal sphere, people have made it. Fewer have been there than to space.
+  scene:
+    bg: dark
+    color:
+    - 2
+    - 6
+    - 14
+    big: FEWER THAN ASTRONAUTS.
+    big_y: 560
+- text: And even there, scientists have found life. Tiny creatures thriving under crushing pressure.
+  scene:
+    bg: descent
+    colors:
+    - - 8
+      - 40
+      - 80
+    - - 2
+      - 8
+      - 24
+    speed: 300
+    big: LIFE. EVEN HERE.
+    big_y: 560
+- text: Send this to someone who'd never get in the sub.
+  pause: 1.0
+  scene:
+    bg: space
+    scout:
+      x: 540
+      y: 820
+      s: 0.9
+      pose: wave
+    share: Send this to someone who'd never get in the sub
+    share_y: 360
+    nocaptions: true

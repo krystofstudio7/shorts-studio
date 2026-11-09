@@ -1,0 +1,106 @@
+channel: mind-mites
+id: brain-test-011
+series: Brain Test
+number: 11
+title: 'Brain Test #11: A random number changed their answer 🐛'
+hook: A spinning wheel changed their guess.
+description: |
+  People spun a wheel, saw a random number, then made a guess. The random number pulled their answers. This is why sales tags show a crossed-out price.
+sources:
+- 'Tversky, A. & Kahneman, D. (1974). Judgment under uncertainty: Heuristics and biases. Science, 185(4157), 1124-1131.'
+lines:
+- text: Scientists spun a wheel of fortune in front of people. It landed on either ten or sixty five.
+  scene:
+    rows:
+    - l: GROUP A
+      r: '10'
+    - l: GROUP B
+      r: '65'
+    rows_y: 760
+    mite:
+      x: 860
+      y: 1660
+      s: 0.55
+      mood: waiting
+- text: Then they asked, what percentage of African countries are in the United Nations?
+  caption: 'Then: what % of African countries are in the UN?'
+  scene:
+    big: WHAT PERCENT?
+    big_y: 760
+    mite:
+      x: 860
+      y: 1660
+      s: 0.55
+      mood: waiting
+- text: The wheel was obviously random. Did it change the answers? Three seconds.
+  update:
+    countdown: 3
+    countdown_y: 1620
+    mite:
+      x: 860
+      y: 1700
+      s: 0.45
+      mood: waiting
+  pause: 3.1
+- text: It did. People who saw ten guessed twenty five percent on average. People who saw sixty five guessed forty five.
+  caption: 'Saw 10: guessed 25%. Saw 65: guessed 45%.'
+  scene:
+    rows:
+    - l: SAW 10
+      r: GUESSED 25%
+    - l: SAW 65
+      r: GUESSED 45%
+    rows_y: 760
+    mite:
+      x: 540
+      y: 1650
+      s: 0.8
+      mood: shock
+- text: It's called anchoring. The first number you see pulls your judgment toward it, even when it's meaningless.
+  scene:
+    bg: dark
+    big: ANCHORING.
+    big_y: 640
+    mite:
+      x: 540
+      y: 1660
+      s: 0.6
+      mood: smug
+- text: That's why a price tag says was one ninety nine, now ninety nine. The first number is the anchor.
+  caption: That's why tags say "was $199, now $99". The first number is the anchor.
+  scene:
+    rows:
+    - l: WAS
+      r: $199
+      mark: 'no'
+    - l: NOW
+      r: $99
+      mark: ok
+    rows_y: 760
+    mite:
+      x: 540
+      y: 1650
+      s: 0.8
+      mood: happy
+- text: This Black Friday, ignore the old price. Ask one question. Is this worth ninety nine to me?
+  caption: This Black Friday, ignore the old price. Is it worth $99 to YOU?
+  scene:
+    big: IGNORE THE ANCHOR.
+    big_y: 620
+    mite:
+      x: 540
+      y: 1650
+      s: 0.8
+      mood: happy
+- text: Send this to someone who loves a deal.
+  pause: 1.0
+  scene:
+    share: Send this to someone who loves a deal
+    share_y: 560
+    mite:
+      x: 540
+      y: 1000
+      s: 1.3
+      mood: happy
+      pop: true
+    nocaptions: true

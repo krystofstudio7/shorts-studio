@@ -175,6 +175,19 @@ def instagram_reel(page, token, path, text, fb_video_id=None):
     return instagram_wait_and_publish(ig, cid, token, path)
 
 
+def instagram_with_retries(page, token, path, text, fb_video_id, tries=3, wait=120):
+    """Instagram's failures (error 2207076) hit every channel at random, including 1 Mbit/s videos that
+    went through on other days, so they look server-side: try the whole upload again after a pause."""
+    for n in range(1, tries + 1):
+        try:
+            return instagram_reel(page, token, path, text, fb_video_id)
+        except MetaError as e:
+            if n == tries:
+                raise
+            print(f"::warning::Instagram attempt {n}/{tries} failed for {path} ({e}); trying again in {wait} s")
+            time.sleep(wait)
+
+
 def upload(path, pages, token, only=None, dry=False):
     meta = json.load(open(path[:-4] + ".json"))
     ch = meta["channel"]
@@ -202,7 +215,7 @@ def upload(path, pages, token, only=None, dry=False):
             if platform == "facebook":
                 rid = facebook_reel(page, path, text)
             else:
-                rid = instagram_reel(page, token, path, text, rec.get("facebook_id"))
+                rid = instagram_with_retries(page, token, path, text, rec.get("facebook_id"))
             rec[f"{platform}_id"] = rid
             print(f"posted {path} -> {platform} {rid}")
         except (MetaError, requests.RequestException) as e:

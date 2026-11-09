@@ -1,0 +1,123 @@
+channel: what-if-institute
+id: what-if-017-yellowstone
+series: What If You
+number: 17
+title: What if Yellowstone erupted? 🌋
+hook: It's happened before. Three times.
+description: |
+  Yellowstone sits on a supervolcano. Here's what the last big eruption did, and what the scientists who watch it every day actually say.
+sources:
+- 'USGS Yellowstone Volcano Observatory: three caldera-forming eruptions about 2.08 million, 1.3 million and 631,000 years ago; annual probability of another about 1 in 730,000. https://www.usgs.gov/observatories/yvo'
+lines:
+- text: What if Yellowstone erupted?
+  nocap: true
+  pause: 0.4
+  scene:
+    bg: surface
+    colors:
+    - - 200
+      - 120
+      - 80
+    - - 90
+      - 50
+      - 30
+    scout:
+      x: 760
+      y: 960
+      s: 0.6
+      pose: fall
+    shake: true
+- text: Under the park sits a huge chamber of hot, partly molten rock. It has blown three times.
+  scene:
+    tag: YELLOWSTONE, USA
+    bg: descent
+    colors:
+    - - 200
+      - 80
+      - 20
+    - - 120
+      - 30
+      - 10
+    speed: 600
+    stat:
+      to: 3
+      unit: ' TIMES'
+      label: SUPER-ERUPTIONS
+    stat_y: 520
+- text: The last one, about six hundred thirty thousand years ago, left a crater fifty kilometers wide.
+  caption: The last one, ~631,000 years ago, left a crater about 50 km wide.
+  scene:
+    bg: surface
+    colors:
+    - - 160
+      - 120
+      - 90
+    - - 80
+      - 60
+      - 40
+    stat:
+      to: 631000
+      unit: ''
+      label: YEARS AGO, THE LAST BIG ONE
+    stat_y: 520
+- text: Ash from it fell across much of North America. A repeat would bury nearby states and ground flights for weeks.
+  scene:
+    bg: dark
+    color:
+    - 60
+    - 55
+    - 50
+    big: ASH EVERYWHERE.
+    big_y: 560
+- text: Ash in the sky could cool the planet for a few years, hurting crops worldwide.
+  scene:
+    photo:
+      src: assets/whatif/earth-nasa-3.jpg
+      focus:
+      - 0.5
+      - 0.6
+      zoom:
+      - 0.8
+      - 0.9
+      fit: contain
+      at: 0.7
+    big: A COOLER PLANET.
+    big_y: 420
+- text: But the US Geological Survey watches Yellowstone every day. They put the chance of another super-eruption at about one in seven hundred thirty thousand per year.
+  caption: 'The USGS watches it daily. Chance of a super-eruption: ~1 in 730,000 per year.'
+  scene:
+    bg: space
+    stat:
+      to: 730000
+      unit: ''
+      label: 1 IN THIS MANY, PER YEAR
+    stat_y: 520
+    scout:
+      x: 540
+      y: 980
+      s: 0.8
+      pose: wave
+- text: Much more likely are small steam blasts and quiet lava flows. And the geysers keep putting on a show.
+  scene:
+    bg: surface
+    colors:
+    - - 120
+      - 170
+      - 220
+    - - 70
+      - 110
+      - 60
+    big: GEYSERS > DOOM.
+    big_y: 560
+- text: Send this to someone who has Yellowstone on their bucket list.
+  pause: 1.0
+  scene:
+    bg: space
+    scout:
+      x: 540
+      y: 820
+      s: 0.9
+      pose: wave
+    share: Send this to someone with Yellowstone on their list
+    share_y: 360
+    nocaptions: true

@@ -1,0 +1,117 @@
+channel: what-if-institute
+id: what-if-010-leonid-storm
+series: What If You
+number: 10
+title: What if the 1833 meteor storm happened tonight? ☄️
+hook: Thousands of shooting stars. Every hour.
+description: |
+  In November 1833, the sky over North America filled with meteors. People thought the world was ending. This year's Leonids peak on 17-18 November. Here's how different that night was.
+sources:
+- 'NASA Science, Leonids: the 1833 storm produced an estimated tens of thousands or more meteors per hour; a normal Leonid peak is about 15 per hour. https://science.nasa.gov/solar-system/meteors-meteorites/leonids/'
+- American Meteor Society, Leonids. https://www.amsmeteors.org/meteor-showers/meteor-shower-calendar/
+lines:
+- text: What if the sky did tonight what it did in November 1833?
+  nocap: true
+  pause: 0.4
+  scene:
+    photo:
+      src: assets/whatif/meteor-shower-nasa-3.jpg
+      focus:
+      - 0.5
+      - 0.45
+      zoom:
+      - 1.0
+      - 1.15
+    scout:
+      x: 760
+      y: 960
+      s: 0.6
+      pose: float
+- text: Over North America, people woke up to meteors falling like snow. Tens of thousands every hour, maybe more.
+  scene:
+    tag: 12-13 NOV 1833
+    photo:
+      src: assets/whatif/meteor-shower-nasa-4.jpg
+      focus:
+      - 0.45
+      - 0.4
+      zoom:
+      - 1.05
+      - 1.25
+    stat:
+      to: 10000
+      unit: s
+      label: METEORS PER HOUR
+    stat_y: 520
+- text: Many thought the world was ending. It wasn't. Earth was ploughing through a thick stream of comet dust.
+  scene:
+    bg: space
+    planet:
+      kind: earth
+      r: 380
+      x: 540
+      y: 1150
+      spin: 0.2
+    big: COMET DUST.
+    big_y: 520
+- text: The comet is called Tempel-Tuttle. Every November, Earth crosses its trail. That's the Leonids.
+  scene:
+    tag: COMET 55P/TEMPEL-TUTTLE
+    photo:
+      src: assets/whatif/meteor-shower-nasa-2.jpg
+      focus:
+      - 0.5
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.2
+- text: This year the Leonids peak on the night of November seventeenth. But a normal peak is about fifteen meteors an hour.
+  caption: 'This year''s peak: night of Nov 17-18. A normal peak is ~15 meteors an hour.'
+  scene:
+    photo:
+      src: assets/whatif/meteor-shower-nasa-1.jpg
+      focus:
+      - 0.5
+      - 0.45
+      zoom:
+      - 1.0
+      - 1.1
+    stat:
+      to: 15
+      unit: /HR
+      label: A NORMAL LEONID PEAK
+    stat_y: 520
+- text: Storms like 1833 only happen when Earth hits a fresh, dense strand of dust. Not this year.
+  scene:
+    bg: space
+    big: NOT THIS YEAR.
+    big_y: 560
+    scout:
+      x: 540
+      y: 980
+      s: 0.8
+      pose: wave
+- text: Still worth it. Go somewhere dark after midnight and look east. Give your eyes twenty minutes.
+  caption: Still worth it. Dark place, after midnight, look east. Give your eyes 20 minutes.
+  scene:
+    photo:
+      src: assets/whatif/meteor-shower-nasa-2.jpg
+      focus:
+      - 0.5
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.12
+    tag: 17-18 NOV
+- text: Send this to someone who'd stay up with you.
+  pause: 1.0
+  scene:
+    bg: space
+    scout:
+      x: 540
+      y: 820
+      s: 0.9
+      pose: wave
+    share: Send this to someone who'd stay up with you
+    share_y: 360
+    nocaptions: true

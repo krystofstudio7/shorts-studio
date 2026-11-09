@@ -1,0 +1,87 @@
+channel: stoic-ember
+id: story-014-musonius-canal
+series: One Stoic Story
+number: 14
+title: Exiled to hard labour, he kept teaching.
+hook: Nero sent him to dig. He taught.
+description: |
+  Musonius Rufus, the teacher of Epictetus, was sentenced to dig Nero's canal across Greece. A visitor found him there, still a philosopher. One Stoic Story, true and short.
+sources:
+- Philostratus, Life of Apollonius 5.19 (Musonius in chains, digging at the Isthmus of Corinth).
+- Tacitus, Annals 15.71 (Musonius Rufus exiled by Nero, AD 65).
+lines:
+- text: AD 65. Nero exiles the philosopher Musonius Rufus.
+  nocap: true
+  pause: 0.4
+  scene:
+    photo:
+      src: assets/stoic/roman-forum-commons-1.jpg
+      focus:
+      - 0.5
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.15
+- text: Later he ends up in chains, forced to dig Nero's canal across the narrow neck of Greece.
+  scene:
+    tag: AD 65
+    setting: camp
+    figures:
+    - x: 360
+      pose: standing
+      h: 520
+    - x: 700
+      pose: standing
+      h: 480
+    rain: 0.4
+- text: A visitor found him there with a shovel, and was upset to see a great teacher treated like that.
+  scene:
+    photo:
+      src: assets/stoic/athens-commons-4.jpg
+      focus:
+      - 0.5
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.12
+- text: Musonius wasn't. He said digging a canal for Greece was better than playing music for Nero.
+  scene:
+    setting: black
+    big: BETTER THAN FLATTERY.
+    big_y: 720
+    embers: 1.0
+- text: Musonius taught that philosophy is practice, not talk. His student became Epictetus.
+  scene:
+    photo:
+      src: assets/stoic/epictetus-commons-1.jpg
+      focus:
+      - 0.5
+      - 0.45
+      zoom:
+      - 1.0
+      - 1.12
+    tag: TEACHER OF EPICTETUS
+- text: You can lose your job, your home, your freedom. Not the way you carry it.
+  scene:
+    setting: black
+    big: CARRY IT WELL.
+    big_y: 720
+- text: What hard work are you doing right now that could be your teacher?
+  scene:
+    setting: night
+    figures:
+    - x: 540
+      pose: standing
+      h: 420
+- text: Send this to someone working hard where nobody sees.
+  pause: 1.0
+  scene:
+    setting: sea
+    figures:
+    - x: 540
+      ground: 1180
+      pose: standing
+      h: 200
+    share: Send this to someone working hard where nobody sees
+    share_y: 520
+    nocaptions: true

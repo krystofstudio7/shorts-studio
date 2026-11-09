@@ -1,0 +1,90 @@
+channel: mind-mites
+id: brain-test-016
+series: Brain Test
+number: 16
+title: 'Brain Test #16: Five heads in a row. What''s next? 🪙'
+hook: Five heads in a row. Next?
+description: |
+  A fair coin lands heads five times in a row. Is tails due? Most people feel it is. Comment your answer before the reveal.
+sources:
+- Tversky, A. & Kahneman, D. (1971). Belief in the law of small numbers. Psychological Bulletin, 76(2), 105-110.
+lines:
+- text: A fair coin. Heads. Heads. Heads. Heads. Heads.
+  scene:
+    rows:
+    - l: 1-5
+      r: H H H H H
+    rows_y: 760
+    mite:
+      x: 860
+      y: 1660
+      s: 0.55
+      mood: waiting
+- text: What's more likely on the next flip? Heads, tails, or the same? Three seconds.
+  update:
+    countdown: 3
+    countdown_y: 1620
+    mite:
+      x: 860
+      y: 1700
+      s: 0.45
+      mood: waiting
+  pause: 3.1
+- text: Exactly the same. Fifty fifty. The coin has no memory.
+  caption: Exactly the same. 50/50. The coin has no memory.
+  scene:
+    stat:
+      to: 50
+      unit: '%'
+      label: HEADS OR TAILS
+    stat_y: 620
+    mite:
+      x: 540
+      y: 1650
+      s: 0.8
+      mood: shock
+- text: Feeling that tails is due is called the gambler's fallacy. Our brains expect short runs to look balanced.
+  scene:
+    bg: dark
+    big: GAMBLER'S FALLACY.
+    big_y: 640
+    mite:
+      x: 540
+      y: 1660
+      s: 0.6
+      mood: smug
+- text: In 1913, at a casino in Monte Carlo, black came up twenty six times in a row. People lost fortunes betting on red.
+  caption: 'Monte Carlo, 1913: black came up 26 times in a row. People lost fortunes on red.'
+  scene:
+    tag: MONTE CARLO · 1913
+    stat:
+      to: 26
+      unit: ×
+      label: BLACK IN A ROW
+    stat_y: 620
+    mite:
+      x: 540
+      y: 1650
+      s: 0.8
+      mood: shock
+- text: Random things don't balance out in the short run. Nothing is ever due.
+  scene:
+    big: NOTHING IS DUE.
+    big_y: 760
+    mite:
+      x: 540
+      y: 1650
+      s: 0.8
+      mood: happy
+- text: Send this to someone who says they're due for a win.
+  pause: 1.0
+  scene:
+    share: Send this to someone who says they're due for a win
+    share_y: 560
+    mite:
+      x: 540
+      y: 1000
+      s: 1.3
+      mood: happy
+      pop: true
+    nocaptions: true

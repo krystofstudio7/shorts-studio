@@ -1,0 +1,82 @@
+channel: stoic-ember
+id: story-015-morning-routine
+series: One Stoic Story
+number: 15
+title: The emperor's morning routine was 2 sentences.
+hook: Every morning, he expected difficult people.
+description: |
+  Marcus Aurelius started Book 2 of his private notebook with a warning to himself about the day ahead. One Stoic Story, true and short.
+sources:
+- Marcus Aurelius, Meditations 2.1, trans. George Long (1862), public domain.
+lines:
+- text: Every morning, Rome's emperor expected the worst people.
+  nocap: true
+  pause: 0.4
+  scene:
+    photo:
+      src: assets/stoic/marcus-aurelius-commons-3.jpg
+      focus:
+      - 0.5
+      - 0.35
+      zoom:
+      - 1.0
+      - 1.12
+- text: Every morning, the most powerful man in the world told himself something unusual. Marcus Aurelius wrote it on the first page of Book 2 of his private notes.
+  scene:
+    setting: room
+    figures:
+    - x: 380
+      pose: writing
+      h: 520
+    fire_x: 700
+    tag: MEDITATIONS 2.1
+- text: Begin the morning by saying to thyself, I shall meet with the busy-body, the ungrateful, arrogant, deceitful, envious, unsocial.
+  nocap: true
+  pause: 0.4
+  scene:
+    setting: black
+    quote:
+      text: Begin the morning by saying to thyself, I shall meet with the busy-body, the ungrateful, arrogant, deceitful, envious, unsocial.
+      source: Marcus Aurelius · Meditations 2.1 · trans. George Long
+    quote_y: 760
+    nocaptions: true
+- text: Sounds cynical. It isn't. He goes on. They act that way because they don't know better. And none of them can truly harm him.
+  scene:
+    setting: black
+    big: EXPECT IT. FORGIVE IT.
+    big_y: 720
+    embers: 1.0
+- text: He wasn't expecting the worst to be bitter. He was preparing so he wouldn't be surprised.
+  scene:
+    photo:
+      src: assets/stoic/marcus-equestrian-commons-1.jpg
+      focus:
+      - 0.5
+      - 0.4
+      zoom:
+      - 1.0
+      - 1.12
+- text: Prepared people stay calm. Surprised people react.
+  scene:
+    setting: black
+    big: PREPARED > SURPRISED.
+    big_y: 720
+- text: Try it tomorrow before you check your phone.
+  scene:
+    setting: night
+    figures:
+    - x: 540
+      pose: seated
+      h: 400
+- text: Send this to someone with a tough day tomorrow.
+  pause: 1.0
+  scene:
+    setting: sea
+    figures:
+    - x: 540
+      ground: 1180
+      pose: standing
+      h: 200
+    share: Send this to someone with a tough day tomorrow
+    share_y: 520
+    nocaptions: true

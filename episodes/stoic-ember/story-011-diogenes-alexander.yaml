@@ -10,7 +10,7 @@ sources:
 - Plutarch, Life of Alexander 14 (Diogenes asks Alexander to stand a little out of his sun).
 - 'Diogenes Laërtius, Lives 6 and 7: Zeno, founder of Stoicism, studied with the Cynic Crates, a follower of Diogenes.'
 lines:
-- text: Corinth, around 336 BC. The young king Alexander goes to meet a famous philosopher.
+- text: Alexander offered him anything. He didn't want it.
   nocap: true
   pause: 0.4
   scene:
@@ -22,9 +22,9 @@ lines:
       zoom:
       - 1.0
       - 1.15
-    tag: CORINTH · c. 336 BC
-- text: Diogenes lived in a large clay jar and owned almost nothing. He was lying in the sun.
+- text: Corinth, around 336 BC. The young king Alexander goes to meet a famous philosopher. Diogenes lived in a large clay jar and owned almost nothing. He was lying in the sun.
   scene:
+    tag: CORINTH · c. 336 BC
     setting: city
     figures:
     - x: 540

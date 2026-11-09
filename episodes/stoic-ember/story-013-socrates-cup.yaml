@@ -10,7 +10,7 @@ sources:
 - Plato, Phaedo 116-118 (the death of Socrates, 399 BC).
 - Epictetus, Discourses (Socrates as the model the Stoics return to again and again).
 lines:
-- text: Athens, 399 BC. A jury sentences Socrates to death for asking too many questions.
+- text: He could have escaped. He didn't.
   nocap: true
   pause: 0.4
   scene:
@@ -22,9 +22,9 @@ lines:
       zoom:
       - 1.0
       - 1.15
-    tag: ATHENS · 399 BC
-- text: His friends had a plan to bribe the guards and get him out. He refused to break the law he had lived under.
+- text: Athens, 399 BC. A jury sentences Socrates to death for asking too many questions. His friends had a plan to bribe the guards and get him out. He refused to break the law he had lived under.
   scene:
+    tag: ATHENS · 399 BC
     setting: room
     figures:
     - x: 360

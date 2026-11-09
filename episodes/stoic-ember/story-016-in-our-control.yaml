@@ -10,7 +10,7 @@ sources:
 - Epictetus, Enchiridion 1, trans. Thomas Wentworth Higginson (1865), public domain.
 - Arrian, who recorded Epictetus's lectures, compiled the Enchiridion (Handbook).
 lines:
-- text: Around AD 125, a student named Arrian wrote down his teacher's lessons in a little handbook.
+- text: Most suffering comes from one mistake.
   nocap: true
   pause: 0.4
   scene:
@@ -20,9 +20,9 @@ lines:
       pose: writing
       h: 520
     fire_x: 700
-    tag: NICOPOLIS · c. AD 125
-- text: The teacher was Epictetus, a former slave. The handbook's first line is this.
+- text: Around AD 125, a student named Arrian wrote down his teacher's lessons in a little handbook. The teacher was Epictetus, a former slave. The handbook's first line is this.
   scene:
+    tag: NICOPOLIS · c. AD 125
     photo:
       src: assets/stoic/epictetus-commons-2.jpg
       focus:
@@ -47,9 +47,9 @@ lines:
     setting: black
     rows:
     - l: YOURS
-      r: CHOICES, EFFORT
-    - l: NOT YOURS
-      r: OTHERS, OUTCOMES
+      r: YOUR CHOICES
+    - l: NOT
+      r: OTHER PEOPLE
     rows_y: 720
 - text: Most suffering comes from mixing them up. Trying to control the second list and neglecting the first.
   scene:

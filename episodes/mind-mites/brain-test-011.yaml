@@ -9,7 +9,7 @@ description: |
 sources:
 - 'Tversky, A. & Kahneman, D. (1974). Judgment under uncertainty: Heuristics and biases. Science, 185(4157), 1124-1131.'
 lines:
-- text: Scientists spun a wheel of fortune in front of people. It landed on either ten or sixty five.
+- text: A random wheel changed their answers. They never noticed.
   scene:
     rows:
     - l: GROUP A
@@ -22,7 +22,7 @@ lines:
       y: 1660
       s: 0.55
       mood: waiting
-- text: Then they asked, what percentage of African countries are in the United Nations?
+- text: Scientists spun a wheel of fortune in front of people. It landed on either ten or sixty five. Then they asked, what percentage of African countries are in the United Nations?
   caption: 'Then: what % of African countries are in the UN?'
   scene:
     big: WHAT PERCENT?

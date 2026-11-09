@@ -9,7 +9,7 @@ description: |
 sources:
 - 'Simons, D. J. & Chabris, C. F. (1999). Gorillas in our midst: sustained inattentional blindness for dynamic events. Perception, 28(9), 1059-1074.'
 lines:
-- text: People watched a video of players passing a basketball. Their job was to count the passes.
+- text: Half the people never saw the gorilla.
   scene:
     big: COUNT THE PASSES.
     big_y: 760
@@ -18,7 +18,7 @@ lines:
       y: 1660
       s: 0.55
       mood: waiting
-- text: Midway through, someone in a gorilla suit walked into the middle, thumped their chest and walked off.
+- text: People watched a video of players passing a basketball. Their job was to count the passes. Midway through, someone in a gorilla suit walked into the middle, thumped their chest and walked off.
   scene:
     big: A GORILLA?
     big_y: 760

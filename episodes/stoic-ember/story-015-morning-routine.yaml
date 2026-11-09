@@ -9,7 +9,7 @@ description: |
 sources:
 - Marcus Aurelius, Meditations 2.1, trans. George Long (1862), public domain.
 lines:
-- text: Every morning, the most powerful man in the world told himself something unusual.
+- text: Every morning, Rome's emperor expected the worst people.
   nocap: true
   pause: 0.4
   scene:
@@ -21,7 +21,7 @@ lines:
       zoom:
       - 1.0
       - 1.12
-- text: Marcus Aurelius wrote it on the first page of Book 2 of his private notes.
+- text: Every morning, the most powerful man in the world told himself something unusual. Marcus Aurelius wrote it on the first page of Book 2 of his private notes.
   scene:
     setting: room
     figures:

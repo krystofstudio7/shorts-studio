@@ -9,7 +9,7 @@ description: |
 sources:
 - 'Seneca, On Anger (De Ira) 2.32: Cato, struck unknowingly in the baths, later said he did not remember being struck.'
 lines:
-- text: Rome, a crowded public bath. A man shoves through and hits someone hard.
+- text: A stranger hit him in public. He didn't hit back.
   nocap: true
   pause: 0.4
   scene:
@@ -21,7 +21,7 @@ lines:
       zoom:
       - 1.0
       - 1.15
-- text: He had no idea who he had struck. It was Cato, one of the most respected men in Rome.
+- text: Rome, a crowded public bath. A man shoves through and hits someone hard. He had no idea who he had struck. It was Cato, one of the most respected men in Rome.
   scene:
     tag: MARCUS CATO
     setting: city

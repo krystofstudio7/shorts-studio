@@ -10,7 +10,7 @@ sources:
 - 'Seneca, On Anger (De Ira) 2.29: the greatest remedy for anger is delay.'
 - 'Seneca, On Anger 3.36: his nightly review of the day.'
 lines:
-- text: Seneca watched anger destroy people at the court of Nero. So he wrote a whole book about it.
+- text: Seneca's cure for anger costs nothing.
   nocap: true
   pause: 0.4
   scene:
@@ -22,7 +22,7 @@ lines:
       zoom:
       - 1.0
       - 1.15
-- text: His strongest advice is also the simplest. The greatest remedy for anger is delay.
+- text: Seneca watched anger destroy people at the court of Nero. So he wrote a whole book about it. His strongest advice is also the simplest. The greatest remedy for anger is delay.
   scene:
     setting: black
     big: DELAY.

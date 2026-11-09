@@ -22,9 +22,9 @@ lines:
       zoom:
       - 1.0
       - 1.15
-    tag: AD 65
 - text: Later he ends up in chains, forced to dig Nero's canal across the narrow neck of Greece.
   scene:
+    tag: AD 65
     setting: camp
     figures:
     - x: 360

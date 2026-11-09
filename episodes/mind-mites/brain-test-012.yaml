@@ -10,7 +10,7 @@ sources:
 - Kaufman, L. & Rock, I. (1962). The moon illusion, I. Science, 136(3520), 953-961.
 - 'NASA Science, Moon illusion: the Moon''s angular size is about the same at the horizon and overhead. https://science.nasa.gov/moon/'
 lines:
-- text: Why does the Moon look huge when it's rising, and small when it's high in the sky?
+- text: The huge rising Moon? Your brain is lying.
   scene:
     bg: dark
     big: WHY SO BIG?
@@ -20,7 +20,7 @@ lines:
       y: 1660
       s: 0.55
       mood: waiting
-- text: Is it closer? Is the air magnifying it? Guess in three seconds.
+- text: Why does the Moon look huge when it's rising, and small when it's high in the sky? Is it closer? Is the air magnifying it? Guess in three seconds.
   update:
     countdown: 3
     countdown_y: 1620

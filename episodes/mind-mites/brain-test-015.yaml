@@ -9,7 +9,7 @@ description: |
 sources:
 - Gilovich, T., Medvec, V. H. & Savitsky, K. (2000). The spotlight effect in social judgment. Journal of Personality and Social Psychology, 78(2), 211-222.
 lines:
-- text: Students were asked to put on an embarrassing T-shirt and walk into a room full of people.
+- text: You think everyone noticed. Only a few did.
   scene:
     big: EMBARRASSING SHIRT.
     big_y: 760
@@ -18,7 +18,7 @@ lines:
       y: 1660
       s: 0.55
       mood: waiting
-- text: Afterwards they guessed how many people noticed the shirt. They said about half.
+- text: Students were asked to put on an embarrassing T-shirt and walk into a room full of people. Afterwards they guessed how many people noticed the shirt. They said about half.
   scene:
     stat:
       to: 50

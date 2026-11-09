@@ -9,7 +9,7 @@ description: |
 sources:
 - 'Cassius Dio, Roman History 72 (71).27-29: the revolt of Avidius Cassius in AD 175 and Marcus''s leniency; Marcus had the conspirators'' correspondence burned without reading it.'
 lines:
-- text: AD 175. Rome's best general in the East declares himself emperor.
+- text: He held his traitors' letters. He never read them.
   nocap: true
   pause: 0.4
   scene:
@@ -21,9 +21,9 @@ lines:
       zoom:
       - 1.0
       - 1.15
-    tag: AD 175
-- text: His name was Avidius Cassius. The real emperor, Marcus Aurelius, marched to face him.
+- text: AD 175. Rome's best general in the East declares himself emperor. His name was Avidius Cassius. The real emperor, Marcus Aurelius, marched to face him.
   scene:
+    tag: AD 175
     photo:
       src: assets/stoic/marcus-equestrian-commons-3.jpg
       focus:

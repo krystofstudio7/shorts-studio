@@ -9,7 +9,7 @@
       "likes": 2,
       "comments": 0,
       "shares": 0,
-      "view_pct": 49.83,
+      "view_pct": 50.46000000000001,
       "view_sec": 18.0,
       "subs": 0
     },
@@ -31,7 +31,7 @@
       "likes": 6,
       "comments": 0,
       "shares": 0,
-      "view_pct": 59.85,
+      "view_pct": 59.57,
       "view_sec": 18.0,
       "subs": 1
     },
@@ -53,7 +53,7 @@
       "likes": 2,
       "comments": 0,
       "shares": 0,
-      "view_pct": 60.34,
+      "view_pct": 60.040000000000006,
       "view_sec": 20.0,
       "subs": 0
     },
@@ -73,9 +73,13 @@
     "instagram_id": "18135794110729764",
     "facebook_id": "2247639789429837",
     "yt": {
-      "views": 68,
+      "views": 69,
       "likes": 3,
-      "comments": 0
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 52.51,
+      "view_sec": 19.0,
+      "subs": 0
     },
     "ig": {
       "views": 120,
@@ -102,9 +106,13 @@
     "instagram_id": "18119355719319247",
     "facebook_id": "1311773491046887",
     "yt": {
-      "views": 195,
+      "views": 274,
       "likes": 2,
-      "comments": 0
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 53.010000000000005,
+      "view_sec": 18.0,
+      "subs": 1
     },
     "ig": {
       "views": 111,
@@ -121,6 +129,110 @@
       "screen_hook": "Guess the number. You'll guess high.",
       "est_seconds": 34,
       "loop": true
+    }
+  },
+  {
+    "channel": "mind-mites",
+    "id": "brain-test-006",
+    "title": "Brain Test #6: The letter K trick 🐛",
+    "youtube_id": "tOfxIyPIOho",
+    "instagram_id": "18130977850847627",
+    "facebook_id": "1477578740986851",
+    "yt": {
+      "views": 123,
+      "likes": 3,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 58.440000000000005,
+      "view_sec": 20.0,
+      "subs": 0
+    },
+    "ig": {
+      "views": 129,
+      "reach": 110,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 8787
+    },
+    "episode": {
+      "hook": "Are there more English words that start with the letter K, or that have K as the third letter?",
+      "hook_score": 25,
+      "screen_hook": "Your memory is lying to you",
+      "est_seconds": 35,
+      "loop": false
+    }
+  },
+  {
+    "channel": "mind-mites",
+    "id": "brain-test-007",
+    "title": "Brain Test #7: Why the medium popcorn exists 🍿",
+    "youtube_id": "Ip5jILvRJ5g",
+    "instagram_id": "17906512119601386",
+    "facebook_id": "4103098466654511",
+    "yt": {
+      "views": 145,
+      "likes": 7,
+      "comments": 1,
+      "shares": 1,
+      "view_pct": 71.9,
+      "view_sec": 29.0,
+      "subs": 0
+    },
+    "ig": {
+      "views": 131,
+      "reach": 100,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 10497
+    },
+    "episode": {
+      "hook": "Small popcorn, three dollars. Large popcorn, seven dollars. Which one do you buy?",
+      "hook_score": 56,
+      "screen_hook": "The medium popcorn isn't for you",
+      "est_seconds": 38,
+      "loop": true
+    }
+  },
+  {
+    "channel": "mind-mites",
+    "id": "brain-test-008",
+    "title": "Brain Test #8: Why time speeds up as you get older ⏳",
+    "youtube_id": "OqEewYSeOs8",
+    "facebook_id": "2902894553403164",
+    "yt": {
+      "views": 986,
+      "likes": 17,
+      "comments": 0
+    },
+    "episode": {
+      "hook": "When you're ten, how much of your life is one year? Three seconds.",
+      "hook_score": 56,
+      "screen_hook": "Why did this year fly by?",
+      "est_seconds": 39,
+      "loop": false
+    }
+  },
+  {
+    "channel": "mind-mites",
+    "id": "brain-test-009",
+    "title": "Brain Test #9: The Linda problem 🐛",
+    "youtube_id": "61S7wEWO6D0",
+    "facebook_id": "2028832767806786",
+    "yt": {
+      "views": 85,
+      "likes": 2,
+      "comments": 0
+    },
+    "episode": {
+      "hook": "Linda is thirty one, single, outspoken and very bright. In college, she cared deeply about justice and discrimination.",
+      "hook_score": 38,
+      "screen_hook": "85% of people get this wrong",
+      "est_seconds": 39,
+      "loop": false
     }
   },
   {
@@ -155,8 +267,8 @@
       "likes": 12,
       "comments": 0,
       "shares": 0,
-      "view_pct": 54.47,
-      "view_sec": 26.0,
+      "view_pct": 55.86,
+      "view_sec": 27.0,
       "subs": 1
     },
     "episode": {
@@ -177,8 +289,8 @@
       "likes": 12,
       "comments": 1,
       "shares": 0,
-      "view_pct": 68.3,
-      "view_sec": 33.0,
+      "view_pct": 66.78,
+      "view_sec": 32.0,
       "subs": 1
     },
     "episode": {
@@ -197,9 +309,13 @@
     "instagram_id": "18167519848519757",
     "facebook_id": "952000854371923",
     "yt": {
-      "views": 338,
-      "likes": 19,
-      "comments": 1
+      "views": 350,
+      "likes": 21,
+      "comments": 1,
+      "shares": 0,
+      "view_pct": 73.63,
+      "view_sec": 27.0,
+      "subs": 5
     },
     "ig": {
       "views": 1,
@@ -226,9 +342,13 @@
     "instagram_id": "18106122203570220",
     "facebook_id": "1148200054670976",
     "yt": {
-      "views": 83,
-      "likes": 4,
-      "comments": 0
+      "views": 85,
+      "likes": 5,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 50.529999999999994,
+      "view_sec": 21.0,
+      "subs": 0
     },
     "ig": {
       "views": 3,
@@ -248,6 +368,110 @@
     }
   },
   {
+    "channel": "stoic-ember",
+    "id": "story-006-memento-mori",
+    "title": "The whisper behind every Roman victory parade.",
+    "youtube_id": "5c8Kso_TD-0",
+    "facebook_id": "1142554528426958",
+    "yt": {
+      "views": 93,
+      "likes": 8,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 51.16,
+      "view_sec": 21.0,
+      "subs": 0
+    },
+    "episode": {
+      "hook": "At the greatest moment of his life, a Roman general heard a whisper.",
+      "hook_score": 36,
+      "screen_hook": "At his greatest moment, someone whispered.",
+      "est_seconds": 47,
+      "loop": false
+    }
+  },
+  {
+    "channel": "stoic-ember",
+    "id": "story-007-seneca-time",
+    "title": "The clocks went back. Seneca says you lost more than an hour.",
+    "youtube_id": "haeD7esuqf0",
+    "instagram_id": "17918049990471422",
+    "facebook_id": "1571838561449041",
+    "yt": {
+      "views": 53,
+      "likes": 5,
+      "comments": 0,
+      "shares": 1,
+      "view_pct": 51.35999999999999,
+      "view_sec": 20.0,
+      "subs": 0
+    },
+    "ig": {
+      "views": 82,
+      "reach": 71,
+      "shares": 0,
+      "saved": 0,
+      "likes": 1,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 7227
+    },
+    "episode": {
+      "hook": "The clocks just went back. Everyone got a free hour. Seneca would laugh.",
+      "hook_score": 53,
+      "screen_hook": "You got an extra hour. Seneca laughs.",
+      "est_seconds": 45,
+      "loop": false
+    }
+  },
+  {
+    "channel": "stoic-ember",
+    "id": "story-008-marcus-children",
+    "title": "The emperor who buried his children. What he wrote after.",
+    "youtube_id": "MZRKpgygNNg",
+    "instagram_id": "18029707040696476",
+    "facebook_id": "29141238525528184",
+    "yt": {
+      "views": 634,
+      "likes": 31,
+      "comments": 2
+    },
+    "ig": {
+      "views": 106,
+      "reach": 101,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 6818
+    },
+    "episode": {
+      "hook": "The most powerful man in the world couldn't save his own children.",
+      "hook_score": 29,
+      "screen_hook": "An emperor who outlived his children.",
+      "est_seconds": 41,
+      "loop": false
+    }
+  },
+  {
+    "channel": "stoic-ember",
+    "id": "story-009-cleanthes",
+    "title": "He carried water all night so he could study all day.",
+    "youtube_id": "Em1khxKqkWc",
+    "facebook_id": "1051357764632187",
+    "yt": {
+      "views": 384,
+      "likes": 17,
+      "comments": 0
+    },
+    "episode": {
+      "hook": "He arrived in Athens with four coins in his pocket.",
+      "hook_score": 47,
+      "screen_hook": "He arrived with four coins.",
+      "est_seconds": 48,
+      "loop": false
+    }
+  },
+  {
     "channel": "what-if-institute",
     "id": "what-if-001-jupiter",
     "title": "What if you fell into Jupiter? 🪐",
@@ -257,7 +481,7 @@
       "likes": 12,
       "comments": 0,
       "shares": 0,
-      "view_pct": 54.2,
+      "view_pct": 54.59,
       "view_sec": 22.0,
       "subs": 1
     },
@@ -275,12 +499,12 @@
     "title": "What if you stood on Mars without a suit? 🔴",
     "youtube_id": "dS5KCzPozwo",
     "yt": {
-      "views": 57,
+      "views": 56,
       "likes": 10,
       "comments": 0,
       "shares": 2,
-      "view_pct": 77.28,
-      "view_sec": 29.0,
+      "view_pct": 71.28,
+      "view_sec": 27.0,
       "subs": 0
     },
     "episode": {
@@ -301,8 +525,8 @@
       "likes": 12,
       "comments": 0,
       "shares": 0,
-      "view_pct": 55.45,
-      "view_sec": 22.0,
+      "view_pct": 50.27,
+      "view_sec": 20.0,
       "subs": 0
     },
     "episode": {
@@ -320,9 +544,13 @@
     "youtube_id": "w-_NBgyvQzU",
     "facebook_id": "1619725919636326",
     "yt": {
-      "views": 688,
+      "views": 707,
       "likes": 23,
-      "comments": 0
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 70.24,
+      "view_sec": 30.0,
+      "subs": 2
     },
     "episode": {
       "hook": "What if Earth suddenly stopped spinning?",
@@ -340,23 +568,121 @@
     "instagram_id": "17904131397373595",
     "facebook_id": "1555758389903204",
     "yt": {
-      "views": 536,
-      "likes": 15,
-      "comments": 0
+      "views": 585,
+      "likes": 17,
+      "comments": 0,
+      "shares": 2,
+      "view_pct": 137.46,
+      "view_sec": 60.0,
+      "subs": 4
     },
     "ig": {
-      "views": 246,
-      "reach": 197,
+      "views": 251,
+      "reach": 202,
       "shares": 1,
       "saved": 0,
       "likes": 2,
       "comments": 0,
-      "ig_reels_avg_watch_time": 14223
+      "ig_reels_avg_watch_time": 14178
     },
     "episode": {
       "hook": "What if you fell into a black hole? It depends on which one.",
       "hook_score": 36,
       "screen_hook": "Small black hole or giant one?",
+      "est_seconds": 45,
+      "loop": false
+    }
+  },
+  {
+    "channel": "what-if-institute",
+    "id": "what-if-006-taurid-fireball",
+    "title": "What if a fireball exploded above your city? ☄️",
+    "youtube_id": "nduUQpkUX3I",
+    "facebook_id": "2651171125336345",
+    "yt": {
+      "views": 118,
+      "likes": 5,
+      "comments": 0,
+      "shares": 1,
+      "view_pct": 72.21,
+      "view_sec": 34.0,
+      "subs": 0
+    },
+    "episode": {
+      "hook": "What if a fireball exploded right above your city?",
+      "hook_score": 38,
+      "screen_hook": "A fireball explodes over your city.",
+      "est_seconds": 39,
+      "loop": false
+    }
+  },
+  {
+    "channel": "what-if-institute",
+    "id": "what-if-007-lava-planet",
+    "title": "What if you landed on a lava planet? 🌋",
+    "youtube_id": "0aUYoQ65IfA",
+    "facebook_id": "29510741501947863",
+    "yt": {
+      "views": 397,
+      "likes": 20,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 53.02,
+      "view_sec": 24.0,
+      "subs": 0
+    },
+    "episode": {
+      "hook": "What if you landed on a planet made of lava?",
+      "hook_score": 38,
+      "screen_hook": "The whole planet is lava.",
+      "est_seconds": 42,
+      "loop": false
+    }
+  },
+  {
+    "channel": "what-if-institute",
+    "id": "what-if-008-moon-radiation",
+    "title": "What if you lived on the Moon with no shielding? 🌑",
+    "youtube_id": "XDs9xkRVHOA",
+    "instagram_id": "18094134857199402",
+    "facebook_id": "960678250126306",
+    "yt": {
+      "views": 280,
+      "likes": 5,
+      "comments": 0
+    },
+    "ig": {
+      "views": 137,
+      "reach": 120,
+      "shares": 0,
+      "saved": 0,
+      "likes": 1,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 7999
+    },
+    "episode": {
+      "hook": "What if you moved to the Moon and lived there with no shielding?",
+      "hook_score": 59,
+      "screen_hook": "Two days on the Moon. One Earth year.",
+      "est_seconds": 44,
+      "loop": true
+    }
+  },
+  {
+    "channel": "what-if-institute",
+    "id": "what-if-009-tunnel-through-earth",
+    "title": "What if you jumped into a tunnel through the Earth? 🕳️",
+    "youtube_id": "HZ9ktEglS0o",
+    "facebook_id": "1540709634748344",
+    "yt": {
+      "views": 758,
+      "likes": 12,
+      "comments": 0
+    },
+    "episode": {
+      "hook": "What if you dug a tunnel straight through the Earth and jumped in?",
+      "hook_score": 44,
+      "screen_hook": "Jump in here. Pop out there.",
       "est_seconds": 45,
       "loop": false
     }

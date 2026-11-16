@@ -1,0 +1,168 @@
+channel: what-if-institute
+id: what-if-018-earth-being-built
+series: What If You
+number: 18
+title: Watch Earth being built, from lava to today 🌍
+hook: 4.5 billion years. Under a minute.
+description: |
+  You learned the timeline in school. Here it is, played back: molten rock, the giant impact that made the Moon, the first oceans, the first life, Snowball Earth, Pangaea, and the very last split second that is us.
+sources:
+- 'NASA Science, Earth: formed about 4.54 billion years ago. https://science.nasa.gov/earth/facts/'
+- 'NASA Science, Moon formation: a Mars-sized body (Theia) hit the young Earth about 4.5 billion years ago and the debris formed the Moon. https://science.nasa.gov/moon/formation/'
+- 'Wilde et al. 2001, Nature 409: 4.4-billion-year-old zircons point to liquid water at the surface. https://doi.org/10.1038/35051550'
+- 'Allwood et al. 2006, Nature 441: 3.43-billion-year-old stromatolites, early microbial life. https://doi.org/10.1038/nature04764'
+- 'Lyons, Reinhard and Planavsky 2014, Nature 506: the Great Oxidation Event about 2.4 billion years ago. https://doi.org/10.1038/nature13068'
+- 'Hoffman et al. 2017, Science Advances 3: Snowball Earth glaciations about 717-635 million years ago. https://doi.org/10.1126/sciadv.1600983'
+- 'USGS, This Dynamic Earth: Pangaea assembled about 335 million years ago and broke up starting about 175 million years ago. https://pubs.usgs.gov/gip/dynamic/historical.html'
+- 'Hublin et al. 2017, Nature 546: Homo sapiens fossils about 300,000 years old (300,000 / 4.54 billion x 45 s = 0.003 s). https://doi.org/10.1038/nature22336'
+lines:
+- text: 4.5 billion years of Earth, in under a minute.
+  nocap: true
+  pause: 0.3
+  scene:
+    bg: space
+    sim:
+      kind: earth_build
+      ages:
+      - 4.54
+      - 4.52
+      x: 540
+      y: 830
+      r: 320
+      hud_y: 1480
+    push: 0
+- text: First, a ball of molten rock.
+  update:
+    sim:
+      kind: earth_build
+      ages:
+      - 4.52
+      - 4.505
+      x: 540
+      y: 830
+      r: 320
+      hud_y: 1480
+- text: Then a Mars-sized planet, Theia, slams into it.
+  update:
+    sim:
+      kind: earth_build
+      ages:
+      - 4.505
+      - 4.487
+      x: 540
+      y: 830
+      r: 320
+      hud_y: 1480
+- text: The debris becomes our Moon.
+  update:
+    sim:
+      kind: earth_build
+      ages:
+      - 4.487
+      - 4.44
+      x: 540
+      y: 830
+      r: 320
+      hud_y: 1480
+- text: It cools. Steam rains down. The first oceans.
+  update:
+    sim:
+      kind: earth_build
+      ages:
+      - 4.44
+      - 3.8
+      x: 540
+      y: 830
+      r: 320
+      hud_y: 1480
+- text: 'Three and a half billion years ago: life. Tiny microbes.'
+  update:
+    sim:
+      kind: earth_build
+      ages:
+      - 3.8
+      - 2.6
+      x: 540
+      y: 830
+      r: 320
+      hud_y: 1480
+- text: They slowly fill the air with oxygen.
+  update:
+    sim:
+      kind: earth_build
+      ages:
+      - 2.6
+      - 1.0
+      x: 540
+      y: 830
+      r: 320
+      hud_y: 1480
+- text: Then the whole planet freezes. Snowball Earth.
+  update:
+    sim:
+      kind: earth_build
+      ages:
+      - 1.0
+      - 0.645
+      x: 540
+      y: 830
+      r: 320
+      hud_y: 1480
+- text: The ice melts. Animals explode. Plants climb onto land.
+  update:
+    sim:
+      kind: earth_build
+      ages:
+      - 0.645
+      - 0.4
+      x: 540
+      y: 830
+      r: 320
+      hud_y: 1480
+- text: The continents merge into Pangaea. Dinosaurs.
+  update:
+    sim:
+      kind: earth_build
+      ages:
+      - 0.4
+      - 0.2
+      x: 540
+      y: 830
+      r: 320
+      hud_y: 1480
+- text: Pangaea splits. An asteroid ends the dinosaurs.
+  update:
+    sim:
+      kind: earth_build
+      ages:
+      - 0.2
+      - 0.06
+      x: 540
+      y: 830
+      r: 320
+      hud_y: 1480
+- text: Squeeze it all into 45 seconds, and humans get the last three thousandths of one.
+  update:
+    sim:
+      kind: earth_build
+      ages:
+      - 0.06
+      - 0.0
+      x: 540
+      y: 830
+      r: 320
+      hud_y: 1480
+      log: true
+  pause: 0.6
+- text: Send this to someone who thinks they're running out of time.
+  pause: 1.0
+  scene:
+    bg: space
+    scout:
+      x: 540
+      y: 820
+      s: 0.9
+      pose: wave
+    share: Send this to someone who thinks they're running out of time
+    share_y: 360
+    nocaptions: true

@@ -181,7 +181,12 @@ class Theme:
             img = self.atmosphere(img, pl["kind"], sp.width / 2, pl.get("x", 540), pl.get("y", 1050))
             img.paste(sp, (int(pl.get("x", 540) - sp.width / 2), int(pl.get("y", 1050) - sp.height / 2)), sp)
         if p.get("sim"):
-            img = sims.draw(img, p["sim"], t, st)
+            cfg = p["sim"]
+            if ctx and "tl" in ctx and "line" in ctx:
+                # the current line's window (to the next line's start), so a sim can sweep across lines
+                tl, i = ctx["tl"], ctx["line"]
+                cfg = {**cfg, "_win": (tl[i]["start"], tl[i + 1]["start"] if i + 1 < len(tl) else ctx["dur"])}
+            img = sims.draw(img, cfg, t, st)
         sc = p.get("scout")
         if sc:
             drift = sc.get("drift", 0) * st

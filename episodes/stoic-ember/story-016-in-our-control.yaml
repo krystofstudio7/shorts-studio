@@ -1,0 +1,83 @@
+channel: stoic-ember
+id: story-016-in-our-control
+series: One Stoic Story
+number: 16
+title: 'A former slave''s first lesson: only two kinds of things.'
+hook: One sentence. A whole philosophy.
+description: |
+  Epictetus's handbook opens with the sentence that the rest of Stoicism hangs on. One Stoic Story, true and short.
+sources:
+- Epictetus, Enchiridion 1, trans. Thomas Wentworth Higginson (1865), public domain.
+- Arrian, who recorded Epictetus's lectures, compiled the Enchiridion (Handbook).
+lines:
+- text: Most suffering comes from one mistake.
+  nocap: true
+  pause: 0.4
+  scene:
+    setting: room
+    figures:
+    - x: 380
+      pose: writing
+      h: 520
+    fire_x: 700
+- text: Around AD 125, a student named Arrian wrote down his teacher's lessons in a little handbook. The teacher was Epictetus, a former slave. The handbook's first line is this.
+  scene:
+    tag: NICOPOLIS · c. AD 125
+    photo:
+      src: assets/stoic/epictetus-commons-2.jpg
+      focus:
+      - 0.5
+      - 0.45
+      zoom:
+      - 1.0
+      - 1.12
+- text: Some things are in our control and others not.
+  nocap: true
+  pause: 0.6
+  scene:
+    setting: black
+    quote:
+      text: Some things are in our control and others not.
+      source: Epictetus · Enchiridion 1 · trans. T. W. Higginson
+    quote_y: 820
+    nocaptions: true
+- text: In your control, your opinions, your choices, your effort. Not in your control, your body, your reputation, other people.
+  caption: 'In your control: opinions, choices, effort. Not: your body, your reputation, other people.'
+  scene:
+    setting: black
+    rows:
+    - l: YOURS
+      r: YOUR CHOICES
+    - l: NOT
+      r: OTHER PEOPLE
+    rows_y: 720
+- text: Most suffering comes from mixing them up. Trying to control the second list and neglecting the first.
+  scene:
+    setting: black
+    big: DON'T MIX THEM UP.
+    big_y: 720
+    embers: 1.0
+- text: He'd lived it. As a slave, almost nothing was his except how he responded.
+  scene:
+    setting: night
+    figures:
+    - x: 540
+      pose: seated
+      h: 400
+- text: Pick one thing that's bothering you. Which list is it on?
+  scene:
+    setting: black
+    big: WHICH LIST?
+    big_y: 720
+- text: Send this to someone stressing about things they can't change.
+  pause: 1.0
+  scene:
+    setting: sea
+    figures:
+    - x: 540
+      ground: 1180
+      pose: standing
+      h: 200
+    share: Send this to someone stressing about what they can't change
+    share_y: 520
+    nocaptions: true

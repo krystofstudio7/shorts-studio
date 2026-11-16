@@ -1,0 +1,116 @@
+channel: what-if-institute
+id: what-if-013-sun-disappears
+series: What If You
+number: 13
+title: What if the Sun disappeared right now? 🌑
+hook: You'd have eight more minutes.
+description: |
+  The Sun vanishes. For eight minutes, nothing changes. Then everything does.
+sources:
+- 'NASA: sunlight takes about 8 minutes 20 seconds to reach Earth. https://science.nasa.gov/sun/facts/'
+- Changes in gravity also travel at the speed of light (LIGO/Virgo GW170817 with GRB 170817A, 2017).
+lines:
+- text: What if the Sun disappeared right now?
+  nocap: true
+  pause: 0.4
+  scene:
+    photo:
+      src: assets/whatif/solar-flare-nasa-3.jpg
+      focus:
+      - 0.5
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.1
+- text: For eight minutes, you'd notice nothing. That's how long sunlight takes to reach us.
+  scene:
+    photo:
+      src: assets/whatif/earth-nasa-1.jpg
+      focus:
+      - 0.5
+      - 0.6
+      zoom:
+      - 0.8
+      - 0.9
+      fit: contain
+      at: 0.7
+    stat:
+      to: 8
+      unit: ' MIN'
+      label: LIGHT FROM THE SUN
+    stat_y: 420
+- text: Gravity changes travel at the speed of light too. So for those same eight minutes, Earth keeps circling nothing.
+  scene:
+    bg: space
+    planet:
+      kind: earth
+      r: 330
+      x: 540
+      y: 1150
+      spin: 0.2
+    big: CIRCLING NOTHING.
+    big_y: 520
+- text: Then the sky goes dark, and Earth flies off in a straight line into space.
+  scene:
+    bg: space
+    planet:
+      kind: earth
+      r: 200
+      x: 540
+      y: 1150
+      spin: 0.2
+      zoom: -0.4
+    scout:
+      x: 760
+      y: 640
+      s: 0.6
+      pose: fall
+- text: Plants stop making food. Temperatures start falling and keep falling, day after day.
+  scene:
+    bg: dark
+    color:
+    - 6
+    - 10
+    - 24
+    big: NO MORE SUNLIGHT.
+    big_y: 620
+- text: The oceans would freeze from the top down. Deep below the ice, warmed by the planet's core, some life could survive.
+  scene:
+    bg: descent
+    colors:
+    - - 30
+      - 60
+      - 90
+    - - 10
+      - 20
+      - 40
+    speed: 500
+    big: LIFE HOLDS ON.
+    big_y: 560
+- text: Relax. Stars don't just vanish. The Sun has about five billion years of fuel left.
+  scene:
+    photo:
+      src: assets/whatif/solar-flare-nasa-3.jpg
+      focus:
+      - 0.5
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.1
+    stat:
+      to: 5
+      unit: ' BN YRS'
+      label: FUEL LEFT
+    stat_y: 420
+- text: Send this to someone who is your sunshine.
+  pause: 1.0
+  scene:
+    bg: space
+    scout:
+      x: 540
+      y: 820
+      s: 0.9
+      pose: wave
+    share: Send this to someone who is your sunshine
+    share_y: 360
+    nocaptions: true

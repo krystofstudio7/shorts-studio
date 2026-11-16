@@ -1,0 +1,90 @@
+channel: stoic-ember
+id: story-013-socrates-cup
+series: One Stoic Story
+number: 13
+title: Sentenced to death, he comforted his friends.
+hook: His friends cried. He didn't.
+description: |
+  Socrates spent his last day talking philosophy with his friends. The Stoics saw him as the model of how to live and how to die. One Stoic Story, true and short.
+sources:
+- Plato, Phaedo 116-118 (the death of Socrates, 399 BC).
+- Epictetus, Discourses (Socrates as the model the Stoics return to again and again).
+lines:
+- text: He could have escaped. He didn't.
+  nocap: true
+  pause: 0.4
+  scene:
+    photo:
+      src: assets/stoic/socrates-commons-1.jpg
+      focus:
+      - 0.55
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.15
+- text: Athens, 399 BC. A jury sentences Socrates to death for asking too many questions. His friends had a plan to bribe the guards and get him out. He refused to break the law he had lived under.
+  scene:
+    tag: ATHENS · 399 BC
+    setting: room
+    figures:
+    - x: 360
+      pose: seated
+      h: 520
+    - x: 720
+      pose: standing
+      h: 520
+      facing: -1
+    fire_x: 540
+- text: On his last day, he spent the hours talking with them about whether the soul survives.
+  scene:
+    photo:
+      src: assets/stoic/socrates-commons-2.jpg
+      focus:
+      - 0.4
+      - 0.5
+      zoom:
+      - 1.0
+      - 1.15
+- text: When the poison came, his friends broke down. He asked them to be calm.
+  scene:
+    photo:
+      src: assets/stoic/socrates-commons-3.jpg
+      focus:
+      - 0.6
+      - 0.5
+      zoom:
+      - 1.1
+      - 1.3
+- text: He drank the hemlock and walked until his legs felt heavy. Then he lay down.
+  scene:
+    setting: room
+    figures:
+    - x: 540
+      pose: lying
+      h: 420
+    fire_x: 300
+- text: Centuries later, the Stoics kept coming back to him. Fear of death, they said, is only an opinion.
+  scene:
+    setting: black
+    big: ONLY AN OPINION.
+    big_y: 720
+    embers: 1.0
+- text: What would you still stand for, even if it cost you?
+  scene:
+    setting: night
+    figures:
+    - x: 540
+      pose: standing
+      h: 420
+- text: Send this to someone who stands for something.
+  pause: 1.0
+  scene:
+    setting: sea
+    figures:
+    - x: 540
+      ground: 1180
+      pose: standing
+      h: 200
+    share: Send this to someone who stands for something
+    share_y: 520
+    nocaptions: true

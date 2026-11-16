@@ -31,7 +31,7 @@
       "likes": 6,
       "comments": 0,
       "shares": 0,
-      "view_pct": 59.57,
+      "view_pct": 59.46,
       "view_sec": 18.0,
       "subs": 1
     },
@@ -49,11 +49,11 @@
     "title": "Brain Test #3: The machine question 🐛",
     "youtube_id": "f-FVLglZZn8",
     "yt": {
-      "views": 95,
+      "views": 96,
       "likes": 2,
       "comments": 0,
       "shares": 0,
-      "view_pct": 60.040000000000006,
+      "view_pct": 60.31999999999999,
       "view_sec": 20.0,
       "subs": 0
     },
@@ -139,11 +139,11 @@
     "instagram_id": "18130977850847627",
     "facebook_id": "1477578740986851",
     "yt": {
-      "views": 123,
+      "views": 122,
       "likes": 3,
       "comments": 0,
       "shares": 0,
-      "view_pct": 58.440000000000005,
+      "view_pct": 57.38999999999999,
       "view_sec": 20.0,
       "subs": 0
     },
@@ -172,12 +172,12 @@
     "instagram_id": "17906512119601386",
     "facebook_id": "4103098466654511",
     "yt": {
-      "views": 145,
+      "views": 146,
       "likes": 7,
-      "comments": 1,
+      "comments": 0,
       "shares": 1,
-      "view_pct": 71.9,
-      "view_sec": 29.0,
+      "view_pct": 66.97,
+      "view_sec": 27.0,
       "subs": 0
     },
     "ig": {
@@ -202,11 +202,25 @@
     "id": "brain-test-008",
     "title": "Brain Test #8: Why time speeds up as you get older ⏳",
     "youtube_id": "OqEewYSeOs8",
+    "instagram_id": "17915985711490597",
     "facebook_id": "2902894553403164",
     "yt": {
-      "views": 986,
-      "likes": 17,
-      "comments": 0
+      "views": 1038,
+      "likes": 18,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 46.92,
+      "view_sec": 17.0,
+      "subs": 0
+    },
+    "ig": {
+      "views": 141,
+      "reach": 132,
+      "shares": 1,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 7768
     },
     "episode": {
       "hook": "When you're ten, how much of your life is one year? Three seconds.",
@@ -221,11 +235,25 @@
     "id": "brain-test-009",
     "title": "Brain Test #9: The Linda problem 🐛",
     "youtube_id": "61S7wEWO6D0",
+    "instagram_id": "18113217728237890",
     "facebook_id": "2028832767806786",
     "yt": {
-      "views": 85,
+      "views": 93,
       "likes": 2,
-      "comments": 0
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 46.55,
+      "view_sec": 18.0,
+      "subs": 0
+    },
+    "ig": {
+      "views": 131,
+      "reach": 107,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 9228
     },
     "episode": {
       "hook": "Linda is thirty one, single, outspoken and very bright. In college, she cared deeply about justice and discrimination.",
@@ -241,7 +269,7 @@
     "title": "Seneca was exiled for 8 years. Here's what he wrote home.",
     "youtube_id": "KdX9gTsuQ2Q",
     "yt": {
-      "views": 5,
+      "views": 6,
       "likes": 2,
       "comments": 1,
       "shares": 0,
@@ -309,11 +337,11 @@
     "instagram_id": "18167519848519757",
     "facebook_id": "952000854371923",
     "yt": {
-      "views": 350,
+      "views": 352,
       "likes": 21,
       "comments": 1,
       "shares": 0,
-      "view_pct": 73.63,
+      "view_pct": 73.3,
       "view_sec": 27.0,
       "subs": 5
     },
@@ -372,15 +400,25 @@
     "id": "story-006-memento-mori",
     "title": "The whisper behind every Roman victory parade.",
     "youtube_id": "5c8Kso_TD-0",
+    "instagram_id": "17943000966256701",
     "facebook_id": "1142554528426958",
     "yt": {
       "views": 93,
       "likes": 8,
       "comments": 0,
       "shares": 0,
-      "view_pct": 51.16,
-      "view_sec": 21.0,
+      "view_pct": 51.99,
+      "view_sec": 22.0,
       "subs": 0
+    },
+    "ig": {
+      "views": 113,
+      "reach": 101,
+      "shares": 0,
+      "saved": 1,
+      "likes": 1,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 7805
     },
     "episode": {
       "hook": "At the greatest moment of his life, a Roman general heard a whisper.",
@@ -402,18 +440,18 @@
       "likes": 5,
       "comments": 0,
       "shares": 1,
-      "view_pct": 51.35999999999999,
-      "view_sec": 20.0,
+      "view_pct": 53.28000000000001,
+      "view_sec": 21.0,
       "subs": 0
     },
     "ig": {
-      "views": 82,
+      "views": 83,
       "reach": 71,
       "shares": 0,
       "saved": 0,
-      "likes": 1,
+      "likes": 0,
       "comments": 0,
-      "ig_reels_avg_watch_time": 7227
+      "ig_reels_avg_watch_time": 7370
     },
     "episode": {
       "hook": "The clocks just went back. Everyone got a free hour. Seneca would laugh.",
@@ -431,9 +469,13 @@
     "instagram_id": "18029707040696476",
     "facebook_id": "29141238525528184",
     "yt": {
-      "views": 634,
-      "likes": 31,
-      "comments": 2
+      "views": 658,
+      "likes": 33,
+      "comments": 2,
+      "shares": 5,
+      "view_pct": 86.26,
+      "view_sec": 32.0,
+      "subs": 0
     },
     "ig": {
       "views": 106,
@@ -457,11 +499,25 @@
     "id": "story-009-cleanthes",
     "title": "He carried water all night so he could study all day.",
     "youtube_id": "Em1khxKqkWc",
+    "instagram_id": "18075233522743018",
     "facebook_id": "1051357764632187",
     "yt": {
-      "views": 384,
-      "likes": 17,
-      "comments": 0
+      "views": 420,
+      "likes": 19,
+      "comments": 0,
+      "shares": 1,
+      "view_pct": 99.26,
+      "view_sec": 39.0,
+      "subs": 0
+    },
+    "ig": {
+      "views": 112,
+      "reach": 103,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 8281
     },
     "episode": {
       "hook": "He arrived in Athens with four coins in his pocket.",
@@ -525,7 +581,7 @@
       "likes": 12,
       "comments": 0,
       "shares": 0,
-      "view_pct": 50.27,
+      "view_pct": 51.129999999999995,
       "view_sec": 20.0,
       "subs": 0
     },
@@ -548,7 +604,7 @@
       "likes": 23,
       "comments": 0,
       "shares": 0,
-      "view_pct": 70.24,
+      "view_pct": 70.25,
       "view_sec": 30.0,
       "subs": 2
     },
@@ -572,7 +628,7 @@
       "likes": 17,
       "comments": 0,
       "shares": 2,
-      "view_pct": 137.46,
+      "view_pct": 137.21,
       "view_sec": 60.0,
       "subs": 4
     },
@@ -598,15 +654,25 @@
     "id": "what-if-006-taurid-fireball",
     "title": "What if a fireball exploded above your city? ☄️",
     "youtube_id": "nduUQpkUX3I",
+    "instagram_id": "18117658016111561",
     "facebook_id": "2651171125336345",
     "yt": {
-      "views": 118,
+      "views": 124,
       "likes": 5,
       "comments": 0,
       "shares": 1,
-      "view_pct": 72.21,
-      "view_sec": 34.0,
-      "subs": 0
+      "view_pct": 66.43,
+      "view_sec": 31.0,
+      "subs": 1
+    },
+    "ig": {
+      "views": 118,
+      "reach": 106,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 6076
     },
     "episode": {
       "hook": "What if a fireball exploded right above your city?",
@@ -621,15 +687,25 @@
     "id": "what-if-007-lava-planet",
     "title": "What if you landed on a lava planet? 🌋",
     "youtube_id": "0aUYoQ65IfA",
+    "instagram_id": "17915150310515337",
     "facebook_id": "29510741501947863",
     "yt": {
-      "views": 397,
+      "views": 399,
       "likes": 20,
       "comments": 0,
       "shares": 0,
-      "view_pct": 53.02,
-      "view_sec": 24.0,
+      "view_pct": 50.27,
+      "view_sec": 23.0,
       "subs": 0
+    },
+    "ig": {
+      "views": 154,
+      "reach": 144,
+      "shares": 0,
+      "saved": 0,
+      "likes": 1,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 7203
     },
     "episode": {
       "hook": "What if you landed on a planet made of lava?",
@@ -647,18 +723,22 @@
     "instagram_id": "18094134857199402",
     "facebook_id": "960678250126306",
     "yt": {
-      "views": 280,
+      "views": 282,
       "likes": 5,
-      "comments": 0
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 42.15,
+      "view_sec": 18.0,
+      "subs": 0
     },
     "ig": {
-      "views": 137,
-      "reach": 120,
+      "views": 139,
+      "reach": 121,
       "shares": 0,
       "saved": 0,
       "likes": 1,
       "comments": 0,
-      "ig_reels_avg_watch_time": 7999
+      "ig_reels_avg_watch_time": 7943
     },
     "episode": {
       "hook": "What if you moved to the Moon and lived there with no shielding?",
@@ -673,11 +753,25 @@
     "id": "what-if-009-tunnel-through-earth",
     "title": "What if you jumped into a tunnel through the Earth? 🕳️",
     "youtube_id": "HZ9ktEglS0o",
+    "instagram_id": "18077685395755039",
     "facebook_id": "1540709634748344",
     "yt": {
-      "views": 758,
-      "likes": 12,
-      "comments": 0
+      "views": 766,
+      "likes": 13,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 60.12,
+      "view_sec": 26.0,
+      "subs": 2
+    },
+    "ig": {
+      "views": 239,
+      "reach": 217,
+      "shares": 0,
+      "saved": 0,
+      "likes": 1,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 10139
     },
     "episode": {
       "hook": "What if you dug a tunnel straight through the Earth and jumped in?",

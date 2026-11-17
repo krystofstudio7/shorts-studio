@@ -17,9 +17,7 @@ Optional: META_GRAPH_VERSION (default v23.0)
 import json
 import os
 import re
-import subprocess
 import sys
-import tempfile
 import time
 
 import requests
@@ -114,36 +112,6 @@ def facebook_reel(page, path, text):
     return vid
 
 
-def fb_video_url(page, video_id):
-    """Download link of a Reel already posted on the Facebook page (used as a fallback source for Instagram)."""
-    for _ in range(30):
-        src = call("GET", f"{GRAPH}/{video_id}", params={"fields": "source", "access_token": page["page_token"]}).get("source")
-        if src:
-            return src
-        time.sleep(10)
-    raise MetaError(f"Facebook video {video_id} has no download link yet")
-
-
-def instagram_copy(path):
-    """A lighter copy for Instagram: bitrate capped, 30 fps, 128k stereo AAC, moov atom first.
-
-    Instagram refused to process several of our uploads (error 2207076) that YouTube and Facebook took
-    fine; those renders had no bitrate cap (Stoic ~8 Mbit/s, What If spiking in busy scenes). Instagram
-    re-encodes everything anyway, so a capped copy costs no visible quality. Falls back to the original
-    if ffmpeg is missing or fails.
-    """
-    dst = os.path.join(tempfile.gettempdir(), "ig-" + os.path.basename(os.path.dirname(path)) + "-" + os.path.basename(path))
-    cmd = ["ffmpeg", "-y", "-loglevel", "error", "-i", path, "-c:v", "libx264", "-profile:v", "high", "-level", "4.1",
-           "-preset", "medium", "-crf", "21", "-maxrate", "6M", "-bufsize", "12M", "-r", "30", "-pix_fmt", "yuv420p",
-           "-c:a", "aac", "-b:a", "128k", "-ar", "48000", "-ac", "2", "-movflags", "+faststart", dst]
-    try:
-        subprocess.run(cmd, check=True)
-        return dst
-    except (OSError, subprocess.CalledProcessError) as e:
-        print(f"::warning::could not make the Instagram copy of {path} ({e}); uploading the original")
-        return path
-
-
 def instagram_wait_and_publish(ig, cid, token, path):
     for _ in range(60):  # Instagram processes the video before it can be published (usually under a minute)
         st = call("GET", f"{GRAPH}/{cid}", params={"fields": "status_code,status", "access_token": token})
@@ -157,34 +125,50 @@ def instagram_wait_and_publish(ig, cid, token, path):
     return call("POST", f"{GRAPH}/{ig}/media_publish", data={"creation_id": cid, "access_token": token})["id"]
 
 
-def instagram_reel(page, token, path, text, fb_video_id=None):
-    ig = page["ig_id"]
-    try:
-        box = call("POST", f"{GRAPH}/{ig}/media", data={"media_type": "REELS", "upload_type": "resumable", "caption": text,
-                                                       "share_to_feed": "true", "access_token": token})
-        cid = box["id"]
-        push_bytes(box.get("uri") or f"https://rupload.facebook.com/ig-api-upload/{VERSION}/{cid}", token, instagram_copy(path))
-        return instagram_wait_and_publish(ig, cid, token, path)
-    except MetaError as e:
-        if not fb_video_id:
-            raise
-        # Instagram sometimes refuses a file it accepts by URL: hand it the copy already on Facebook
-        print(f"::warning::Instagram direct upload failed ({e}); retrying from the Facebook copy")
-    cid = call("POST", f"{GRAPH}/{ig}/media", data={"media_type": "REELS", "video_url": fb_video_url(page, fb_video_id),
-                                                   "caption": text, "share_to_feed": "true", "access_token": token})["id"]
+def instagram_from_url(ig, token, url, text, path):
+    cid = call("POST", f"{GRAPH}/{ig}/media", data={"media_type": "REELS", "video_url": url, "caption": text,
+                                                   "share_to_feed": "true", "access_token": token})["id"]
     return instagram_wait_and_publish(ig, cid, token, path)
 
 
-def instagram_with_retries(page, token, path, text, fb_video_id, tries=3, wait=120):
-    """Instagram's failures (error 2207076) hit every channel at random, including 1 Mbit/s videos that
-    went through on other days, so they look server-side: try the whole upload again after a pause."""
+def instagram_resumable(ig, token, path, text, tries=6, wait=20):
+    """Direct upload. Instagram's upload server rejects the same file at random (ProcessingFailedError,
+    error 2207076; about 1 attempt in 3 succeeded in tests on 17 Nov 2026), so retry with a fresh container."""
+    for n in range(1, tries + 1):
+        box = call("POST", f"{GRAPH}/{ig}/media", data={"media_type": "REELS", "upload_type": "resumable", "caption": text,
+                                                       "share_to_feed": "true", "access_token": token})
+        try:
+            push_bytes(box.get("uri") or f"https://rupload.facebook.com/ig-api-upload/{VERSION}/{box['id']}", token, path)
+            return instagram_wait_and_publish(ig, box["id"], token, path)
+        except MetaError as e:
+            if n == tries:
+                raise
+            print(f"::warning::Instagram direct upload {n}/{tries} failed for {path} ({e}); retrying in {wait} s")
+            time.sleep(wait)
+
+
+def instagram_reel(page, token, path, text, fb_video_id=None):
+    """Prefer a public link (IG_VIDEO_URL_BASE, set by the workflow): in tests Instagram took 6 of 6 videos by
+    link while its direct-upload server refused most of the same files. Fall back to direct upload."""
+    ig = page["ig_id"]
+    base = os.environ.get("IG_VIDEO_URL_BASE")
+    if base:
+        try:
+            return instagram_from_url(ig, token, f"{base.rstrip('/')}/{os.path.basename(path)}", text, path)
+        except MetaError as e:
+            print(f"::warning::Instagram upload by link failed for {path} ({e}); trying a direct upload")
+    return instagram_resumable(ig, token, path, text)
+
+
+def instagram_with_retries(page, token, path, text, fb_video_id, tries=2, wait=120):
+    """One more full round after a pause if both the link and all direct uploads failed."""
     for n in range(1, tries + 1):
         try:
             return instagram_reel(page, token, path, text, fb_video_id)
         except MetaError as e:
             if n == tries:
                 raise
-            print(f"::warning::Instagram attempt {n}/{tries} failed for {path} ({e}); trying again in {wait} s")
+            print(f"::warning::Instagram round {n}/{tries} failed for {path} ({e}); trying again in {wait} s")
             time.sleep(wait)
 
 

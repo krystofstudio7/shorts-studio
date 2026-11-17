@@ -12,7 +12,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
-      - run: pip install -r requirements-upload.txt
+      - run: pip install -r requirements-upload.txt -r requirements.txt
       - run: python tools/ig_debug.py
         env:
           PYTHONPATH: .

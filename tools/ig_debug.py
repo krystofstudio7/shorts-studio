@@ -82,14 +82,31 @@ def up(ig, f):
 
 import glob
 tests = []
-for v in vids:
-    ch = v.split("/")[-2]
-    ig = pages[ch]["ig_id"]
-    cp = um.instagram_copy(v)
-    show(ch + " original", probe(v))
-    for n in (1, 2):
-        tests.append((f"{ch} original #{n}", up(ig, v)))
-        tests.append((f"{ch} ig copy #{n}", up(ig, cp)))
+
+
+def up2(ig, f, mode):
+    box = um.call("POST", f"{G}/{ig}/media", data={"media_type": "REELS", "upload_type": "resumable", "access_token": tok})
+    uri = box.get("uri") or f"https://rupload.facebook.com/ig-api-upload/{um.VERSION}/{box['id']}"
+    size = os.path.getsize(f)
+    h = {"Authorization": f"OAuth {tok}", "offset": "0", "file_size": str(size)}
+    try:
+        if mode == "stream":
+            with open(f, "rb") as fh:
+                um.call("POST", uri, headers=h, data=fh, timeout=900)
+        elif mode == "bytes":
+            um.call("POST", uri, headers=h, data=open(f, "rb").read(), timeout=900)
+        elif mode == "bytes+octet":
+            um.call("POST", uri, headers={**h, "Content-Type": "application/octet-stream"}, data=open(f, "rb").read(), timeout=900)
+        return box["id"]
+    except Exception as e:
+        return "rupload failed: " + str(e)[-60:]
+
+
+v = [x for x in vids if "mind-mites" in x][0]
+ig = pages["mind-mites"]["ig_id"]
+for n in (1, 2, 3):
+    for mode in ("stream", "bytes", "bytes+octet"):
+        tests.append((f"{mode} #{n}", up2(ig, v, mode)))
 for label, cid in tests:
     show(label, wait(cid) if cid.isdigit() else cid)
 print("Nothing was published: containers expire unused after 24 h.")

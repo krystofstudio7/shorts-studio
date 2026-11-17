@@ -9,6 +9,8 @@ import time
 
 import requests
 
+url = "https://raw.githubusercontent.com/krystofstudio7/shorts-studio/ig-debug/tools/ig-sample.mp4"
+
 import upload_meta as um
 
 tok = os.environ["META_SYSTEM_USER_TOKEN"]
@@ -31,7 +33,7 @@ show("token", {"valid": d.get("is_valid"), "type": d.get("type"), "expires_at": 
 pages = um.discover(tok)
 for ch, p in sorted(pages.items()):
     ig = p["ig_id"]
-    show(ch, get(ig, fields="username,account_type,media_count")[1])
+    show(ch, get(ig, fields="username,media_count")[1])
     show(ch + " publishing limit", get(f"{ig}/content_publishing_limit", fields="config,quota_usage")[1])
 
 # a tiny clean test clip: 5 s, 720x1280, H.264 high, AAC stereo 48k, faststart
@@ -51,32 +53,37 @@ def wait(cid):
     return st
 
 
-ch = "mind-mites" if "mind-mites" in pages else sorted(pages)[0]
-ig = pages[ch]["ig_id"]
+from studio.engine import load_episode, metadata
+from studio.channels import get_theme
+
+
+def fb_source(page, vid):
+    return get(vid, fields="source")[1].get("source")
+
+
+def mk(ig, **data):
+    try:
+        return um.call("POST", f"{G}/{ig}/media", data={"media_type": "REELS", **data, "access_token": tok})["id"]
+    except Exception as e:
+        return f"failed before processing: {e}"
+
+
+import glob, json
 tests = []
-# 1) resumable upload of the tiny clip
-try:
-    box = um.call("POST", f"{G}/{ig}/media", data={"media_type": "REELS", "upload_type": "resumable",
-                                                   "access_token": tok})
-    um.push_bytes(box.get("uri") or f"https://rupload.facebook.com/ig-api-upload/{um.VERSION}/{box['id']}", tok, clip)
-    tests.append(("resumable tiny clip", box["id"]))
-except Exception as e:
-    show("resumable tiny clip", f"failed before processing: {e}")
-# 2) video_url pointing at a public test clip on this repo's branch
-url = "https://raw.githubusercontent.com/krystofstudio7/shorts-studio/ig-debug/tools/ig-sample.mp4"
-try:
-    cid = um.call("POST", f"{G}/{ig}/media", data={"media_type": "REELS", "video_url": url, "access_token": tok})["id"]
-    tests.append(("video_url tiny clip", cid))
-except Exception as e:
-    show("video_url tiny clip", f"failed before processing: {e}")
-# 3) an image container (no video at all)
-try:
-    cid = um.call("POST", f"{G}/{ig}/media", data={
-        "image_url": "https://raw.githubusercontent.com/krystofstudio7/shorts-studio/ig-debug/tools/ig-sample.jpg",
-        "access_token": tok})["id"]
-    tests.append(("image", cid))
-except Exception as e:
-    show("image", f"failed before processing: {e}")
+for ch, ep_path in [("mind-mites", "episodes/mind-mites/brain-test-010.yaml"),
+                    ("what-if-institute", "episodes/what-if-institute/what-if-010-leonid-storm.yaml")]:
+    page = pages[ch]; ig = page["ig_id"]
+    ep = load_episode(ep_path)
+    text = um.caption(metadata(ep, get_theme(ep["channel"]), 45))
+    stem = os.path.basename(ep_path)[:-5]
+    rec = json.load(open(f"published/{ch}/{stem}.meta.json"))
+    src = fb_source(page, rec["facebook_id"])
+    show(f"{ch} caption", {"chars": len(text), "hashtags": text.count("#"), "lines": text.count("\n")})
+    tests += [
+        (f"{ch} tiny clip + our caption", mk(ig, video_url=url, caption=text, share_to_feed="true")),
+        (f"{ch} tiny clip + share_to_feed only", mk(ig, video_url=url, share_to_feed="true")),
+        (f"{ch} our video (FB copy), no caption", mk(ig, video_url=src)),
+    ]
 for label, cid in tests:
-    show(f"{ch} {label}", wait(cid))
+    show(label, wait(cid) if cid.isdigit() else cid)
 print("Nothing was published: containers expire unused after 24 h.")

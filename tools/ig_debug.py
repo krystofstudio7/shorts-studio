@@ -3,6 +3,7 @@
 Creates Reels containers (never calls media_publish) with different sources and reports how
 Instagram processes each one. Prints no tokens.
 """
+import glob
 import os
 import subprocess
 import time

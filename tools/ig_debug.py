@@ -53,6 +53,55 @@ def wait(cid):
     return st
 
 
+# round 3: our real renders, in variants, uploaded resumable without caption
+src = os.environ.get("VIDEO_DIR", "art")
+vids = sorted(glob.glob(f"{src}/**/*.mp4", recursive=True)) if os.path.isdir(src) else []
+print("--- videos found:", vids)
+
+
+def ff(inp, out, *args):
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", inp, *args, out], check=True)
+    return out
+
+
+def probe(f):
+    return subprocess.run(["ffprobe", "-v", "error", "-show_entries",
+                           "stream=codec_name,profile,level,width,height,r_frame_rate,avg_frame_rate,bit_rate,sample_rate,channels,pix_fmt,has_b_frames,nb_frames,duration:format=duration,bit_rate,size",
+                           "-of", "compact", f], capture_output=True, text=True).stdout.replace("\n", " | ")
+
+
+def up(ig, f):
+    try:
+        box = um.call("POST", f"{G}/{ig}/media", data={"media_type": "REELS", "upload_type": "resumable", "access_token": tok})
+        um.push_bytes(box.get("uri") or f"https://rupload.facebook.com/ig-api-upload/{um.VERSION}/{box['id']}", tok, f)
+        return box["id"]
+    except Exception as e:
+        return f"failed before processing: {e}"
+
+
+import glob
+tests = []
+ig = pages["mind-mites"]["ig_id"]
+for v in vids[:1]:
+    cp = um.instagram_copy(v)
+    show("original", probe(v)); show("ig copy", probe(cp))
+    variants = {
+        "original": v,
+        "ig copy": cp,
+        "ig copy first 15 s": ff(cp, "v15.mp4", "-t", "15", "-c", "copy"),
+        "ig copy 720x1280": ff(cp, "v720.mp4", "-vf", "scale=720:1280", "-c:v", "libx264", "-crf", "23", "-c:a", "copy"),
+        "ig copy no audio": ff(cp, "vna.mp4", "-an", "-c:v", "copy"),
+        "audio re-encoded 44.1k": ff(cp, "va44.mp4", "-c:v", "copy", "-c:a", "aac", "-ar", "44100", "-b:a", "128k"),
+        "main profile, closed GOP": ff(v, "vmain.mp4", "-c:v", "libx264", "-profile:v", "main", "-level", "4.0",
+                                       "-pix_fmt", "yuv420p", "-r", "30", "-g", "60", "-bf", "0", "-maxrate", "5M",
+                                       "-bufsize", "10M", "-c:a", "aac", "-ar", "48000", "-ac", "2", "-movflags", "+faststart"),
+    }
+    for k, f in variants.items():
+        tests.append((k, up(ig, f)))
+for label, cid in tests:
+    show(label, wait(cid) if cid.isdigit() else cid)
+print("Nothing was published: containers expire unused after 24 h.")
+raise SystemExit(0)
 from studio.engine import load_episode, metadata
 from studio.channels import get_theme
 

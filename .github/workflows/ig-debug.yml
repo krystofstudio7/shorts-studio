@@ -2,6 +2,9 @@ name: Instagram debug (temporary)
 on:
   push:
     branches: [ig-debug]
+permissions:
+  actions: read
+  contents: read
 jobs:
   debug:
     runs-on: ubuntu-latest
@@ -13,6 +16,9 @@ jobs:
           python-version: "3.12"
       - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
       - run: pip install -r requirements-upload.txt -r requirements.txt
+      - run: gh run download 43904793373 -n videos-29 -D art
+        env:
+          GH_TOKEN: ${{ github.token }}
       - run: python tools/ig_debug.py
         env:
           PYTHONPATH: .

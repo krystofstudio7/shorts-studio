@@ -4,7 +4,7 @@ on:
     branches: [ig-debug]
 permissions:
   actions: read
-  contents: read
+  contents: write
 jobs:
   debug:
     runs-on: ubuntu-latest
@@ -19,7 +19,18 @@ jobs:
       - run: gh run download 43904793373 -n videos-29 -D art
         env:
           GH_TOKEN: ${{ github.token }}
+      - name: Stage videos as a temporary release
+        run: |
+          gh release delete ig-test -y --cleanup-tag 2>/dev/null || true
+          gh release create ig-test --prerelease --title "Instagram test (temporary)" --notes "Temporary, deleted after the test." art/*/*.mp4
+        env:
+          GH_TOKEN: ${{ github.token }}
       - run: python tools/ig_debug.py
         env:
           PYTHONPATH: .
           META_SYSTEM_USER_TOKEN: ${{ secrets.META_SYSTEM_USER_TOKEN }}
+          REL_URL: https://github.com/${{ github.repository }}/releases/download/ig-test
+      - if: always()
+        run: gh release delete ig-test -y --cleanup-tag || true
+        env:
+          GH_TOKEN: ${{ github.token }}

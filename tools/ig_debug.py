@@ -45,6 +45,13 @@ subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i", "test
                 "-movflags", "+faststart", clip], check=True)
 
 
+def mk(ig, **data):
+    try:
+        return um.call("POST", f"{G}/{ig}/media", data={"media_type": "REELS", **data, "access_token": tok})["id"]
+    except Exception as e:
+        return f"failed before processing: {e}"
+
+
 def wait(cid):
     for _ in range(30):
         st = get(cid, fields="status_code,status")[1]
@@ -102,11 +109,13 @@ def up2(ig, f, mode):
         return "rupload failed: " + str(e)[-60:]
 
 
-v = [x for x in vids if "mind-mites" in x][0]
-ig = pages["mind-mites"]["ig_id"]
-for n in (1, 2, 3):
-    for mode in ("stream", "bytes", "bytes+octet"):
-        tests.append((f"{mode} #{n}", up2(ig, v, mode)))
+rel_url = os.environ.get("REL_URL")
+for v in vids:
+    ch = v.split("/")[-2]
+    ig = pages[ch]["ig_id"]
+    u = f"{rel_url}/{os.path.basename(v)}"
+    for n in (1, 2):
+        tests.append((f"{ch} video_url #{n}", mk(ig, video_url=u, share_to_feed="true")))
 for label, cid in tests:
     show(label, wait(cid) if cid.isdigit() else cid)
 print("Nothing was published: containers expire unused after 24 h.")

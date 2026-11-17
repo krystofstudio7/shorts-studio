@@ -1,0 +1,19 @@
+name: Instagram debug (temporary)
+on:
+  push:
+    branches: [ig-debug]
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+      - run: pip install -r requirements-upload.txt
+      - run: python tools/ig_debug.py
+        env:
+          PYTHONPATH: .
+          META_SYSTEM_USER_TOKEN: ${{ secrets.META_SYSTEM_USER_TOKEN }}

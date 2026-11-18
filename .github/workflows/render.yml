@@ -113,10 +113,20 @@ jobs:
           [ -d published ] || exit 0
           git config user.name "shorts-studio-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Commit only the upload records, on top of the latest main. A run dispatched from another branch
+          # must never carry that branch's code into main, so start from origin/main, not from HEAD.
+          cp -r published "$RUNNER_TEMP/records"
+          git fetch -q origin main
+          git checkout -q -f -B record-uploads origin/main
+          mkdir -p published && cp -r "$RUNNER_TEMP/records/." published/
           git add published
           git diff --cached --quiet && exit 0
-          git commit -m "Record uploads"
-          git pull --rebase origin main && git push origin HEAD:main
+          git commit -q -m "Record uploads"
+          for i in 1 2 3; do
+            git push origin HEAD:main && exit 0
+            git pull -q --rebase origin main
+          done
+          exit 1
       - name: Fail if an episode did not render or a Reels upload failed
         if: steps.render.outcome == 'failure' || steps.meta.outcome == 'failure'
         run: exit 1

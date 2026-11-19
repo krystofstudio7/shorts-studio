@@ -83,6 +83,8 @@ jobs:
           git add reports/daily
           git diff --cached --quiet && exit 0
           git commit -m "Daily report $(date -u +%F)"
+          # only a run on main may push: one dispatched from a branch would carry that branch's code into main
+          [ "$GITHUB_REF" = refs/heads/main ] || { echo "::warning::not on main, results not pushed"; exit 0; }
           git pull --rebase origin main && git push origin HEAD:main
       - name: Post as issue
         if: steps.done.outputs.skip != 'true'

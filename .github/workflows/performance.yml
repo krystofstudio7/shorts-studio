@@ -40,4 +40,6 @@ jobs:
           git add reports
           git diff --cached --quiet && exit 0
           git commit -m "Update performance report"
+          # only a run on main may push: one dispatched from a branch would carry that branch's code into main
+          [ "$GITHUB_REF" = refs/heads/main ] || { echo "::warning::not on main, results not pushed"; exit 0; }
           git pull --rebase origin main && git push origin HEAD:main

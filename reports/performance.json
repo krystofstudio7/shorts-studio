@@ -5,12 +5,12 @@
     "title": "Brain Test #1: Most people get this wrong 🐛",
     "youtube_id": "SguR-Rqp4WM",
     "yt": {
-      "views": 83,
+      "views": 85,
       "likes": 2,
       "comments": 0,
       "shares": 0,
-      "view_pct": 50.46000000000001,
-      "view_sec": 18.0,
+      "view_pct": 54.510000000000005,
+      "view_sec": 20.0,
       "subs": 0
     },
     "episode": {
@@ -27,7 +27,7 @@
     "title": "Brain Test #2: The lily pad trick 🐛",
     "youtube_id": "3EvUwQWRcB0",
     "yt": {
-      "views": 354,
+      "views": 355,
       "likes": 6,
       "comments": 0,
       "shares": 0,
@@ -49,7 +49,7 @@
     "title": "Brain Test #3: The machine question 🐛",
     "youtube_id": "f-FVLglZZn8",
     "yt": {
-      "views": 96,
+      "views": 97,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -73,7 +73,7 @@
     "instagram_id": "18135794110729764",
     "facebook_id": "2247639789429837",
     "yt": {
-      "views": 69,
+      "views": 70,
       "likes": 3,
       "comments": 0,
       "shares": 0,
@@ -106,7 +106,7 @@
     "instagram_id": "18119355719319247",
     "facebook_id": "1311773491046887",
     "yt": {
-      "views": 274,
+      "views": 275,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -139,7 +139,7 @@
     "instagram_id": "18130977850847627",
     "facebook_id": "1477578740986851",
     "yt": {
-      "views": 122,
+      "views": 123,
       "likes": 3,
       "comments": 0,
       "shares": 0,
@@ -172,7 +172,7 @@
     "instagram_id": "17906512119601386",
     "facebook_id": "4103098466654511",
     "yt": {
-      "views": 146,
+      "views": 147,
       "likes": 7,
       "comments": 0,
       "shares": 1,
@@ -187,7 +187,7 @@
       "saved": 0,
       "likes": 0,
       "comments": 0,
-      "ig_reels_avg_watch_time": 10497
+      "ig_reels_avg_watch_time": 10590
     },
     "episode": {
       "hook": "Small popcorn, three dollars. Large popcorn, seven dollars. Which one do you buy?",
@@ -205,11 +205,11 @@
     "instagram_id": "17915985711490597",
     "facebook_id": "2902894553403164",
     "yt": {
-      "views": 1038,
+      "views": 1040,
       "likes": 18,
       "comments": 0,
       "shares": 0,
-      "view_pct": 46.92,
+      "view_pct": 46.91,
       "view_sec": 17.0,
       "subs": 0
     },
@@ -238,11 +238,11 @@
     "instagram_id": "18113217728237890",
     "facebook_id": "2028832767806786",
     "yt": {
-      "views": 93,
+      "views": 94,
       "likes": 2,
       "comments": 0,
       "shares": 0,
-      "view_pct": 46.55,
+      "view_pct": 45.51,
       "view_sec": 18.0,
       "subs": 0
     },
@@ -260,6 +260,229 @@
       "hook_score": 38,
       "screen_hook": "85% of people get this wrong",
       "est_seconds": 39,
+      "loop": false
+    }
+  },
+  {
+    "channel": "mind-mites",
+    "id": "brain-test-010",
+    "title": "Brain Test #10: How fast you forget 🐛",
+    "youtube_id": "4DxnTOuALFg",
+    "instagram_id": "18352059733253567",
+    "facebook_id": "2142083986398753",
+    "yt": {
+      "views": 74,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 59.53000000000001,
+      "view_sec": 27.0,
+      "subs": 0
+    },
+    "ig": {
+      "views": 144,
+      "reach": 116,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 17423
+    },
+    "episode": {
+      "hook": "Quick test. Remember these three words. Lamp. River. Orange.",
+      "hook_score": 47,
+      "screen_hook": "You'll forget most of this video.",
+      "est_seconds": 40,
+      "loop": false
+    }
+  },
+  {
+    "channel": "mind-mites",
+    "id": "brain-test-011",
+    "title": "Brain Test #11: A random number changed their answer 🐛",
+    "youtube_id": "X8CnNLnTvRk",
+    "instagram_id": "18119432534011203",
+    "facebook_id": "4412923079020152",
+    "yt": {
+      "views": 39,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 48.32,
+      "view_sec": 23.0,
+      "subs": 0
+    },
+    "ig": {
+      "views": 1,
+      "reach": 1,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 5811
+    },
+    "episode": {
+      "hook": "A random wheel changed their answers. They never noticed.",
+      "hook_score": 52,
+      "screen_hook": "A spinning wheel changed their guess.",
+      "est_seconds": 46,
+      "loop": false
+    }
+  },
+  {
+    "channel": "mind-mites",
+    "id": "brain-test-012",
+    "title": "Brain Test #12: The giant Moon is an illusion 🌕",
+    "youtube_id": "QgB-DQcTeKY",
+    "instagram_id": "17970217050238710",
+    "facebook_id": "1148880771205444",
+    "yt": {
+      "views": 56,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 47.81,
+      "view_sec": 21.0,
+      "subs": 1
+    },
+    "ig": {
+      "views": 1,
+      "reach": 1,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 19482
+    },
+    "episode": {
+      "hook": "The huge rising Moon? Your brain is lying.",
+      "hook_score": 65,
+      "screen_hook": "The big Moon isn't bigger.",
+      "est_seconds": 44,
+      "loop": true
+    }
+  },
+  {
+    "channel": "mind-mites",
+    "id": "brain-test-013",
+    "title": "Brain Test #13: Say the colour, not the word 🎨",
+    "youtube_id": "92zhREvo6x8",
+    "instagram_id": "18110943515341706",
+    "facebook_id": "29158507527147046",
+    "yt": {
+      "views": 1106,
+      "likes": 5,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 62.17,
+      "view_sec": 16.0,
+      "subs": 0
+    },
+    "ig": {
+      "views": 128,
+      "reach": 96,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 9668
+    },
+    "episode": {
+      "hook": "Easy game. Say the colour of the word, not the word itself. Ready?",
+      "hook_score": 53,
+      "screen_hook": "Say the colour. Not the word.",
+      "est_seconds": 26,
+      "loop": false
+    }
+  },
+  {
+    "channel": "mind-mites",
+    "id": "brain-test-014",
+    "title": "Brain Test #14: Half the people missed a gorilla 🦍",
+    "youtube_id": "5MQWk1X36R8",
+    "instagram_id": "18122603902953404",
+    "facebook_id": "1789622975470294",
+    "yt": {
+      "views": 109,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 39.87,
+      "view_sec": 16.0,
+      "subs": 0
+    },
+    "ig": {
+      "views": 121,
+      "reach": 104,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 4870
+    },
+    "episode": {
+      "hook": "Half the people never saw the gorilla.",
+      "hook_score": 60,
+      "screen_hook": "Half the people missed a gorilla.",
+      "est_seconds": 39,
+      "loop": true
+    }
+  },
+  {
+    "channel": "mind-mites",
+    "id": "brain-test-015",
+    "title": "Brain Test #15: Nobody noticed the embarrassing T-shirt 👕",
+    "youtube_id": "yAf36htyXcM",
+    "instagram_id": "18057214076592998",
+    "facebook_id": "1440262884427623",
+    "yt": {
+      "views": 632,
+      "likes": 7,
+      "comments": 0
+    },
+    "ig": {
+      "views": 117,
+      "reach": 105,
+      "shares": 0,
+      "saved": 1,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 9941
+    },
+    "episode": {
+      "hook": "You think everyone noticed. Only a few did.",
+      "hook_score": 62,
+      "screen_hook": "Everyone's staring at you? Nope.",
+      "est_seconds": 34,
+      "loop": false
+    }
+  },
+  {
+    "channel": "mind-mites",
+    "id": "brain-test-016",
+    "title": "Brain Test #16: Five heads in a row. What's next? 🪙",
+    "youtube_id": "605oyf1pVso",
+    "instagram_id": "18159718522588104",
+    "facebook_id": "1149929831350587",
+    "yt": {
+      "views": 441,
+      "likes": 1,
+      "comments": 0
+    },
+    "ig": {
+      "views": 111,
+      "reach": 97,
+      "shares": 0,
+      "saved": 0,
+      "likes": 1,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 6512
+    },
+    "episode": {
+      "hook": "A fair coin. Heads. Heads. Heads. Heads. Heads.",
+      "hook_score": 39,
+      "screen_hook": "Five heads in a row. Next?",
+      "est_seconds": 35,
       "loop": false
     }
   },
@@ -473,7 +696,7 @@
       "likes": 33,
       "comments": 2,
       "shares": 5,
-      "view_pct": 86.26,
+      "view_pct": 86.4,
       "view_sec": 32.0,
       "subs": 0
     },
@@ -506,7 +729,7 @@
       "likes": 19,
       "comments": 0,
       "shares": 1,
-      "view_pct": 99.26,
+      "view_pct": 99.83,
       "view_sec": 39.0,
       "subs": 0
     },
@@ -528,12 +751,235 @@
     }
   },
   {
+    "channel": "stoic-ember",
+    "id": "story-010-cato-baths",
+    "title": "A stranger hit him in public. His reply was perfect.",
+    "youtube_id": "mmKqMI7SHVQ",
+    "instagram_id": "18475410574142111",
+    "facebook_id": "1031365546649112",
+    "yt": {
+      "views": 14,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 52.900000000000006,
+      "view_sec": 21.0,
+      "subs": 0
+    },
+    "ig": {
+      "views": 27,
+      "reach": 26,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 7853
+    },
+    "episode": {
+      "hook": "A stranger hit him in public. He didn't hit back.",
+      "hook_score": 37,
+      "screen_hook": "A stranger struck him. He shrugged.",
+      "est_seconds": 47,
+      "loop": false
+    }
+  },
+  {
+    "channel": "stoic-ember",
+    "id": "story-011-diogenes-alexander",
+    "title": "The most powerful man alive offered him anything.",
+    "youtube_id": "q74tYexncWw",
+    "instagram_id": "18104597375376853",
+    "facebook_id": "2608678562969379",
+    "yt": {
+      "views": 46,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 87.47,
+      "view_sec": 37.0,
+      "subs": 0
+    },
+    "ig": {
+      "views": 2,
+      "reach": 2,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 9359
+    },
+    "episode": {
+      "hook": "Alexander offered him anything. He didn't want it.",
+      "hook_score": 41,
+      "screen_hook": "Ask me for anything, said Alexander.",
+      "est_seconds": 48,
+      "loop": false
+    }
+  },
+  {
+    "channel": "stoic-ember",
+    "id": "story-012-burned-letters",
+    "title": "He found the traitors' letters. He burned them unread.",
+    "youtube_id": "2O-1H0GKGdE",
+    "instagram_id": "18122147465013646",
+    "facebook_id": "1455517486686606",
+    "yt": {
+      "views": 8,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 88.48,
+      "view_sec": 35.0,
+      "subs": 0
+    },
+    "ig": {
+      "views": 125,
+      "reach": 114,
+      "shares": 0,
+      "saved": 1,
+      "likes": 2,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 10193
+    },
+    "episode": {
+      "hook": "He held his traitors' letters. He never read them.",
+      "hook_score": 41,
+      "screen_hook": "He could read every traitor's letter.",
+      "est_seconds": 43,
+      "loop": false
+    }
+  },
+  {
+    "channel": "stoic-ember",
+    "id": "story-013-socrates-cup",
+    "title": "Sentenced to death, he comforted his friends.",
+    "youtube_id": "fU8RL7jE91I",
+    "instagram_id": "18231845875336944",
+    "facebook_id": "2306369633490028",
+    "yt": {
+      "views": 53,
+      "likes": 4,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 57.440000000000005,
+      "view_sec": 24.0,
+      "subs": 1
+    },
+    "ig": {
+      "views": 7,
+      "reach": 6,
+      "shares": 0,
+      "saved": 1,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 3172
+    },
+    "episode": {
+      "hook": "He could have escaped. He didn't.",
+      "hook_score": 41,
+      "screen_hook": "His friends cried. He didn't.",
+      "est_seconds": 49,
+      "loop": false
+    }
+  },
+  {
+    "channel": "stoic-ember",
+    "id": "story-014-musonius-canal",
+    "title": "Exiled to hard labour, he kept teaching.",
+    "youtube_id": "mhTi3IVZVHw",
+    "instagram_id": "17994384552064576",
+    "facebook_id": "1022966384179899",
+    "yt": {
+      "views": 249,
+      "likes": 6,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 71.94,
+      "view_sec": 28.0,
+      "subs": 1
+    },
+    "ig": {
+      "views": 14,
+      "reach": 11,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 8446
+    },
+    "episode": {
+      "hook": "AD 65. Nero exiles the philosopher Musonius Rufus.",
+      "hook_score": 51,
+      "screen_hook": "Nero sent him to dig. He taught.",
+      "est_seconds": 43,
+      "loop": false
+    }
+  },
+  {
+    "channel": "stoic-ember",
+    "id": "story-015-morning-routine",
+    "title": "The emperor's morning routine was 2 sentences.",
+    "youtube_id": "aNoOoecI1kc",
+    "instagram_id": "17890680282485238",
+    "facebook_id": "1685284366566938",
+    "yt": {
+      "views": 556,
+      "likes": 14,
+      "comments": 0
+    },
+    "ig": {
+      "views": 116,
+      "reach": 102,
+      "shares": 0,
+      "saved": 2,
+      "likes": 5,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 8289
+    },
+    "episode": {
+      "hook": "Every morning, Rome's emperor expected the worst people.",
+      "hook_score": 56,
+      "screen_hook": "Every morning, he expected difficult people.",
+      "est_seconds": 47,
+      "loop": false
+    }
+  },
+  {
+    "channel": "stoic-ember",
+    "id": "story-016-in-our-control",
+    "title": "A former slave's first lesson: only two kinds of things.",
+    "youtube_id": "lhLOoaqYK6w",
+    "instagram_id": "18131827106483823",
+    "facebook_id": "2297340114168673",
+    "yt": {
+      "views": 497,
+      "likes": 18,
+      "comments": 0
+    },
+    "ig": {
+      "views": 38,
+      "reach": 34,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 6206
+    },
+    "episode": {
+      "hook": "Most suffering comes from one mistake.",
+      "hook_score": 41,
+      "screen_hook": "One sentence. A whole philosophy.",
+      "est_seconds": 45,
+      "loop": false
+    }
+  },
+  {
     "channel": "what-if-institute",
     "id": "what-if-001-jupiter",
     "title": "What if you fell into Jupiter? 🪐",
     "youtube_id": "LtYiEpke1Y8",
     "yt": {
-      "views": 506,
+      "views": 507,
       "likes": 12,
       "comments": 0,
       "shares": 0,
@@ -639,7 +1085,7 @@
       "saved": 0,
       "likes": 2,
       "comments": 0,
-      "ig_reels_avg_watch_time": 14178
+      "ig_reels_avg_watch_time": 14123
     },
     "episode": {
       "hook": "What if you fell into a black hole? It depends on which one.",
@@ -672,7 +1118,7 @@
       "saved": 0,
       "likes": 0,
       "comments": 0,
-      "ig_reels_avg_watch_time": 6076
+      "ig_reels_avg_watch_time": 6081
     },
     "episode": {
       "hook": "What if a fireball exploded right above your city?",
@@ -691,7 +1137,7 @@
     "facebook_id": "29510741501947863",
     "yt": {
       "views": 399,
-      "likes": 20,
+      "likes": 19,
       "comments": 0,
       "shares": 0,
       "view_pct": 50.27,
@@ -705,7 +1151,7 @@
       "saved": 0,
       "likes": 1,
       "comments": 0,
-      "ig_reels_avg_watch_time": 7203
+      "ig_reels_avg_watch_time": 7157
     },
     "episode": {
       "hook": "What if you landed on a planet made of lava?",
@@ -727,8 +1173,8 @@
       "likes": 5,
       "comments": 0,
       "shares": 0,
-      "view_pct": 42.15,
-      "view_sec": 18.0,
+      "view_pct": 42.37,
+      "view_sec": 19.0,
       "subs": 0
     },
     "ig": {
@@ -760,7 +1206,7 @@
       "likes": 13,
       "comments": 0,
       "shares": 0,
-      "view_pct": 60.12,
+      "view_pct": 60.0,
       "view_sec": 26.0,
       "subs": 2
     },
@@ -771,13 +1217,236 @@
       "saved": 0,
       "likes": 1,
       "comments": 0,
-      "ig_reels_avg_watch_time": 10139
+      "ig_reels_avg_watch_time": 10115
     },
     "episode": {
       "hook": "What if you dug a tunnel straight through the Earth and jumped in?",
       "hook_score": 44,
       "screen_hook": "Jump in here. Pop out there.",
       "est_seconds": 45,
+      "loop": false
+    }
+  },
+  {
+    "channel": "what-if-institute",
+    "id": "what-if-010-leonid-storm",
+    "title": "What if the 1833 meteor storm happened tonight? ☄️",
+    "youtube_id": "3108M64cKQ4",
+    "instagram_id": "17941754922400188",
+    "facebook_id": "2198361498223810",
+    "yt": {
+      "views": 195,
+      "likes": 3,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 52.81,
+      "view_sec": 27.0,
+      "subs": 0
+    },
+    "ig": {
+      "views": 125,
+      "reach": 109,
+      "shares": 0,
+      "saved": 1,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 4076
+    },
+    "episode": {
+      "hook": "What if the sky did tonight what it did in November 1833?",
+      "hook_score": 43,
+      "screen_hook": "Thousands of shooting stars. Every hour.",
+      "est_seconds": 44,
+      "loop": false
+    }
+  },
+  {
+    "channel": "what-if-institute",
+    "id": "what-if-011-carrington-flare",
+    "title": "What if the biggest solar storm ever hit today? ☀️",
+    "youtube_id": "yGQ7RlfYofc",
+    "instagram_id": "17972077619965246",
+    "facebook_id": "1649171036203716",
+    "yt": {
+      "views": 116,
+      "likes": 4,
+      "comments": 0,
+      "shares": 1,
+      "view_pct": 52.190000000000005,
+      "view_sec": 29.0,
+      "subs": 0
+    },
+    "ig": {
+      "views": 117,
+      "reach": 110,
+      "shares": 0,
+      "saved": 0,
+      "likes": 1,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 4531
+    },
+    "episode": {
+      "hook": "What if the biggest solar storm ever recorded hit us today?",
+      "hook_score": 30,
+      "screen_hook": "1859: the telegraphs caught fire.",
+      "est_seconds": 48,
+      "loop": false
+    }
+  },
+  {
+    "channel": "what-if-institute",
+    "id": "what-if-012-moon-twice-as-close",
+    "title": "What if the Moon were twice as close? 🌕",
+    "youtube_id": "ZJIN-XlJMaE",
+    "instagram_id": "17886210777528502",
+    "facebook_id": "1359816359453163",
+    "yt": {
+      "views": 324,
+      "likes": 3,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 55.38000000000001,
+      "view_sec": 23.0,
+      "subs": 0
+    },
+    "ig": {
+      "views": 164,
+      "reach": 155,
+      "shares": 0,
+      "saved": 0,
+      "likes": 1,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 10324
+    },
+    "episode": {
+      "hook": "What if the Moon were twice as close?",
+      "hook_score": 47,
+      "screen_hook": "Same Moon. Half the distance.",
+      "est_seconds": 42,
+      "loop": true
+    }
+  },
+  {
+    "channel": "what-if-institute",
+    "id": "what-if-013-sun-disappears",
+    "title": "What if the Sun disappeared right now? 🌑",
+    "youtube_id": "4woV0UMrP_c",
+    "instagram_id": "17986217591905716",
+    "facebook_id": "2236520746927658",
+    "yt": {
+      "views": 319,
+      "likes": 6,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 51.800000000000004,
+      "view_sec": 22.0,
+      "subs": 1
+    },
+    "ig": {
+      "views": 135,
+      "reach": 117,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 11887
+    },
+    "episode": {
+      "hook": "What if the Sun disappeared right now?",
+      "hook_score": 39,
+      "screen_hook": "You'd have eight more minutes.",
+      "est_seconds": 40,
+      "loop": false
+    }
+  },
+  {
+    "channel": "what-if-institute",
+    "id": "what-if-014-hurricane-eye",
+    "title": "What if you flew into the eye of a hurricane? 🌀",
+    "youtube_id": "GC6WijlJtS4",
+    "instagram_id": "17969547525195998",
+    "facebook_id": "1160822853009174",
+    "yt": {
+      "views": 174,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "view_pct": 56.720000000000006,
+      "view_sec": 24.0,
+      "subs": 1
+    },
+    "ig": {
+      "views": 134,
+      "reach": 125,
+      "shares": 0,
+      "saved": 0,
+      "likes": 2,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 7248
+    },
+    "episode": {
+      "hook": "What if you flew straight into a hurricane?",
+      "hook_score": 38,
+      "screen_hook": "Inside the storm, it's calm.",
+      "est_seconds": 40,
+      "loop": false
+    }
+  },
+  {
+    "channel": "what-if-institute",
+    "id": "what-if-015-mariana-trench",
+    "title": "What if you dove to the bottom of the ocean? 🌊",
+    "youtube_id": "QQEict6MBhI",
+    "instagram_id": "18019171196957562",
+    "facebook_id": "1123637133641308",
+    "yt": {
+      "views": 252,
+      "likes": 2,
+      "comments": 0
+    },
+    "ig": {
+      "views": 129,
+      "reach": 108,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 8540
+    },
+    "episode": {
+      "hook": "What if you dove to the deepest point in the ocean?",
+      "hook_score": 38,
+      "screen_hook": "Everest would fit. With room spare.",
+      "est_seconds": 40,
+      "loop": false
+    }
+  },
+  {
+    "channel": "what-if-institute",
+    "id": "what-if-016-nearest-star",
+    "title": "What if you flew to the nearest star? ✨",
+    "youtube_id": "OrLbx1e6gtg",
+    "instagram_id": "18172055725471554",
+    "facebook_id": "1118193847785244",
+    "yt": {
+      "views": 222,
+      "likes": 6,
+      "comments": 0
+    },
+    "ig": {
+      "views": 3,
+      "reach": 3,
+      "shares": 0,
+      "saved": 0,
+      "likes": 0,
+      "comments": 0,
+      "ig_reels_avg_watch_time": 10643
+    },
+    "episode": {
+      "hook": "What if you flew to the nearest star?",
+      "hook_score": 38,
+      "screen_hook": "Pack snacks. Lots of snacks.",
+      "est_seconds": 40,
       "loop": false
     }
   }
